@@ -74,24 +74,25 @@ game.ReplicatedStorage.Remotes.Attack:FireServer()
 end  end end) end)
 
 CategoryVariableHere:Toggle("Autofarm Frog",function(State)
-if wiggle7 then
+wiggle7 = State
 game:GetService('RunService').RenderStepped:connect(function()
+if wiggle7 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 if game:GetService("Workspace").Bosses.Bosses.Frog.Frog then
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
 game:GetService("Workspace").Bosses.Bosses.Frog.Frog.CFrame
 game.ReplicatedStorage.Remotes.Attack:FireServer()
-end  end) end end)
+end  end end) end)
 
 CategoryVariableHere:Toggle("Autofarm Rat",function(State)
-if wiggle7 then
+wiggle8 = State
 game:GetService('RunService').RenderStepped:connect(function()
+if wiggle8 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 if game:GetService("Workspace").Bosses.Bosses.Rat.Rat then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
-game:GetService("Workspace").Bosses.Bosses.Rat.Rat.CFrame
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Bosses.Bosses.Rat.Rat.CFrame
 game.ReplicatedStorage.Remotes.Attack:FireServer()
-end  end) end end)
+end  end end) end)
 
 CategoryVariableHere:Button("Lag Switch F3",function()
 local a = false
@@ -185,6 +186,7 @@ local CategoryVariableHere= Lib:Category("Credits and info")
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
+
 wait(20)
 game.StarterGui:SetCore("SendNotification", {
 			Title = "Credits",
