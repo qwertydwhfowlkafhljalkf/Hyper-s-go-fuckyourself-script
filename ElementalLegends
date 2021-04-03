@@ -130,8 +130,6 @@ local args = {
 
 game:GetService("ReplicatedStorage").Main.Remotes.EggOpen:InvokeServer(unpack(args))
 end)
-CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
-CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
 CategoryVariableHere:Button("BTools",function() 
 game.StarterGui:SetCoreGuiEnabled(2, true)
 a = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
