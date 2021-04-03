@@ -4,8 +4,19 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
    wait(1)
    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
-setfflag("AbuseReportScreenshotPercentage", 0)
-setfflag("DFFlagAbuseReportScreenshot", "False")
+local Meta = getrawmetatable(game)
+local NewIndex = Meta.__newindex
+setreadonly(Meta, false)
+
+Meta.__newindex = newcclosure(function(t, k, ...)
+    
+   if not checkcaller() and (k == "WalkSpeed" or k == "JumpPower") then
+       return
+   end
+   NewIndex(t, k, ...)
+end)
+setreadonly(Meta, true)
+
 local blur = Instance.new("BlurEffect", game.Lighting)
 blur.Size = 0
 local ScreenGui = Instance.new("ScreenGui")
