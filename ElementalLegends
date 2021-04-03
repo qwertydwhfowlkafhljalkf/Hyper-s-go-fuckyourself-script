@@ -57,6 +57,20 @@ local args = {
 game:GetService("ReplicatedStorage").Main.Remotes.ClientRequest:FireServer(unpack(args))
 end
 end)
+CategoryVariableHere:Toggle("AutoRebirth?",function(State)
+tomato = State
+while tomato do wait()
+local args = {
+    [1] = "Rebirth Water"
+}
+
+game:GetService("ReplicatedStorage").Main.Remotes.ClientRequest:FireServer(unpack(args))
+end end)
+CategoryVariableHere:Toggle("AutoSell?",function(State)
+VGhub = State
+while VGhub do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(315.319641, 25.0830002, 86.0892715)
+end end)
 CategoryVariableHere:Toggle("AutoDimonds?",function(State)
 Autystic = State
 while Autystic do wait()
@@ -130,6 +144,8 @@ local args = {
 
 game:GetService("ReplicatedStorage").Main.Remotes.EggOpen:InvokeServer(unpack(args))
 end)
+CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
+CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
 CategoryVariableHere:Button("BTools",function() 
 game.StarterGui:SetCoreGuiEnabled(2, true)
 a = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
@@ -348,6 +364,7 @@ local CategoryVariableHere= Lib:Category("Credits")
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightShift to toggle";
