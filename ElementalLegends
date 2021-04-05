@@ -69,7 +69,8 @@ end end)
 CategoryVariableHere:Toggle("AutoSell?",function(State)
 VGhub = State
 while VGhub do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(315.319641, 25.0830002, 86.0892715)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(315.319641, 25.0830002, 86.0892715) wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(324.735565, 24.9148178, 82.7805481)
 end end)
 CategoryVariableHere:Toggle("AutoDimonds?",function(State)
 Autystic = State
