@@ -151,8 +151,46 @@ local args = {
 
 game:GetService("ReplicatedStorage").Main.Remotes.EggOpen:InvokeServer(unpack(args))
 end)
-CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
-CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
+CategoryVariableHere:Button("Buy Bird Egg?",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(660.213196, 54.1754837, -1849.35339)    
+wait(0.5)    
+local args = {
+    [1] = "EggOpen",
+    [2] = {
+        ["EggName"] = "Bird",
+        ["Type"] = "Single"
+    }
+}
+
+game:GetService("ReplicatedStorage").Main.Remotes.EggOpen:InvokeServer(unpack(args))
+end)
+CategoryVariableHere:Button("Buy Insect Egg?",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(652.780457, 54.1676941, -1864.79333)   
+wait(0.5)    
+local args = {
+    [1] = "EggOpen",
+    [2] = {
+        ["EggName"] = "Insect",
+        ["Type"] = "Single"
+    }
+}
+
+game:GetService("ReplicatedStorage").Main.Remotes.EggOpen:InvokeServer(unpack(args))
+end)
+
+CategoryVariableHere:Button("Buy Jungle Egg?",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(645.726379, 53.9853973, -1879.88135)   
+wait(0.5)    
+local args = {
+    [1] = "EggOpen",
+    [2] = {
+        ["EggName"] = "Jungle",
+        ["Type"] = "Single"
+    }
+}
+
+game:GetService("ReplicatedStorage").Main.Remotes.EggOpen:InvokeServer(unpack(args))
+end)
 CategoryVariableHere:Button("BTools",function() 
 game.StarterGui:SetCoreGuiEnabled(2, true)
 a = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
