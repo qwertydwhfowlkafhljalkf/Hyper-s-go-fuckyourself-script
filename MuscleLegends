@@ -82,7 +82,12 @@ end)
 CategoryVariableHere:Toggle("Auto Rebirth",function(State)
     
 while dragons do wait(1)
-game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer()
+local args = {
+    [1] = "rebirthRequest"
+}
+
+game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer(unpack(args))
+
 end
 end)
 CategoryVariableHere:Button("Fe invis",function()
@@ -474,6 +479,13 @@ end)
 CategoryVariableHere:Button("Go to Brawl aura 3",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1901.87695, 251.895432, -5899.64795)
 end)
+
+local CategoryVariableHere= Lib:Category("Credits")
+CategoryVariableHere:Label("Credits to a r q for ui liba")
+CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
+Lib:Reload()
+
+
 
 local CategoryVariableHere= Lib:Category("Credits")
 CategoryVariableHere:Label("Credits to a r q for ui liba")
