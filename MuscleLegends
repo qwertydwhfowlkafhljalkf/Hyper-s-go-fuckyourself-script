@@ -169,7 +169,7 @@ end
 end)
 CategoryVariableHere:Toggle("Auto join brawl",function(State)
 hot = State
-while hot do wait(0.1)
+while hot do wait(2)
 local args = {
     [1] = "joinBrawl"
 }
