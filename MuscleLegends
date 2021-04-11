@@ -46,13 +46,6 @@ for i = 1, 50, 2 do
 end
 blur:Destroy()
 ScreenGui:Destroy()
-local vu = game:GetService("VirtualUser")
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-   wait(1)
-   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
-
 local Lib = loadstring(game:HttpGet('https://pastebin.com/raw/GaRF4FDA'))()
 local CategoryVariableHere= Lib:Category("Muscle Legends")
 CategoryVariableHere:Toggle("Auto strength",function(State)
@@ -200,7 +193,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
 end)
-CategoryVariableHere:Button("Muscle Elite Crystal",function()
+CategoryVariableHere:Button("Mythical Crystal",function()
 local args = {
     [1] = "openCrystal",
     [2] = "Mythical Crystal"
@@ -208,7 +201,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
 end)
-CategoryVariableHere:Button("Muscle Elite Crystal",function()
+CategoryVariableHere:Button("Frost Crystal",function()
 local args = {
     [1] = "openCrystal",
     [2] = "Frost Crystal"
@@ -216,7 +209,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
 end)
-CategoryVariableHere:Button("Muscle Elite Crystal",function()
+CategoryVariableHere:Button("Inferno Crystal",function()
 local args = {
     [1] = "openCrystal",
     [2] = "Inferno Crystal"
@@ -486,9 +479,6 @@ local CategoryVariableHere= Lib:Category("Credits")
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
-
-
-
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightShift to toggle";
