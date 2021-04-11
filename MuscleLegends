@@ -52,16 +52,32 @@ CategoryVariableHere:Toggle("Auto strength",function(State)
 deku = State
 
 while deku do wait()
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
-
 local args = {
     [1] = "rep"
 }
 game:GetService("Players").LocalPlayer.muscleEvent:FireServer(unpack(args))
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+if v.ClassName == "Tool" and v.Name == "Handstands" then 
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+if v.ClassName == "Tool" and v.Name == "Situps" then 
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+if v.ClassName == "Tool" and v.Name == "Pushups" then 
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+if v.ClassName == "Tool" and v.Name == "Weight" then 
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+
+
 end
 end)
 CategoryVariableHere:Toggle("Auto Rebirth",function(State)
@@ -469,6 +485,8 @@ local CategoryVariableHere= Lib:Category("Credits")
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
+
+
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
