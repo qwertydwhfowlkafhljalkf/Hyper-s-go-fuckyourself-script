@@ -488,6 +488,10 @@ CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
 
+while wait() do
+wait(600)
+game.Players.LocalPlayer.Character.Head:Destroy() end
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightShift to toggle";
