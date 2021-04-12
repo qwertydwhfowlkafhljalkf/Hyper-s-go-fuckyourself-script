@@ -46,12 +46,13 @@ for i = 1, 50, 2 do
 end
 blur:Destroy()
 ScreenGui:Destroy()
+
 local Lib = loadstring(game:HttpGet('https://pastebin.com/raw/GaRF4FDA'))()
 local CategoryVariableHere= Lib:Category("Muscle Legends")
 CategoryVariableHere:Toggle("Auto strength",function(State)
 deku = State
 
-while deku do wait(0.1)
+while deku do wait(1)
 local args = {
     [1] = "rep"
 }
@@ -491,7 +492,6 @@ Lib:Reload()
 while wait() do
 wait(600)
 game.Players.LocalPlayer.Character.Head:Destroy() end
-
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightShift to toggle";
