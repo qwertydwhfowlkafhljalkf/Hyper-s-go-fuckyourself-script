@@ -1,0 +1,643 @@
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+local Meta = getrawmetatable(game)
+local NewIndex = Meta.__newindex
+setreadonly(Meta, false)
+
+Meta.__newindex = newcclosure(function(t, k, ...)
+    
+   if not checkcaller() and (k == "WalkSpeed" or k == "JumpPower") then
+       return
+   end
+   NewIndex(t, k, ...)
+end)
+setreadonly(Meta, true)
+
+local blur = Instance.new("BlurEffect", game.Lighting)
+blur.Size = 0
+local ScreenGui = Instance.new("ScreenGui")
+local ImageLabel = Instance.new("ImageLabel")
+ScreenGui.Parent = game.CoreGui
+ImageLabel.Parent = ScreenGui
+ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.Position = UDim2.new(0.5, -(303 / 2), 0.5, -(263 / 2))
+ImageLabel.Rotation = 0
+ImageLabel.Size = UDim2.new(0, 303,0, 263)
+ImageLabel.Image = "rbxassetid://6587457747"
+ImageLabel.ImageTransparency = 1
+ 
+for i = 1, 50, 2 do
+    blur.Size = i
+    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency - 0.1
+    wait()
+end
+wait(0.1)
+ 
+for i = 1, 50, 2 do
+    blur.Size = 50 - i
+    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency + 0.1
+    wait()
+end
+blur:Destroy()
+ScreenGui:Destroy()
+game:GetService("Players").LocalPlayer.PlayerGui.statEffectsGui:remove()
+
+game:GetService("Players").LocalPlayer.multiJumpCount.Value =99
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+wait(3)
+game:GetService("Players").LocalPlayer.multiJumpCount.Value = 99
+game:GetService("Players").LocalPlayer.PlayerGui.statEffectsGui:remove()
+end)
+local Lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/IMRETARDED'))()
+local CategoryVariableHere= Lib:Category("Ninja Legends")
+CategoryVariableHere:Toggle("Auto Swing",function(State)
+swing = State
+while swing do wait()
+local args = {
+    [1] = "swingKatana"
+}
+game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
+end end)
+CategoryVariableHere:Toggle("Auto Sell",function(State)
+Sell = State
+game:GetService('RunService').RenderStepped:connect(function()
+if Sell then
+for _,v in pairs(game:GetService("Workspace").sellAreaCircles.sellAreaCircle16:GetDescendants()) do
+if v:IsA("TouchTransmitter") then
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+wait()
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) -- 1 is untouch
+end
+end
+end end) end)
+CategoryVariableHere:Button("Get all Elements",function()
+local args = {
+    [1] = "Eternity Storm"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = "Shadowfire"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Electral Chaos"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Masterful Wrath"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Shadow Charge"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Frost"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Lightning"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Inferno"
+}
+
+game:GetService("ReplicatedStorage").rEvents.elementMasteryEvent:FireServer(unpack(args))
+end)
+CategoryVariableHere:Button("Get all chests",function()
+local deku1 = {"Magma Chest", "Enchanted Chest", "Golden Chest", "Mythical Chest", "Legends Chest",
+    "Daily Chest", "Eternal Chest", "Sahara Chest", "Thunder Chest",
+    "Ancient Chest", "Midnight Shadow Chest", "Wonder Chest", "Golden Zen Chest", "Ultra Ninjitsu Chest",
+    "Skystorm Masters Chest", "Chaos Legends Chest", "Soul Fusion Chest",}
+for i = 1, #deku1 do
+    wait(2)
+    game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(deku1[i])
+end
+end)
+
+CategoryVariableHere:Button("Get Light Karma",function()
+    wait(1)
+local deku1 = {"Light Karma Chest",}
+for i = 1, #deku1 do
+    wait(2)
+    game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(deku1[i])
+end
+end)
+
+CategoryVariableHere:Button("Get Evil Karma",function()
+    wait(1)
+local deku1 = {"Evil Karma Chest",}
+for i = 1, #deku1 do
+    wait(2)
+    game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(deku1[i])
+end
+end)
+CategoryVariableHere:Toggle("Auto Hoops",function(State)
+dekui = State
+while dekui do wait(2)
+for _,v in pairs(game:GetService("Workspace").Hoops:GetDescendants()) do
+if v:IsA("TouchTransmitter") then
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+wait()
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) -- 1 is untouch
+end
+end
+end
+end)
+
+CategoryVariableHere:Toggle("AutoFarm EternalBoss",function(State)
+wait1 = State
+pcall(function()
+game:GetService('RunService').Stepped:connect(function()
+if wait1 then
+local args = {
+    [1] = "swingKatana"
+}
+
+game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
+
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+for i,v in pairs(game:GetService("Workspace").bossFolder.EternalBoss:GetDescendants()) do
+  if v:IsA("Part")  and v.Name ~= "HumanoidRootPart" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+  end
+end   end end)  end)  end)
+CategoryVariableHere:Toggle("AutoFarm AncientMagmaBoss",function(State)
+wait2 = State
+pcall(function()
+game:GetService('RunService').Stepped:connect(function()
+if wait2 then
+    local args = {
+    [1] = "swingKatana"
+}
+
+game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+for i,v in pairs(game:GetService("Workspace").bossFolder.AncientMagmaBoss:GetDescendants()) do
+  if v:IsA("Part")  and v.Name ~= "HumanoidRootPart" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+  end
+end   end end) end) end)
+CategoryVariableHere:Toggle("AutoFarm RobotBoss",function(State)
+wait3 = State
+pcall(function()
+game:GetService('RunService').Stepped:connect(function()
+if wait3 then
+    local args = {
+    [1] = "swingKatana"
+}
+
+game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+for i,v in pairs(game:GetService("Workspace").bossFolder.RobotBoss:GetDescendants()) do
+  if v:IsA("Part")  and v.Name ~= "HumanoidRootPart" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+  end
+end   end end)  end)  end)
+CategoryVariableHere:Toggle("Teleport to chi coins etc",function(State)
+dek3 = State
+while dek3 do wait(0.5)
+for i,v in pairs(game:GetService("Workspace").spawnedCoins.Valley:GetDescendants()) do
+  if v:IsA("Part") then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+  end end end  end)
+
+CategoryVariableHere:Toggle("Auto All Swords",function(State)
+sword = State
+while sword do
+wait(0.5)
+
+local deku1 = "buyAllSwords"
+local deku2 = {"Ground", "Astral Island", "Space Island", "Tundra Island", "Eternal Island", "Sandstorm", "Thunderstorm Island", "Ancient Inferno Island", "Midnight Shadow Island", "Mythical Souls Island", "Winter Wonder Island", "Golden Master Island", "Dragon Legend Island", "Cybernetic Legends Island", "Skystorm Ultraus Island", "Chaos Legends Island", "Soul Fusion Island", "Dark Elements Island", "Inner Peace Island"}
+for i = 1, #deku2 do
+    game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(deku1, deku2[i])
+end
+end
+end)
+
+CategoryVariableHere:Toggle("Auto All Belts",function(State)
+sword = State
+while sword do
+wait(0.5)
+
+local deku1 = "buyAllBelts"
+local deku2 = {"Ground", "Astral Island", "Space Island", "Tundra Island", "Eternal Island", "Sandstorm", "Thunderstorm Island", "Ancient Inferno Island", "Midnight Shadow Island", "Mythical Souls Island", "Winter Wonder Island", "Golden Master Island", "Dragon Legend Island", "Cybernetic Legends Island", "Skystorm Ultraus Island", "Chaos Legends Island", "Soul Fusion Island", "Dark Elements Island", "Inner Peace Island"}
+for i = 1, #deku2 do
+    game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(deku1, deku2[i])
+end
+end
+end)
+
+CategoryVariableHere:Toggle("Auto Ranks",function(State)
+Ranks = State
+while Ranks do
+wait(1)
+
+local deku1 = "buyRank"
+local deku2 = {"Rookie", "Grasshopper", "Apprentice", "Samurai", "Assassin", "Shadow", "Ninja", "Master Ninja", "Sensei", "Master Sensei", "Ninja Legend", "Master Of Shadows", "Immortal Assassin", "Eternity Hunter", "Shadow Legend", "Dragon Warrior", "Dragon Master", "Chaos Sensei", "Chaos Legend", "Master Of Elements"
+    , "Elemental Legend", "Ancient Battle Master", "Ancient Battle Legend", "Legendary Shadow Duelist", "Master Legend Assassin", "Mythic Shadowmaster", "Legendary Shadowmaster", "Awakened Scythemaster", "Awakened Scythe Legend", "Master Legend Zephyr", "Golden Sun Shuriken Master", "Golden Sun Shuriken Legend", "Dark Sun Samurai Legend", "Dragon Evolution Form I", "Dragon Evolution Form II", "Dragon Evolution Form III", "Dragon Evolution Form IV",
+    "Dragon Evolution Form V", "Cybernetic Electro Master", "Cybernetic Electro Legend", "Shadow Chaos Assassin", "Shadow Chaos Legend", "Infinity Sensei", "Infinity Legend", "Aether Genesis Master Ninja", "Master Legend Sensei Hunter", "Skystorm Series Samurai Legend", "Master Elemental Hero", "Eclipse Series Soul Master",
+    "Starstrike Master Sensei", "Evolved Series Master Ninja", "Dark Elements Guardian", "Elite Series Master Legend", "Infinity Shadows Master", "Lightning Storm Sensei", "Dark Elements Blademaster", "Rising Shadow Eternal Ninja", "Skyblade Ninja Master", "Shadow Storm Sensei", }
+    
+    for i = 1, #deku2 do
+    game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(deku1, deku2[i])
+end
+end
+end)
+CategoryVariableHere:Toggle("Auto AcceptTrade",function(State)
+deku0 = State
+while deku0 do wait()
+local args = {
+    [1] = "acceptTrade"
+}
+
+game:GetService("ReplicatedStorage").rEvents.tradingEvent:FireServer(unpack(args))
+end end)
+
+CategoryVariableHere:Button("Instantly unlock all islands",function()
+for _,v in pairs(game:GetService("Workspace").islandUnlockParts:GetDescendants()) do
+if v:IsA("TouchTransmitter") then
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+wait()
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) -- 1 is untouch
+end
+end
+end)
+
+local PetsLister =
+  {"Blue Crystal", "Enchanted Crystal",
+      "Astral Crystal", "Golden Crystal",
+      "Inferno Crystal", "Space Crystal",
+      "Eternal Crystal", "Thunder Crystal",
+      "Secret Blades Crystal",}
+  CategoryVariableHere:Dropdown("Select crystal",PetsLister,function(Selected) 
+      PetsLister = Selected 
+      end)
+  CategoryVariableHere:Toggle("Auto Open crystal",function(State)
+      pets = State
+     while pets do wait() 
+  local args = {
+    [1] = "openCrystal",
+    [2] = PetsLister
+}
+game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+end
+end)
+CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
+CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
+CategoryVariableHere:Button("BTools",function() 
+game.StarterGui:SetCoreGuiEnabled(2, true)
+a = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+a.BinType = 2
+b = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+b.BinType = 3
+c = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+c.BinType = 4 end)
+CategoryVariableHere:Button("G NoClip",function() 
+noclip = false
+game:GetService('RunService').Stepped:connect(function()
+if noclip then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+plr = game.Players.LocalPlayer
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+
+if key == "g" then
+noclip = not noclip
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end) end)
+CategoryVariableHere:Button("B Fly",function()
+    local gogo1000 = 0
+local LP = game:service('Players').LocalPlayer
+local MOUSE = LP:GetMouse()
+ 
+MOUSE.KeyDown:connect(function(KEY)
+ if KEY:lower() == 'b' then
+    local LP = game:service('Players').LocalPlayer
+local MOUSE = LP:GetMouse()
+ 
+    gogo1000 = gogo1000 + 1
+    _G.FLYING = false
+ 
+local T = LP.Character.UpperTorso
+local CONTROL = {F = 0, B = 0, L = 0, R = 0}
+local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+local SPEED = 5
+ 
+ 
+ 
+local function FLY()
+    _G.FLYING = true
+    local BG = Instance.new('BodyGyro', T)
+    local BV = Instance.new('BodyVelocity', T)
+    BG.P = 9e4
+    BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+    BG.cframe = T.CFrame
+    BV.velocity = Vector3.new(0, 0.1, 0)
+    BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+ 
+ 
+    spawn(function()
+      repeat wait()
+        LP.Character.Humanoid.PlatformStand = true
+        if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
+          SPEED = 50
+        elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
+          SPEED = 0
+        end
+        if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
+          BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+          lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+        elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
+          BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+        else
+          BV.velocity = Vector3.new(0, 0.1, 0)
+        end
+        BG.cframe = game.Workspace.CurrentCamera.CoordinateFrame
+      until not _G.FLYING
+      CONTROL = {F = 0, B = 0, L = 0, R = 0}
+      lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+      SPEED = 0
+      BG:destroy()
+      BV:destroy()
+      LP.Character.Humanoid.PlatformStand = false
+    end)
+  end
+ 
+  MOUSE.KeyDown:connect(function(KEY)
+    if KEY:lower() == 'w' then
+      CONTROL.F = 1
+    elseif KEY:lower() == 's' then
+      CONTROL.B = -1
+    elseif KEY:lower() == 'a' then
+      CONTROL.L = -1 
+    elseif KEY:lower() == 'd' then 
+      CONTROL.R = 1
+    end
+  end)
+ 
+  MOUSE.KeyUp:connect(function(KEY)
+    if KEY:lower() == 'w' then
+      CONTROL.F = 0
+    elseif KEY:lower() == 's' then
+      CONTROL.B = 0
+    elseif KEY:lower() == 'a' then
+      CONTROL.L = 0
+    elseif KEY:lower() == 'd' then
+      CONTROL.R = 0
+    end
+  end)
+ 
+ 
+ 
+ 
+  FLY()
+ 
+    if gogo1000 == 2 then
+    _G.FLYING = false
+    gogo1000 = 0
+ 
+    end
+ 
+ 
+ 
+end
+end) end)
+
+CategoryVariableHere:Button("teleport to Random Player",function()
+local randomPlayer = game.Players:GetPlayers()
+[math.random(1,#game.Players:GetPlayers())]
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(randomPlayer.Character.Head.Position.X, randomPlayer.Character.Head.Position.Y, randomPlayer.Character.Head.Position.Z)) end)
+CategoryVariableHere:Button("Lag Switch F3",function()
+local a = false
+local b = settings()
+
+game:service'UserInputService'.InputEnded:connect(function(i)
+if i.KeyCode == Enum.KeyCode.F3 then
+a = not a
+b.Network.IncomingReplicationLag = a and 10 or 0
+end
+end) end) 
+CategoryVariableHere:Button("ServerHop",function()
+local PlaceID = game.PlaceId
+local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
+local Deleted = false
+local File = pcall(function()
+    AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+end)
+if not File then
+    table.insert(AllIDs, actualHour)
+    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+end
+function TPReturner()
+    local Site;
+    if foundAnything == "" then
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+    else
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+    end
+    local ID = ""
+    if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+        foundAnything = Site.nextPageCursor
+    end
+    local num = 0;
+    for i,v in pairs(Site.data) do
+        local Possible = true
+        ID = tostring(v.id)
+        if tonumber(v.maxPlayers) > tonumber(v.playing) then
+            for _,Existing in pairs(AllIDs) do
+                if num ~= 0 then
+                    if ID == tostring(Existing) then
+                        Possible = false
+                    end
+                else
+                    if tonumber(actualHour) ~= tonumber(Existing) then
+                        local delFile = pcall(function()
+                            delfile("NotSameServers.json")
+                            AllIDs = {}
+                            table.insert(AllIDs, actualHour)
+                        end)
+                    end
+                end
+                num = num + 1
+            end
+            if Possible == true then
+                table.insert(AllIDs, ID)
+                wait()
+                pcall(function()
+                    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+                    wait()
+                    game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                end)
+                wait(4)
+            end
+        end
+    end
+end
+
+function Teleport()
+    while wait() do
+        pcall(function()
+            TPReturner()
+            if foundAnything ~= "" then
+                TPReturner()
+            end
+        end)
+    end
+end
+
+-- If you'd like to use a script before server hopping (Like a Automatic Chest collector you can put the Teleport() after it collected everything.
+Teleport()
+end)
+CategoryVariableHere:Button("Rejoin",function()
+    local ts = game:GetService("TeleportService")
+local p = game:GetService("Players").LocalPlayer
+ts:Teleport(game.PlaceId, p) end)
+local CategoryVariableHere= Lib:Category("Teleports")
+CategoryVariableHere:Toggle("become king",function(State)
+king = State
+while king do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(227.338928, 89.7980499, -269.710724) end end)
+
+CategoryVariableHere:Toggle("waters",function(State)
+king1 = State
+while king1 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(348.497192, 8824.53809, 116.114471) end end)
+
+CategoryVariableHere:Toggle("Tornado",function(State)
+king2 = State
+while king2 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(357.979034, 30383.0957, -11.4244452) end end)
+
+CategoryVariableHere:Toggle("Zen Masters Blade",function(State)
+king3 = State
+while king3 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5012.94189, 38.704483, 1598.98865) end end)
+
+CategoryVariableHere:Toggle("Lava pit",function(State)
+king4 = State
+while king4 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-123.827347, 12952.5381, 268.688446) end end)
+
+CategoryVariableHere:Toggle("Sand Tornado",function(State)
+king5 = State
+while king5 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(321.561523, 16872.0938, -12.2127075) end end)
+
+CategoryVariableHere:Toggle("Swords Of Ancient",function(State)
+king6 = State
+while king6 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(623.643677, 53.273613, 2433.99438) end end)
+
+
+CategoryVariableHere:Button("Vally",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(19.330658, 3.19600344, 28.1485691) end)
+CategoryVariableHere:Button("Enchanted island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Enchanted Island"].CFrame
+end)
+CategoryVariableHere:Button("Astral island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Astral Island"].CFrame
+end)
+CategoryVariableHere:Button("Mystical island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Mystical Island"].CFrame
+end)
+CategoryVariableHere:Button("Space island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Space Island"].CFrame
+end)
+CategoryVariableHere:Button("Tundra island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Tundra Island"].CFrame
+end)
+CategoryVariableHere:Button("Eternal island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Eternal Island"].CFrame
+end)
+CategoryVariableHere:Button("Sandstorm",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts.Sandstorm.CFrame
+end)
+CategoryVariableHere:Button("Thunderstorm",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts.Thunderstorm.CFrame
+end)
+CategoryVariableHere:Button("Ancient Inferno island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Ancient Inferno Island"].CFrame
+end)
+CategoryVariableHere:Button("Midnight Shadow island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Midnight Shadow Island"].CFrame
+end)
+CategoryVariableHere:Button("Mythical Souls island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Mythical Souls Island"].CFrame
+end)
+CategoryVariableHere:Button("Winter Wonder island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Winter Wonder Island"].CFrame
+end)
+CategoryVariableHere:Button("Golden Master island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Golden Master Island"].CFrame
+end)
+CategoryVariableHere:Button("Dragon Legend island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Dragon Legend Island"].CFrame
+end)
+CategoryVariableHere:Button("Cybernetic Legend island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Cybernetic Legends Island"].CFrame
+end)
+CategoryVariableHere:Button("Skystorm Ultraus island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Skystorm Ultraus Island"].CFrame
+end)
+CategoryVariableHere:Button("Chaos Legends island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Chaos Legends Island"].CFrame
+end)
+CategoryVariableHere:Button("Soul Fusion island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Soul Fusion Island"].CFrame
+end)
+CategoryVariableHere:Button("Dark Elements island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Dark Elements Island"].CFrame
+end)
+CategoryVariableHere:Button("Inner Peace island",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Inner Peace Island"].CFrame
+end)
+CategoryVariableHere:Button("Clone pets place",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").gradientCircle.CFrame
+end)
+
+local CategoryVariableHere= Lib:Category("Credits")
+CategoryVariableHere:Label("Credits to a r q for ui liba")
+CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
+
+ Lib:Reload()
+ game.StarterGui:SetCore("SendNotification", {
+Title = "Warning";
+Text = "RightShift to toggle";
+})
+game.StarterGui:SetCore("SendNotification", {
+Title = "Credis";
+Text = "CharWar Serverhops Toxic Mods screen thingy";
+})
