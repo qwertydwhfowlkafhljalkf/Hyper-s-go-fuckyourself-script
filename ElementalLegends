@@ -45,7 +45,7 @@ for i = 1, 50, 2 do
 end
 blur:Destroy()
 ScreenGui:Destroy()
-local Lib = loadstring(game:HttpGet('https://pastebin.com/raw/GaRF4FDA'))()
+local Lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/IMRETARDED'))()
 local CategoryVariableHere= Lib:Category("Elemental Legends")
 CategoryVariableHere:Toggle("AutoTap?",function(State)
 deku = State
@@ -138,18 +138,20 @@ end)
 
 
 
-CategoryVariableHere:Button("Buy Bunnylicious Egg :O?",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(430.454956, 25.0501976, 124.933952)
+CategoryVariableHere:Button("Buy Temple Egg :O?",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(644.170776, 53.9286232, -1884.87256)
 wait(0.5)
+
 local args = {
     [1] = "EggOpen",
     [2] = {
-        ["EggName"] = "Bunnylicious",
+        ["EggName"] = "Temple",
         ["Type"] = "Single"
     }
 }
 
 game:GetService("ReplicatedStorage").Main.Remotes.EggOpen:InvokeServer(unpack(args))
+
 end)
 CategoryVariableHere:Button("Buy Bird Egg?",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(660.213196, 54.1754837, -1849.35339)    
@@ -409,6 +411,7 @@ local CategoryVariableHere= Lib:Category("Credits")
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
+
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
