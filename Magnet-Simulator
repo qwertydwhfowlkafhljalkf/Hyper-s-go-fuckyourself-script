@@ -107,7 +107,7 @@ for i=10, math.huge do
 wait()
 if deku then
 local args = {
-    [1] = 10
+    [1] = 1
 }
 
 game:GetService("ReplicatedStorage").RebirthEvents.requestRebirth:InvokeServer(unpack(args))
