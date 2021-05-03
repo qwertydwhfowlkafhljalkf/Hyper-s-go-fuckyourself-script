@@ -75,6 +75,22 @@ end
 end
 end
 end)
+
+CategoryVariableHere:Button("EquipBest pet",function() 
+local args = {
+    [1] = "EquipBest"
+}
+
+game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer(unpack(args))
+end)
+CategoryVariableHere:Toggle("Craft all pets",function(State)
+deku33 = State
+while deku33 do wait()
+local args = {
+    [1] = "CraftAll"
+}
+game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer(unpack(args))
+end end)
 CategoryVariableHere:Toggle("Auto Upgrades",function(State)
 deku4 = State
 while deku4 do wait()
@@ -83,6 +99,117 @@ game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Faster H
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Extra Gems")
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Pets Equipped")
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Pet Storage")
+game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Jump Boost")
+game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Auto Tapper")
+end end)
+local CategoryVariableHere= Lib:Category("Autobuy eggs")
+CategoryVariableHere:Toggle("Starter Egg",function(State)
+dek1 = State
+while dek1 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(152.566956, 99.1522217, -720.399597)
+local args = {
+    [1] = "Starter Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Secret"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Godly"] = false,
+        ["Uncommon"] = false,
+        ["Rare"] = false
+    }
+}
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end)
+CategoryVariableHere:Toggle("Spiky Egg",function(State)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(164.880936, 99.1522217, -719.580505)
+dek2 = State
+while dek2 do wait()
+local args = {
+    [1] = "Spiky Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Secret"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Godly"] = false,
+        ["Uncommon"] = false,
+        ["Rare"] = false
+    }
+}
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end)
+CategoryVariableHere:Toggle("Elemental Egg",function(State)
+dek2 = State
+while dek2 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(178.958817, 99.1522446, -717.718018)
+local args = {
+    [1] = "Elemental Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Secret"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Godly"] = false,
+        ["Uncommon"] = false,
+        ["Rare"] = false
+    }
+}
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end)
+CategoryVariableHere:Toggle( "Anime Egg",function(State)
+dek3 = State
+while dek3 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120.631317, 99.1522141, -670.597229)
+local args = {
+    [1] = "Anime Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Secret"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Godly"] = false,
+        ["Uncommon"] = false,
+        ["Rare"] = false
+    }
+}
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end)
+CategoryVariableHere:Toggle( "1M Egg",function(State)
+dek4 = State
+while dek4 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(193.612076, 99.1522217, -717.989563)
+local args = {
+    [1] = "1M Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Secret"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Godly"] = false,
+        ["Uncommon"] = false,
+        ["Rare"] = false
+    }
+}
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end)
+CategoryVariableHere:Toggle( "Carnival Egg",function(State)
+dek4 = State
+while dek4 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-706.580322, 587.44165, -570.1604)
+local args = {
+    [1] = "Carnival Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Secret"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Godly"] = false,
+        ["Uncommon"] = false,
+        ["Rare"] = false
+    }
+}
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end)
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
