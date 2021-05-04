@@ -211,10 +211,10 @@ local args = {
 }
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end)
-CategoryVariableHere:Toggle( "Circus Egg",function(State)
-dek4 = State
-while dek4 do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-706.720825, 588.644531, -566.863098)
+CategoryVariableHere:Toggle( "Carnival Egg",function(State)
+dek5 = State
+while dek5 do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-707.088257, 588.644714, -568.816345)
 local args = {
     [1] = "Circus Egg",
     [5] = {
