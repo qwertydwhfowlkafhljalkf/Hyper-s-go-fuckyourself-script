@@ -1,1 +1,2 @@
-
+local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport [[
+local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/arsenal-brains'))()]]
