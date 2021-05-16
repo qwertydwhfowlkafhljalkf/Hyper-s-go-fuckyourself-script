@@ -105,7 +105,8 @@ end end)
 local CategoryVariableHere= Lib:Category("Autobuy eggs")
 CategoryVariableHere:Toggle("Starter Egg",function(State)
 dek1 = State
-while dek1 do wait()
+game:GetService('RunService').Stepped:connect(function()
+if dek1 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(152.566956, 99.1522217, -720.399597)
 local args = {
     [1] = "Starter Egg",
@@ -120,11 +121,12 @@ local args = {
     }
 }
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end)
+end  end) end)
 CategoryVariableHere:Toggle("Spiky Egg",function(State)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(164.880936, 99.1522217, -719.580505)
 dek2 = State
-while dek2 do wait()
+game:GetService('RunService').Stepped:connect(function()
+if dek2 then
 local args = {
     [1] = "Spiky Egg",
     [5] = {
@@ -138,10 +140,11 @@ local args = {
     }
 }
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end)
+end end) end)
 CategoryVariableHere:Toggle("Elemental Egg",function(State)
-dek2 = State
-while dek2 do wait()
+dek3 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek3 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(178.958817, 99.1522446, -717.718018)
 local args = {
     [1] = "Elemental Egg",
@@ -156,11 +159,12 @@ local args = {
     }
 }
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end)
+end end) end)
 CategoryVariableHere:Toggle( "Anime Egg",function(State)
-dek3 = State
-while dek3 do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120.631317, 99.1522141, -670.597229)
+dek4 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek4 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(193.705399, 99.4362946, -717.714722)
 local args = {
     [1] = "Anime Egg",
     [5] = {
@@ -174,29 +178,13 @@ local args = {
     }
 }
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end)
-CategoryVariableHere:Toggle( "1M Egg",function(State)
-dek4 = State
-while dek4 do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(193.612076, 99.1522217, -717.989563)
-local args = {
-    [1] = "1M Egg",
-    [5] = {
-        ["Legendary"] = false,
-        ["Secret"] = false,
-        ["Common"] = false,
-        ["Epic"] = false,
-        ["Godly"] = false,
-        ["Uncommon"] = false,
-        ["Rare"] = false
-    }
-}
-game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end)
+end end) end)
+
 CategoryVariableHere:Toggle( "Carnival Egg",function(State)
-dek4 = State
-while dek4 do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-706.580322, 587.44165, -570.1604)
+dek6 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek6 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-713.347412, 587.462341, -553.939453)
 local args = {
     [1] = "Carnival Egg",
     [5] = {
@@ -210,11 +198,12 @@ local args = {
     }
 }
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end)
-CategoryVariableHere:Toggle( "Carnival Egg",function(State)
-dek5 = State
-while dek5 do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-707.088257, 588.644714, -568.816345)
+end end) end)
+CategoryVariableHere:Toggle( "Circus Egg",function(State)
+dek7 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek7 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-712.620667, 587.909302, -565.244568)
 local args = {
     [1] = "Circus Egg",
     [5] = {
@@ -229,7 +218,67 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end)
+end end) end)
+CategoryVariableHere:Toggle( "Plushie Egg",function(State)
+dek7 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek7 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-712.620667, 587.909302, -565.244568)
+local args = {
+    [1] = "Plushie Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
+CategoryVariableHere:Toggle( "5M Egg",function(State)
+dek7 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek7 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(119.493042, 99.1522369, -671.753967)
+local args = {
+    [1] = "5M Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
+CategoryVariableHere:Toggle( "Jurassic Egg",function(State)
+dek7 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek7 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-595.456055, 1310.47351, -1663.6571)
+local args = {
+    [1] = "Jurassic Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
@@ -258,76 +307,66 @@ game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end
 end) end)
 CategoryVariableHere:Button("B Fly",function()
-    local gogo1000 = 0
+local gogo1000 = 0
 local LP = game:service('Players').LocalPlayer
 local MOUSE = LP:GetMouse()
- 
 MOUSE.KeyDown:connect(function(KEY)
- if KEY:lower() == 'b' then
-    local LP = game:service('Players').LocalPlayer
+if KEY:lower() == 'b' then
+local LP = game:service('Players').LocalPlayer
 local MOUSE = LP:GetMouse()
- 
-    gogo1000 = gogo1000 + 1
-    _G.FLYING = false
- 
+gogo1000 = gogo1000 + 1
+_G.FLYING = false
 local T = LP.Character.UpperTorso
 local CONTROL = {F = 0, B = 0, L = 0, R = 0}
 local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
 local SPEED = 5
- 
- 
- 
 local function FLY()
-    _G.FLYING = true
-    local BG = Instance.new('BodyGyro', T)
-    local BV = Instance.new('BodyVelocity', T)
-    BG.P = 9e4
-    BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-    BG.cframe = T.CFrame
-    BV.velocity = Vector3.new(0, 0.1, 0)
-    BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
- 
- 
-    spawn(function()
-      repeat wait()
-        LP.Character.Humanoid.PlatformStand = true
-        if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
-          SPEED = 50
-        elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
-          SPEED = 0
-        end
-        if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
-          BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-          lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-        elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
-          BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-        else
-          BV.velocity = Vector3.new(0, 0.1, 0)
-        end
-        BG.cframe = game.Workspace.CurrentCamera.CoordinateFrame
-      until not _G.FLYING
-      CONTROL = {F = 0, B = 0, L = 0, R = 0}
-      lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-      SPEED = 0
-      BG:destroy()
-      BV:destroy()
-      LP.Character.Humanoid.PlatformStand = false
-    end)
-  end
- 
-  MOUSE.KeyDown:connect(function(KEY)
-    if KEY:lower() == 'w' then
-      CONTROL.F = 1
-    elseif KEY:lower() == 's' then
-      CONTROL.B = -1
-    elseif KEY:lower() == 'a' then
-      CONTROL.L = -1 
-    elseif KEY:lower() == 'd' then 
-      CONTROL.R = 1
-    end
-  end)
- 
-  MOUSE.KeyUp:connect(function(KEY)
+_G.FLYING = true
+local BG = Instance.new('BodyGyro', T)
+local BV = Instance.new('BodyVelocity', T)
+BG.P = 9e4
+BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+BG.cframe = T.CFrame
+BV.velocity = Vector3.new(0, 0.1, 0)
+BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+spawn(function()
+repeat wait()
+LP.Character.Humanoid.PlatformStand = true
+if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
+SPEED = 50
+elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
+SPEED = 0
+end
+if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
+BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
+BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+else
+BV.velocity = Vector3.new(0, 0.1, 0)
+end
+BG.cframe = game.Workspace.CurrentCamera.CoordinateFrame
+until not _G.FLYING
+CONTROL = {F = 0, B = 0, L = 0, R = 0}
+lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+SPEED = 0
+BG:destroy()
+BV:destroy()
+LP.Character.Humanoid.PlatformStand = false
+end)
+end
+MOUSE.KeyDown:connect(function(KEY)
+if KEY:lower() == 'w' then
+CONTROL.F = 1
+elseif KEY:lower() == 's' then
+CONTROL.B = -1
+elseif KEY:lower() == 'a' then
+CONTROL.L = -1 
+elseif KEY:lower() == 'd' then 
+CONTROL.R = 1
+end
+end)
+MOUSE.KeyUp:connect(function(KEY)
 if KEY:lower() == 'w' then
 CONTROL.F = 0
 elseif KEY:lower() == 's' then
