@@ -45,7 +45,14 @@ for i = 1, 50, 2 do
 end
 blur:Destroy()
 ScreenGui:Destroy()
+game:GetService('RunService').Stepped:connect(function()
+if game:GetService("Workspace"):FindFirstChild('VIPGate') then
+game:GetService("Workspace").VIPGate:remove()
+end end)
+game:GetService('RunService').Stepped:connect(function()
+if game:GetService("ReplicatedFirst")["CC_Lookout"]:FindFirstChild('ClientLog') then
 game:GetService("ReplicatedFirst")["CC_Lookout"].ClientLog:remove()
+end end)
 game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer("EquipBest")
 game:GetService("Players").LocalPlayer.HidePopups.Value = true
 game:GetService("Players").LocalPlayer.ShowOthersPets.Value = false
@@ -60,8 +67,14 @@ end end)
 CategoryVariableHere:Toggle("Auto Boss",function(State)
 deku2 = State
 while deku2 do wait()
-game:GetService("ReplicatedStorage").BossStuff.Yes:InvokeServer()
+game:GetService("ReplicatedStorage").BossStuff.Yes:InvokeServer("Starter")
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(290.463593, 105.640602, -742.156494)
+end end)
+CategoryVariableHere:Toggle("Auto Boss 2",function(State)
+dekul22 = State
+while dekul22 do wait()
+game:GetService("ReplicatedStorage").BossStuff.Yes:InvokeServer("Circus")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-892.406128, 768.024292, 15.2982092)
 end end)
 CategoryVariableHere:Toggle("Auto Dimonds",function(State)
 deku3 = State
@@ -240,10 +253,10 @@ local args = {
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
 CategoryVariableHere:Toggle( "5M Egg",function(State)
-dek7 = State
+dekd = State
 game:GetService('RunService').Stepped:connect(function()
-if dek7 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(119.493042, 99.1522369, -671.753967)
+if dekd then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(121.470734, 99.1522598, -670.370117)
 local args = {
     [1] = "5M Egg",
     [5] = {
@@ -266,6 +279,46 @@ if dek7 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-595.456055, 1310.47351, -1663.6571)
 local args = {
     [1] = "Jurassic Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
+CategoryVariableHere:Toggle( "Fossil Egg",function(State)
+dek8 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek8 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-589.635864, 1310.45837, -1657.44214)
+local args = {
+    [1] = "Fossil Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
+CategoryVariableHere:Toggle( "Rainbow Dino Egg",function(State)
+dek9 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek9 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-580.535583, 1310.43164, -1648.02368)
+local args = {
+    [1] = "Rainbow Dino Egg",
     [5] = {
         ["Legendary"] = false,
         ["Godly"] = false,
