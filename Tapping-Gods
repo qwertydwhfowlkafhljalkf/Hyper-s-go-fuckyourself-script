@@ -76,6 +76,12 @@ while dekul22 do wait()
 game:GetService("ReplicatedStorage").BossStuff.Yes:InvokeServer("Circus")
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-892.406128, 768.024292, 15.2982092)
 end end)
+CategoryVariableHere:Toggle("Auto Boss 3",function(State)
+dekul22 = State
+while dekul22 do wait()
+game:GetService("ReplicatedStorage").BossStuff.Yes:InvokeServer("Dino")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1213.97644, 1535.51733, -1712.4281)
+end end)
 CategoryVariableHere:Toggle("Auto Dimonds",function(State)
 deku3 = State
 while deku3 do wait()
@@ -252,26 +258,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
-CategoryVariableHere:Toggle( "5M Egg",function(State)
-dekd = State
-game:GetService('RunService').Stepped:connect(function()
-if dekd then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(121.470734, 99.1522598, -670.370117)
-local args = {
-    [1] = "5M Egg",
-    [5] = {
-        ["Legendary"] = false,
-        ["Godly"] = false,
-        ["Common"] = false,
-        ["Epic"] = false,
-        ["Rare"] = false,
-        ["Uncommon"] = false,
-        ["Secret"] = false
-    }
-}
 
-game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
-end end) end)
 CategoryVariableHere:Toggle( "Jurassic Egg",function(State)
 dek7 = State
 game:GetService('RunService').Stepped:connect(function()
@@ -319,6 +306,26 @@ if dek9 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-580.535583, 1310.43164, -1648.02368)
 local args = {
     [1] = "Rainbow Dino Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
+CategoryVariableHere:Toggle( "Youtuber Egg",function(State)
+dek9 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek9 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120.390907, 99.4363098, -671.5755)
+local args = {
+    [1] = "Yourtuber Egg",
     [5] = {
         ["Legendary"] = false,
         ["Godly"] = false,
