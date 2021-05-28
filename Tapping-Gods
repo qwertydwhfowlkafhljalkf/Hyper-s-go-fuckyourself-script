@@ -239,10 +239,10 @@ local args = {
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
 CategoryVariableHere:Toggle( "Plushie Egg",function(State)
-dek7 = State
+dek8 = State
 game:GetService('RunService').Stepped:connect(function()
-if dek7 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-712.620667, 587.909302, -565.244568)
+if dek8 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-710.360901, 587.51239, -578.160217)
 local args = {
     [1] = "Plushie Egg",
     [5] = {
@@ -260,9 +260,9 @@ game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
 
 CategoryVariableHere:Toggle( "Jurassic Egg",function(State)
-dek7 = State
+dek9 = State
 game:GetService('RunService').Stepped:connect(function()
-if dek7 then
+if dek9 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-595.456055, 1310.47351, -1663.6571)
 local args = {
     [1] = "Jurassic Egg",
@@ -280,9 +280,9 @@ local args = {
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
 CategoryVariableHere:Toggle( "Fossil Egg",function(State)
-dek8 = State
+dek10 = State
 game:GetService('RunService').Stepped:connect(function()
-if dek8 then
+if dek10 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-589.635864, 1310.45837, -1657.44214)
 local args = {
     [1] = "Fossil Egg",
@@ -300,9 +300,9 @@ local args = {
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
 CategoryVariableHere:Toggle( "Rainbow Dino Egg",function(State)
-dek9 = State
+dek11 = State
 game:GetService('RunService').Stepped:connect(function()
-if dek9 then
+if dek11 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-580.535583, 1310.43164, -1648.02368)
 local args = {
     [1] = "Rainbow Dino Egg",
@@ -320,12 +320,12 @@ local args = {
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
 CategoryVariableHere:Toggle( "Youtuber Egg",function(State)
-dek9 = State
+dek12 = State
 game:GetService('RunService').Stepped:connect(function()
-if dek9 then
+if dek12 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120.390907, 99.4363098, -671.5755)
 local args = {
-    [1] = "Yourtuber Egg",
+    [1] = "Youtuber Egg",
     [5] = {
         ["Legendary"] = false,
         ["Godly"] = false,
