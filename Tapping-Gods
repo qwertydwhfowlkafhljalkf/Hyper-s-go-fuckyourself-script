@@ -339,6 +339,26 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
+CategoryVariableHere:Toggle( "Medieval Egg",function(State)
+dek13 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek13 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(187.592651, 2151.35693, -2517.52539)
+local args = {
+    [1] = "Medieval Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
