@@ -607,6 +607,26 @@ deku14 = State
 while deku14 do wait()
 game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(10000)
 end end)
+CategoryVariableHere:Toggle("Auto Rebirth 25k",function(State)
+deku15 = State
+while deku15 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(25000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 69k",function(State)
+deku16 = State
+while deku16 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(69000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 100k",function(State)
+deku17 = State
+while deku17 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(100000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 400k",function(State)
+deku18 = State
+while deku18 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(400000)
+end end)
 local CategoryVariableHere= Lib:Category("Credits")
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
