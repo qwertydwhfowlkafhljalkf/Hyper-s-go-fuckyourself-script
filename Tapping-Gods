@@ -96,19 +96,12 @@ end
 end)
 
 CategoryVariableHere:Button("EquipBest pet",function() 
-local args = {
-    [1] = "EquipBest"
-}
-
-game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer(unpack(args))
+game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer("EquipBest")
 end)
 CategoryVariableHere:Toggle("Craft all pets",function(State)
 deku33 = State
 while deku33 do wait()
-local args = {
-    [1] = "CraftAll"
-}
-game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer(unpack(args))
+game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer("CraftAll")
 end end)
 CategoryVariableHere:Toggle("Auto Upgrades",function(State)
 deku4 = State
@@ -120,6 +113,30 @@ game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Pets Equ
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Pet Storage")
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Jump Boost")
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Auto Tapper")
+end end)
+
+
+CategoryVariableHere:Button("get all codes",function()
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("HIDDEN")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("CoolTapper")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("Filtered")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("RELEASE")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("BLUE")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("Russo")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("Blueso")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("Clownso")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("ALIEN")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("THANKYOU")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("200KGROUP")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("KNIGHT")
+end)
+CategoryVariableHere:Button("get all chest",function()
+for _,v in pairs(game:GetService("Workspace").Chests:GetDescendants()) do
+if v:IsA("TouchTransmitter") then
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+wait()
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) -- 1 is untouch
+end
 end end)
 local CategoryVariableHere= Lib:Category("Autobuy eggs")
 CategoryVariableHere:Toggle("Starter Egg",function(State)
@@ -359,6 +376,8 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
+
+
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
