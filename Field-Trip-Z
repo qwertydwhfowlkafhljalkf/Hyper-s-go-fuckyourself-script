@@ -257,6 +257,6 @@ Title = "Warning";
 Text = "RightShift to toggle";
 })
 game.StarterGui:SetCore("SendNotification", {
-Title = "Credis";
-Text = "CharWar Serverhops Toxic Mods screen thingy";
+Title = "Credits";
+Text = "CharWar Serverhops";
 })
