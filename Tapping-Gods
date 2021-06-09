@@ -416,7 +416,26 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
+CategoryVariableHere:Toggle( "10M Egg",function(State)
+dek16 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek16 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120.321068, 99.4383011, -671.192017)
+local args = {
+    [1] = "10M Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
 
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
