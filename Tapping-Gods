@@ -45,6 +45,7 @@ for i = 1, 50, 2 do
 end
 blur:Destroy()
 ScreenGui:Destroy()
+
 game:GetService('RunService').Stepped:connect(function()
 if game:GetService("Workspace"):FindFirstChild('VIPGate') then
 game:GetService("Workspace").VIPGate:remove()
@@ -114,8 +115,22 @@ game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Pet Stor
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Jump Boost")
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Auto Tapper")
 end end)
+CategoryVariableHere:Button("x2 Taps poton",function()
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Taps")
+end)
+CategoryVariableHere:Button("x2 Gems poton",function()
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Gems")
+end)
+CategoryVariableHere:Button("x2 Luck poton",function()
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Luck")
+end)
+CategoryVariableHere:Button("x2 Speed poton",function()
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Speed")
+end)
 
-
+CategoryVariableHere:Button("Upgrade JetPack",function()
+game:GetService("ReplicatedStorage").Events.UpgradeFuel:FireServer()
+end)
 CategoryVariableHere:Button("get all codes",function()
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("HIDDEN")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("CoolTapper")
@@ -436,9 +451,36 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
+CategoryVariableHere:Toggle( "Dev Egg",function(State)
+dek17 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek17 then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(122.198662, 99.6251221, -673.280823)
+local args = {
+    [1] = "Dev Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
+CategoryVariableHere:Toggle("InfiniteJump",function(State)
+InfiniteJumpEnabled = State
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end) end)
 CategoryVariableHere:Button("BTools",function() 
 game.StarterGui:SetCoreGuiEnabled(2, true)
 a = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
@@ -704,7 +746,47 @@ deku18 = State
 while deku18 do wait()
 game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(400000)
 end end)
-local CategoryVariableHere= Lib:Category("Credits")
+CategoryVariableHere:Toggle("Auto Rebirth 1M",function(State)
+deku19 = State
+while deku19 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(1000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 12M",function(State)
+deku20 = State
+while deku20 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(12000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 38M",function(State)
+deku21 = State
+while deku21 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(38000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 90M",function(State)
+deku22 = State
+while deku22 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(90000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 190M",function(State)
+deku23 = State
+while deku23 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(190000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 590M",function(State)
+deku24 = State
+while deku24 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(590000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 1.7B",function(State)
+deku25 = State
+while deku25 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(1700000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 5.3B",function(State)
+deku26 = State
+while deku26 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(5300000000)
+end end)
+local CategoryVariableHere= Lib:Category("Credits")     
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
