@@ -517,6 +517,28 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
+
+CategoryVariableHere:Toggle( "Dev Egg",function(State)
+dek17 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek17 then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Super Anime Egg"].EggName.CFrame* CFrame.new(0,3,0)
+local args = {
+    [1] = "Super Anime Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
@@ -832,6 +854,39 @@ deku26 = State
 while deku26 do wait()
 game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(5300000000)
 end end)
+local CategoryVariableHere= Lib:Category("Auto SuperRebirth")
+
+CategoryVariableHere:Toggle("Auto SuperRebirth 1",function(State)
+super = State
+while super do wait()
+game:GetService("ReplicatedStorage").Events.SuperRebirth:FireServer(1)
+end end)
+CategoryVariableHere:Toggle("Auto SuperRebirth 5",function(State)
+super = State
+while super do wait()
+game:GetService("ReplicatedStorage").Events.SuperRebirth:FireServer(5)
+end end)
+CategoryVariableHere:Toggle("Auto SuperRebirth 25",function(State)
+super = State
+while super do wait()
+game:GetService("ReplicatedStorage").Events.SuperRebirth:FireServer(25)
+end end)
+CategoryVariableHere:Toggle("Auto SuperRebirth 50",function(State)
+super = State
+while super do wait()
+game:GetService("ReplicatedStorage").Events.SuperRebirth:FireServer(50)
+end end)
+CategoryVariableHere:Toggle("Auto SuperRebirth 100",function(State)
+super = State
+while super do wait()
+game:GetService("ReplicatedStorage").Events.SuperRebirth:FireServer(100)
+end end)
+CategoryVariableHere:Toggle("Auto SuperRebirth 500",function(State)
+super = State
+while super do wait()
+game:GetService("ReplicatedStorage").Events.SuperRebirth:FireServer(500)
+end end)
+
 local CategoryVariableHere= Lib:Category("Credits")     
 CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
