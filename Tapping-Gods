@@ -45,6 +45,7 @@ for i = 1, 50, 2 do
 end
 blur:Destroy()
 ScreenGui:Destroy()
+
 game:GetService('RunService').Stepped:connect(function()
 if game:GetService("Workspace"):FindFirstChild('VIPGate') then
 game:GetService("Workspace").VIPGate:remove()
@@ -160,7 +161,7 @@ dek1 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek1 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Starter Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Starter Egg"].EggName.CFrame * CFrame.new(0,3,0)
 local args = {
     [1] = "Starter Egg",
     [5] = {
@@ -179,7 +180,7 @@ CategoryVariableHere:Toggle("Spiky Egg",function(State)
 dek2 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek2 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Spiky Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Spiky Egg"].EggName.CFrame * CFrame.new(0,3,0)
 local args = {
     [1] = "Spiky Egg",
     [5] = {
@@ -198,8 +199,8 @@ CategoryVariableHere:Toggle("Elemental Egg",function(State)
 dek3 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek3 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Elemental Egg"].EggName.CFrame
-local args = {
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Elemental Egg"].EggName.CFrame* CFrame.new(0,3,0)
+local args = { 
     [1] = "Elemental Egg",
     [5] = {
         ["Legendary"] = false,
@@ -217,7 +218,7 @@ CategoryVariableHere:Toggle( "Anime Egg",function(State)
 dek4 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek4 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Anime Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Anime Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Anime Egg",
     [5] = {
@@ -237,7 +238,7 @@ CategoryVariableHere:Toggle( "Carnival Egg",function(State)
 dek6 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek6 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Carnival Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Carnival Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Carnival Egg",
     [5] = {
@@ -256,7 +257,7 @@ CategoryVariableHere:Toggle( "Circus Egg",function(State)
 dek7 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek7 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Cgame:GetService("Workspace").Eggs["Circus Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Cgame:GetService("Workspace").Eggs["Circus Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Circus Egg",
     [5] = {
@@ -276,7 +277,7 @@ CategoryVariableHere:Toggle( "Plushie Egg",function(State)
 dek8 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek8 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Starter Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Starter Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Plushie Egg",
     [5] = {
@@ -297,7 +298,7 @@ CategoryVariableHere:Toggle( "1M Egg",function(State)
 deke1 = State
 game:GetService('RunService').Stepped:connect(function()
 if deke1 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["1M Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["1M Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "1M Egg",
     [5] = {
@@ -318,7 +319,7 @@ CategoryVariableHere:Toggle( "5M Egg",function(State)
 deke2 = State
 game:GetService('RunService').Stepped:connect(function()
 if deke2 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["5M Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["5M Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "5M Egg",
     [5] = {
@@ -338,7 +339,7 @@ CategoryVariableHere:Toggle( "Jurassic Egg",function(State)
 dek9 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek9 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Jurassic Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Jurassic Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Jurassic Egg",
     [5] = {
@@ -358,7 +359,7 @@ CategoryVariableHere:Toggle( "Fossil Egg",function(State)
 dek10 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek10 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Fossil Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Fossil Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Fossil Egg",
     [5] = {
@@ -378,7 +379,7 @@ CategoryVariableHere:Toggle( "Rainbow Dino Egg",function(State)
 dek11 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek11 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Rainbow Dino Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Rainbow Dino Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Rainbow Dino Egg",
     [5] = {
@@ -398,7 +399,7 @@ CategoryVariableHere:Toggle( "Youtuber Egg",function(State)
 dek12 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek12 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Youtuber Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Youtuber Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Youtuber Egg",
     [5] = {
@@ -418,7 +419,7 @@ CategoryVariableHere:Toggle( "Medieval Egg",function(State)
 dek13 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek13 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Medieval Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Medieval Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Medieval Egg",
     [5] = {
@@ -438,7 +439,7 @@ CategoryVariableHere:Toggle( "Western Egg",function(State)
 dek14 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek14 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Western Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Western Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Western Egg",
     [5] = {
@@ -458,7 +459,7 @@ CategoryVariableHere:Toggle( "Movie Egg",function(State)
 dek15 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek15 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Movie Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Movie Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Movie Egg",
     [5] = {
@@ -479,7 +480,7 @@ dek16 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek16 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["10M Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["10M Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "10M Egg",
     [5] = {
@@ -500,7 +501,7 @@ dek17 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek17 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Dev Egg"].EggName.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Dev Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Dev Egg",
     [5] = {
