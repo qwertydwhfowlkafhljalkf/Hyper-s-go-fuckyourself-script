@@ -45,7 +45,6 @@ for i = 1, 50, 2 do
 end
 blur:Destroy()
 ScreenGui:Destroy()
-
 game:GetService('RunService').Stepped:connect(function()
 if game:GetService("Workspace"):FindFirstChild('VIPGate') then
 game:GetService("Workspace").VIPGate:remove()
@@ -518,10 +517,10 @@ local args = {
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
 
-CategoryVariableHere:Toggle( "Dev Egg",function(State)
-dek17 = State
+CategoryVariableHere:Toggle( "Super Anime Egg",function(State)
+dek18 = State
 game:GetService('RunService').Stepped:connect(function()
-if dek17 then
+if dek18 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Super Anime Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
