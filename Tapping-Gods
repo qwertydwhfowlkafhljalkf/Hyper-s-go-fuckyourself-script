@@ -50,6 +50,10 @@ if game:GetService("Workspace"):FindFirstChild('VIPGate') then
 game:GetService("Workspace").VIPGate:remove()
 end end)
 game:GetService('RunService').Stepped:connect(function()
+if game:GetService("Players").LocalPlayer.PlayerGui.CoreUI:FindFirstChild('Notifications') then
+game:GetService("Players").LocalPlayer.PlayerGui.CoreUI.Notifications:remove()
+end end)
+game:GetService('RunService').Stepped:connect(function()
 if game:GetService("ReplicatedFirst")["CC_Lookout"]:FindFirstChild('ClientLog') then
 game:GetService("ReplicatedFirst")["CC_Lookout"].ClientLog:remove()
 end end)
