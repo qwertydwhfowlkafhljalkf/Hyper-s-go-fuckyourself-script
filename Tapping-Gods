@@ -46,12 +46,12 @@ end
 blur:Destroy()
 ScreenGui:Destroy()
 game:GetService('RunService').Stepped:connect(function()
-if game:GetService("Workspace"):FindFirstChild('VIPGate') then
-game:GetService("Workspace").VIPGate:remove()
-end end)
-game:GetService('RunService').Stepped:connect(function()
 if game:GetService("Players").LocalPlayer.PlayerGui.CoreUI:FindFirstChild('Notifications') then
 game:GetService("Players").LocalPlayer.PlayerGui.CoreUI.Notifications:remove()
+end end)
+game:GetService('RunService').Stepped:connect(function()
+if game:GetService("Workspace"):FindFirstChild('VIPGate') then
+game:GetService("Workspace").VIPGate:remove()
 end end)
 game:GetService('RunService').Stepped:connect(function()
 if game:GetService("ReplicatedFirst")["CC_Lookout"]:FindFirstChild('ClientLog') then
@@ -68,6 +68,31 @@ deku1 = State
 while deku1 do wait()
 game:GetService("ReplicatedStorage").Events.Tap:FireServer()
 end end)
+CategoryVariableHere:Button("Unlock All Island",function()
+local Wap = Instance.new("BoolValue")
+
+Wap.Name = "Carnival"
+Wap.Value = true
+Wap.Parent = game:GetService("Players").LocalPlayer.Portals
+
+local Wap = Instance.new("BoolValue")
+
+Wap.Name = "Time"
+Wap.Value = true
+Wap.Parent = game:GetService("Players").LocalPlayer.Portals
+
+local Wap = Instance.new("BoolValue")
+
+Wap.Name = "Anime"
+Wap.Value = true
+Wap.Parent = game:GetService("Players").LocalPlayer.Portals
+
+local Wap = Instance.new("BoolValue")
+
+Wap.Name = "Dinoland"
+Wap.Value = true
+Wap.Parent = game:GetService("Players").LocalPlayer.Portals
+ end)
 CategoryVariableHere:Toggle("Auto Boss",function(State)
 deku2 = State
 while deku2 do wait()
@@ -98,6 +123,7 @@ end
 end
 end
 end)
+
 
 CategoryVariableHere:Button("EquipBest pet",function() 
 game:GetService("ReplicatedStorage").Events.PetAction:InvokeServer("EquipBest")
@@ -134,7 +160,7 @@ end)
 CategoryVariableHere:Button("Upgrade JetPack",function()
 game:GetService("ReplicatedStorage").Events.UpgradeFuel:FireServer()
 end)
-CategoryVariableHere:Button("Get all codes",function()
+CategoryVariableHere:Button("get all codes",function()
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("HIDDEN")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("CoolTapper")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("Filtered")
@@ -150,31 +176,6 @@ game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("MOVIES")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("r7u55o")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("SORRY")
 end)
-CategoryVariableHere:Button("Unlock All Island",function()
-local Wap = Instance.new("BoolValue")
-
-Wap.Name = "Carnival"
-Wap.Value = true
-Wap.Parent = game:GetService("Players").LocalPlayer.Portals
-
-local Wap = Instance.new("BoolValue")
-
-Wap.Name = "Time"
-Wap.Value = true
-Wap.Parent = game:GetService("Players").LocalPlayer.Portals
-
-local Wap = Instance.new("BoolValue")
-
-Wap.Name = "Anime"
-Wap.Value = true
-Wap.Parent = game:GetService("Players").LocalPlayer.Portals
-
-local Wap = Instance.new("BoolValue")
-
-Wap.Name = "Dinoland"
-Wap.Value = true
-Wap.Parent = game:GetService("Players").LocalPlayer.Portals
- end)
 CategoryVariableHere:Button("Get all chest",function()
 for _,v in pairs(game:GetService("Workspace").Chests:GetDescendants()) do
 if v:IsA("TouchTransmitter") then
@@ -285,7 +286,7 @@ CategoryVariableHere:Toggle( "Circus Egg",function(State)
 dek7 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek7 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Cgame:GetService("Workspace").Eggs["Circus Egg"].EggName.CFrame* CFrame.new(0,3,0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Circus Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Circus Egg",
     [5] = {
@@ -305,7 +306,7 @@ CategoryVariableHere:Toggle( "Plushie Egg",function(State)
 dek8 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek8 then game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Starter Egg"].EggName.CFrame* CFrame.new(0,3,0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Plushie Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Plushie Egg",
     [5] = {
