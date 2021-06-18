@@ -876,13 +876,14 @@ end end)
 CategoryVariableHere:Toggle("Auto Rebirth 1.7B",function(State)
 deku25 = State
 while deku25 do wait()
-game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(1700000000)
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(1770000000)
 end end)
 CategoryVariableHere:Toggle("Auto Rebirth 5.3B",function(State)
 deku26 = State
 while deku26 do wait()
-game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(5300000000)
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(5310000000)
 end end)
+
 local CategoryVariableHere= Lib:Category("Auto SuperRebirth")
 
 CategoryVariableHere:Toggle("Auto SuperRebirth 1",function(State)
