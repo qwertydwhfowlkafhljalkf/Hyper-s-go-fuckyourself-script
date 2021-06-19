@@ -144,6 +144,13 @@ game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Pet Stor
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Jump Boost")
 game:GetService("ReplicatedStorage").Events.UpgradeAction:InvokeServer("Auto Tapper")
 end end)
+CategoryVariableHere:Toggle("Auto Potion",function(State)
+deky = State
+while deky do wait()
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Taps")
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Gems")
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Luck")
+game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Speed") end end)
 CategoryVariableHere:Button("x2 Taps poton",function()
 game:GetService("ReplicatedStorage").Events.PotionAction:InvokeServer("x2 Taps")
 end)
