@@ -172,17 +172,13 @@ CategoryVariableHere:Dropdown("Select Ability",ab1,function(Selected) ab1 = Sele
 
 CategoryVariableHere:Toggle("Auto epithet",function(State)
 newpaper = State
-while newpaper do wait(1)
+while newpaper do wait(1) pcall(function()
 if game.Players.LocalPlayer.PlayerValues.Epithet.Value ~= ab3 then
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Newspaper")
 wait(2)
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == ("Newspaper") then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Newspaper)
 wait(2)
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end  end end)
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
 
 
 CategoryVariableHere:Dropdown("Select Title",ab3,function(Selected) ab3 = Selected end)
@@ -190,81 +186,66 @@ CategoryVariableHere:Dropdown("Select Title",ab3,function(Selected) ab3 = Select
 
 CategoryVariableHere:Toggle("Auto Race",function(State)
 Heart = State
-while Heart do wait(1)
+while Heart do wait(1) pcall(function()
 if game.Players.LocalPlayer.PlayerValues.Race.Value  ~= ab4 then
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Heart")
 wait(2)
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == ("Heart") then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Heart)
 wait(2)
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end  end end)
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
 
 CategoryVariableHere:Dropdown("Select Race",ab4,function(Selected) ab4 = Selected end)
 
 CategoryVariableHere:Toggle("Auto Trait",function(State)
 Heart1 = State
-while Heart1 do wait(1)
+while Heart1 do wait(1) pcall(function()
 if game.Players.LocalPlayer.PlayerValues.Trait.Value ~= ab6 then
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Eyeball")
 wait(2)
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == ("Eyeball") then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Eyeball)
 wait(2)
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end  end end)
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
 
 CategoryVariableHere:Dropdown("Select Trait",ab6,function(Selected) ab6 = Selected end)
 
 CategoryVariableHere:Toggle("Auto Class",function(State)
 Heart2 = State
-while Heart2 do wait(1)
+while Heart2 do wait(1) pcall(function()
 if game.Players.LocalPlayer.PlayerValues.Class.Value ~= ab7 then
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Brain")
 wait(2)
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == ("Brain") then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Brain)
 wait(2)
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end end)
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
 
 CategoryVariableHere:Dropdown("Select Class",ab7,function(Selected) ab7 = Selected end)
 
 CategoryVariableHere:Toggle("Auto Specialization",function(State)
 Heart3 = State
-while Heart3 do wait(1)
+while Heart3 do wait(1) pcall(function()
 if game.Players.LocalPlayer.PlayerValues.Specialization.Value ~= ab2 then
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Specialization")
 wait(2)
+
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
 if v.ClassName == "Tool" and v.Name == ("Devil Fruit") or v.Name == ("Scroll") then 
 v.Parent = game.Players.LocalPlayer.Character
 end
 end
 wait(2)
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end  end end)
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
 
 CategoryVariableHere:Dropdown("Select Specialization",ab2,function(Selected) ab2 = Selected end)
 
 CategoryVariableHere:Toggle("Auto Mentor",function(State)
 Heart4 = State
-while Heart4 do wait(1)
+while Heart4 do wait(1) pcall(function()
 if game.Players.LocalPlayer.PlayerValues.Mentor.Value ~= ab5 then    
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Mentor")
 wait(2)
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == ("Mentor Egg") then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Mentor Egg"))
 wait(2)
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end  end)
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end  end)
 
 CategoryVariableHere:Dropdown("Select Mentor",ab5,function(Selected) ab5 = Selected end)
 CategoryVariableHere:Toggle("Select Accessory1",function(State)
@@ -284,11 +265,7 @@ while Heart5 do wait(1)
 pcall(function()
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Armor")
 wait(3)
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == ("Bag") then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Bag"))
 wait(2)
 if game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab9 then
 game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
@@ -312,11 +289,7 @@ pcall(function()
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Accessory")
 
 wait(3)
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == ("Bag") then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
+fgame.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Bag"))
 wait(2)
 if game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab8 then
 game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end  
