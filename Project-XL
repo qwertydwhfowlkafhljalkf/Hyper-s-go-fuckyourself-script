@@ -242,9 +242,13 @@ Heart4 = State
 while Heart4 do wait(1) pcall(function()
 if game.Players.LocalPlayer.PlayerValues.Mentor.Value ~= ab5 then    
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Mentor")
-wait(2)
-game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Mentor Egg"))
-wait(2)
+wait(3)
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+if v.ClassName == "Tool" and v.Name == "Mentor Egg"  then 
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+wait(3)
 game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end  end)
 
 CategoryVariableHere:Dropdown("Select Mentor",ab5,function(Selected) ab5 = Selected end)
@@ -265,8 +269,12 @@ while Heart5 do wait(1)
 pcall(function()
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Armor")
 wait(3)
-game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Bag"))
-wait(2)
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+if v.ClassName == "Tool" and v.Name == "Bag"  then 
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+wait(3)
 if game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab9 then
 game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
 spawn(function()
@@ -289,7 +297,11 @@ pcall(function()
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Accessory")
 
 wait(3)
-fgame.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Bag"))
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
+if v.ClassName == "Tool" and v.Name == "Bag"  then 
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
 wait(2)
 if game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab8 then
 game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end  
