@@ -610,7 +610,7 @@ dek18 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek18 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Spirit Egg"].EggName.CFrame* CFrame.new(0,3,0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["15M Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "15M Egg",
     [5] = {
