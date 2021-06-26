@@ -264,26 +264,21 @@ game:GetService("ReplicatedStorage").RemoteEvents.EquipAccessoryRemote:FireServe
 end end)
 CategoryVariableHere:Toggle("Auto Armor",function(State)
 Heart5 = State
-spawn(function()
-while Heart5 do wait(1)
+
+while Heart5 do wait(2)
 pcall(function()
+    if  game:GetService("Players").LocalPlayer.PlayerValues.Armor.Value ~= ab9 then
+    wait(2)
 game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Armor")
 wait(3)
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v:FindFirstChild("Bag")  then 
+if v.ClassName == "Tool" and v:FindFirstChild("Handle")  then 
 v.Parent = game.Players.LocalPlayer.Character
 end
 end
 wait(3)
-if game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab9 then
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end) end end)
-spawn(function()
-while Heart5 do wait()
-pcall(function()
-if  not game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab9 then
-game:GetService("ReplicatedStorage").RemoteEvents.ClearBagsRemote:FireServer()
-end end) end   end) 
-end)
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer()end end)  end end)
+
 
 
 
@@ -291,28 +286,23 @@ CategoryVariableHere:Dropdown("Select Armor",ab9,function(Selected) ab9 = Select
 
 CategoryVariableHere:Toggle("Auto Accessory",function(State)
 Heart2 = State
-spawn(function()
-while Heart2 do wait(1)
-pcall(function()
-game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Accessory")
 
+while Heart2 do wait(2)
+pcall(function()
+if game:GetService("Players").LocalPlayer.PlayerValues.Accessory1.Value and game:GetService("Players").LocalPlayer.PlayerValues.Accessory2.Value ~= ab8  then
+wait(2)
+game:GetService("ReplicatedStorage").RemoteEvents.BuyItemRemote:FireServer("Random Accessory")
 wait(3)
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v:FindFirstChild("Bag")  then 
+if v.ClassName == "Tool" and v:FindFirstChild("BagPart")  then 
 v.Parent = game.Players.LocalPlayer.Character
 end
 end
 wait(2)
-if game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab8 then
-game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end  
-end) end end)
 
-spawn(function()
-while Heart2 do wait()
-pcall(function()
-if  not game:GetService("Players").LocalPlayer.Backpack.Bag.BagPart.Overhead.ItemName.Text ~= ab8 then
-game:GetService("ReplicatedStorage").RemoteEvents.ClearBagsRemote:FireServer()
-end end)  end   end) end) 
+game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer() end end)  end end)
+
+
 CategoryVariableHere:Dropdown("Select Accessory",ab8,function(Selected) ab8 = Selected end)
 
 
