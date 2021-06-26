@@ -4,24 +4,20 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
    wait(1)
    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
-local args = {
-    [1] = "Auto-Equip Next Bug",
-    [2] = false
-}
-game:GetService("ReplicatedStorage").Remotes.Settings:FireServer(unpack(args))
-local args = {
-    [1] = "Bug",
-    [2] = "1"
-}
-game:GetService("ReplicatedStorage").Remotes.Equip:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Remotes.Settings:FireServer("Auto-Equip Next Bug",false)
+game:GetService("ReplicatedStorage").Remotes.Equip:FireServer("Bug","1")
 local Lib = loadstring(game:HttpGet("https://pastebin.com/raw/GaRF4FDA"))()
 local CategoryVariableHere = Lib:Category("Little world")
 CategoryVariableHere:Toggle("Dummy farm",function(State) 
 wiggle = State
-while wiggle do wait(0.1)
-game.ReplicatedStorage.Remotes.Attack:FireServer()
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(718.629333, 66.9938507, -1205.4762)
-end end)
+game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
+if wiggle then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").TownEXPSources.CaveTownDummy.DummyHitbox.CFrame
+game:GetService("ReplicatedStorage").Remotes.Attack:FireServer(workspace.TownEXPSources.CaveTownDummy.DummyHitbox)
+
+end end) end) end)
 CategoryVariableHere:Button("Remove Useless stuff",function()
 game:GetService("Workspace").Map:remove()
 end)
@@ -34,12 +30,17 @@ player.Character.HumanoidRootPart.CustomName:remove() end) end)
 CategoryVariableHere:Toggle("Hold Flag",function(State) 
 wiggle1 = State
 game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
 if wiggle1 then
-game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Flags.Flag.Area.CFrame end end) end)
+for _,v in pairs(game:GetService("Workspace").Flags:GetDescendants()) do
+if v:IsA("TouchTransmitter") then
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+end
+end end end) end) end)
 CategoryVariableHere:Toggle("Grab Fruit Possible kick",function(State) 
 wiggle2 = State
 while wiggle2 do
+pcall(function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                 game:GetService("Workspace").FoodObjects.Blueberry.CFrame
             wait(4)
@@ -48,61 +49,76 @@ while wiggle2 do
             wait(4)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                 game:GetService("Workspace").FoodObjects.Cherry.CFrame
-            wait(4)
+            wait(4) end)
 end end)
 CategoryVariableHere:Toggle("Go to common chest",function(State)
 wiggle3 = State
 game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
 if wiggle3 then   
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
 game:GetService("Workspace").Chests.Common.ChestHitbox.CFrame
-game.ReplicatedStorage.Remotes.Attack:FireServer() end end) end)
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Chests.Common.ChestHitbox) end end) end) end)
 
 CategoryVariableHere:Toggle("Go to Epic chest",function(State)
 wiggle4 = State
 game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
 if wiggle4 then
 if game:GetService("Workspace").Chests.Epic.ChestHitbox then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
 game:GetService("Workspace").Chests.Epic.ChestHitbox.CFrame
-game.ReplicatedStorage.Remotes.Attack:FireServer()
-end  end end) end)
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Chests.Epic.ChestHitbox)
+end  end end)  end) end)
 
 
 
 CategoryVariableHere:Toggle("Go to Legendary chest",function(State)
 wiggle6 = State
 game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
 if wiggle6 then
 if game:GetService("Workspace").Chests.Legendary.ChestHitbox then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
 game:GetService("Workspace").Chests.Legendary.ChestHitbox.CFrame
-game.ReplicatedStorage.Remotes.Attack:FireServer()
-end  end end) end)
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Chests.Legendary.ChestHitbox)
+end  end end)  end) end)
 
 CategoryVariableHere:Toggle("Autofarm Frog",function(State)
 wiggle7 = State
 game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
 if wiggle7 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 if game:GetService("Workspace").Bosses.Bosses.Frog.Frog then
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
 game:GetService("Workspace").Bosses.Bosses.Frog.Frog.CFrame
-game.ReplicatedStorage.Remotes.Attack:FireServer()
-end  end end) end)
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Bosses.Bosses.Frog.Frog)
+end  end end) end) end)
 
 CategoryVariableHere:Toggle("Autofarm Rat",function(State)
 wiggle8 = State
 game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
 if wiggle8 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 if game:GetService("Workspace").Bosses.Bosses.Rat.Rat then
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Bosses.Bosses.Rat.Rat.CFrame
-game.ReplicatedStorage.Remotes.Attack:FireServer()
-end  end end) end)
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Bosses.Bosses.Rat.Rat)
+end  end end) end) end)
+CategoryVariableHere:Toggle("Autofarm Spider",function(State)
+wiggle9 = State
+game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
+if wiggle9 then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+if game:GetService("Workspace").Bosses.Bosses.Spider.HumanoidRootPart then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Bosses.Bosses.Spider.HumanoidRootPart.CFrame
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Bosses.Bosses.Spider.BossHitbox)
+end  end end) end) end)
 
 CategoryVariableHere:Button("Lag Switch F3",function()
 local a = false
@@ -197,7 +213,7 @@ CategoryVariableHere:Label("Credits to a r q for ui liba")
 CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload()
 
-wait(20)
+
 game.StarterGui:SetCore("SendNotification", {
 			Title = "Credits",
 			Text = "CharWar severhops",
