@@ -509,6 +509,12 @@ CategoryVariableHere:Button("Rejoin",function()
 local ts = game:GetService("TeleportService")
 local p = game:GetService("Players").LocalPlayer
 ts:Teleport(game.PlaceId, p) end)
+CategoryVariableHere:Label("Exusive feature Fire Breath needed")
+CategoryVariableHere:Toggle("Infinite Dragons Fire Breath",function(State)
+Hear = State
+while Hear do wait(0.2) pcall(function()
+game:GetService("ReplicatedStorage").RemoteEvents.BreatheFireRemote:FireServer(false,Vector3.new(nil),CFrame.new(Vector3.new(nil), Vector3.new(nil)),1,Vector3.new(nil))
+end) end end)
 local CategoryVariableHere= Lib:Category("Auto Quests")
 CategoryVariableHere:Toggle("Auto Quest Bandits 10",function(State)
 Bandits = State
