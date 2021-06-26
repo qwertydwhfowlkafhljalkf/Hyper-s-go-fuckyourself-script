@@ -87,6 +87,20 @@ game:GetService("Workspace").Chests.Legendary.ChestHitbox.CFrame
 game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Chests.Legendary.ChestHitbox)
 end  end end)  end) end)
 
+
+
+CategoryVariableHere:Toggle("Go to Mythic chest",function(State)
+wiggle19 = State
+game:GetService('RunService').RenderStepped:connect(function()
+pcall(function()
+if wiggle6 then
+if game:GetService("Workspace").Chests.Mythic.ChestHitbox then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame =
+game:GetService("Workspace").Chests.Mythic.ChestHitbox.CFrame
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Chests.Mythic.ChestHitbox)
+end  end end)  end) end)
+
 CategoryVariableHere:Toggle("Autofarm Frog",function(State)
 wiggle7 = State
 game:GetService('RunService').RenderStepped:connect(function()
