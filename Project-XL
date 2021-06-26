@@ -645,7 +645,7 @@ pcall(function()
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,Vector3.new(0,0,0),CFrame.new(Vector3.new(0,0,0), Vector3.new(0,0,0)))
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
-for i,v in pairs(game:GetService("Workspace").Live["Agni's Overseers"]:GetDescendants()) do
+for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Agni's Overseer" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Head.CFrame 
 wait(0.2)
