@@ -626,6 +626,27 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
+CategoryVariableHere:Toggle( "Ultra Anime Eggd",function(State)
+dek18 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek18 then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Ultra Anime Egg"].EggName.CFrame* CFrame.new(0,3,0)
+local args = {
+    [1] = "Ultra Anime Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
 local CategoryVariableHere= Lib:Category("Music")
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
@@ -951,8 +972,16 @@ deku28 = State
 while deku28 do wait()
 game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(50000000000)
 end end)
-
-
+CategoryVariableHere:Toggle("Auto Rebirth 250B",function(State)
+deku29 = State
+while deku29 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(250000000000)
+end end)
+CategoryVariableHere:Toggle("Auto Rebirth 500B",function(State)
+deku30 = State
+while deku30 do wait()
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(500000000000)
+end end)
 local CategoryVariableHere= Lib:Category("Auto SuperRebirth")
 
 CategoryVariableHere:Toggle("Auto SuperRebirth 1",function(State)
