@@ -1,13 +1,13 @@
 repeat wait() until game:IsLoaded() wait(2)
-pcall(function()
 local ID = {}
+pcall(function()
   ID = game:GetService("HttpService"):JSONDecode(readfile('codes.json'))
+end)
+
 for i,v in pairs(game.Players:GetPlayers()) do
   table.insert(ID, v.statz.ps.mycode.Value)
 end
 writefile('codes.json', game:GetService("HttpService"):JSONEncode(ID))
-
-end)
 wait(5) 
 local PlaceID = game.PlaceId
 local AllIDs = {}
