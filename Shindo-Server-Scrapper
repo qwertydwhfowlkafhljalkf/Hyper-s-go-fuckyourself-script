@@ -3,11 +3,11 @@ local ID = {}
 pcall(function()
   ID = game:GetService("HttpService"):JSONDecode(readfile('codes.json'))
 end)
-
+ pcall(function()
 for i,v in pairs(game.Players:GetPlayers()) do
   table.insert(ID, v.statz.ps.mycode.Value)
   table.sort(ID)
-end
+end end)
 writefile('codes.json', game:GetService("HttpService"):JSONEncode(ID))
 wait(5) 
 local PlaceID = game.PlaceId
