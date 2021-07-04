@@ -6,6 +6,7 @@ end)
 
 for i,v in pairs(game.Players:GetPlayers()) do
   table.insert(ID, v.statz.ps.mycode.Value)
+  table.sort(ID)
 end
 writefile('codes.json', game:GetService("HttpService"):JSONEncode(ID))
 wait(5) 
