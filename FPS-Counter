@@ -1,0 +1,32 @@
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.Position = UDim2.new(0.876759946, 0, -3.7252903e-09, 0)
+TextLabel.Size = UDim2.new(0, 83, 0, 22)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+TextLabel.TextXAlignment = Enum.TextXAlignment.Right
+
+-- Scripts:
+
+local function script() -- TextLabel.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel)
+
+	local RunService = game:GetService("RunService")
+	RunService.RenderStepped:Connect(function(frame) -- This will fire every time a frame is rendered
+		script.Parent.Text = ("FPS:"..math.round(1/frame)) 
+	end)
+end
+coroutine.wrap(script)()
