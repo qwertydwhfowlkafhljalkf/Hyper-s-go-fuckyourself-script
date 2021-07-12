@@ -191,6 +191,7 @@ game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("r7u55o")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("SORRY")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("SUPERREBIRTH")
 game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("15MILLION")
+game:GetService("ReplicatedStorage").Events.CodeEvent:FireServer("20Million")
 end)
 CategoryVariableHere:Button("Get all chest",function()
 for _,v in pairs(game:GetService("Workspace").Chests:GetDescendants()) do
@@ -626,7 +627,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
 end end) end)
-CategoryVariableHere:Toggle( "Ultra Anime Eggd",function(State)
+CategoryVariableHere:Toggle( "Ultra Anime Egg",function(State)
 dek18 = State
 game:GetService('RunService').Stepped:connect(function()
 if dek18 then
@@ -634,6 +635,27 @@ game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["Ultra Anime Egg"].EggName.CFrame* CFrame.new(0,3,0)
 local args = {
     [1] = "Ultra Anime Egg",
+    [5] = {
+        ["Legendary"] = false,
+        ["Godly"] = false,
+        ["Common"] = false,
+        ["Epic"] = false,
+        ["Rare"] = false,
+        ["Uncommon"] = false,
+        ["Secret"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.OpenEgg:FireServer(unpack(args))
+end end) end)
+CategoryVariableHere:Toggle( "20M Egg",function(State)
+dek19 = State
+game:GetService('RunService').Stepped:connect(function()
+if dek19 then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Eggs["20M Egg"].EggName.CFrame* CFrame.new(0,3,0)
+local args = {
+    [1] = "20M Egg",
     [5] = {
         ["Legendary"] = false,
         ["Godly"] = false,
