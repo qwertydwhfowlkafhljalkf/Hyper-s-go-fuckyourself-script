@@ -25,5 +25,5 @@ TextLabel.TextXAlignment = Enum.TextXAlignment.Right
 local script = Instance.new('LocalScript', TextLabel)
 local RunService = game:GetService("RunService")
 RunService.RenderStepped:Connect(function(frame) -- This will fire every time a frame is rendered
-script.Parent.Text = ("FPS:"..math.round(1/frame)) 
+script.Parent.Text = ("FPS: "..math.round(1/frame)) 
 end)
