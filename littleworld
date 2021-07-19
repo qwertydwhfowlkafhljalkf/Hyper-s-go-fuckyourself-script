@@ -1,3 +1,13 @@
+local mt = getrawmetatable(game)
+setreadonly(mt,false)
+oldindex = mt.__index
+mt.__index = newcclosure(function(t,...)
+    local args = {...}
+    if tostring(t) == "Sent" or tostring(t) == "Received"   then 
+        return nil
+    end
+    return oldindex(t,unpack(args))
+end)
 local Meta = getrawmetatable(game)
 local NewIndex = Meta.__newindex
 setreadonly(Meta, false)
@@ -9,12 +19,6 @@ Meta.__newindex = newcclosure(function(t, k, ...)
    NewIndex(t, k, ...)
 end)
 setreadonly(Meta, true)
-local vu = game:GetService("VirtualUser")
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-   wait(1)
-   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
 game:GetService("ReplicatedStorage").Remotes.Settings:FireServer("Auto-Equip Next Bug",false)
 game:GetService("ReplicatedStorage").Remotes.Equip:FireServer("Bug","1")
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/IMRETARDED"))()
@@ -146,15 +150,15 @@ game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Bo
 end  end end) end) end)
 
 
-CategoryVariableHere:Toggle("Autofarm AmericanEagle",function(State)
+CategoryVariableHere:Toggle("Autofarm Phoenix",function(State)
 wiggle9 = State
 game:GetService('RunService').RenderStepped:connect(function()
 pcall(function()
 if wiggle9 then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-if game:GetService("Workspace").Bosses.Bosses.AmericanEagle.AmericanEagle then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Bosses.Bosses.AmericanEagle.AmericanEagle.CFrame
-game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Bosses.Bosses.AmericanEagle.AmericanEagle)
+if game:GetService("Workspace").Bosses.Bosses["Phoenix Boss"].PhoenixBoss then
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Bosses.Bosses["Phoenix Boss"].PhoenixBoss.CFrame
+game.ReplicatedStorage.Remotes.Attack:FireServer(game:GetService("Workspace").Bosses.Bosses["Phoenix Boss"].PhoenixBoss)
 end  end end) end) end)
 CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
 CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
