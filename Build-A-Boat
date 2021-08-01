@@ -307,3 +307,11 @@ CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 CategoryVariableHere:Label("Autofarm forever respawns you to pervent stopping")
 local args = { [1] = true } workspace.RefreshLocks:FireServer(unpack(args))
 Lib:Reload()
+ game.StarterGui:SetCore("SendNotification", {
+Title = "Warning";
+Text = "RightShift to toggle";
+})
+game.StarterGui:SetCore("SendNotification", {
+Title = "Credis";
+Text = "CharWar Serverhops Toxic Mods screen thingy";
+})
