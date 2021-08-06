@@ -61,7 +61,10 @@ end
 end
 game:GetService('RunService').Stepped:connect(function()
 pcall(function()
-setsimulationradius(math.huge,math.huge) end) end)
+setsimulationradius(math.huge,math.huge)
+setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
+game.Players.LocalPlayer.SimulationRadius = math.huge * math.huge, math.huge * math.huge * 1 / 0 * 1 / 0 * 1 / 0 * 1 / 0 * 1 / 0
+end) end)
 local Lib = loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/IMRETARDED'))()
 local CategoryVariableHere= Lib:Category("Project XL")
 system = {'Bandit',"Agni's Overseer","Agni's Minion","Lars' Minion","Lars' Overseer","Rahgan's Minion","Rahgan's Overseer"}
