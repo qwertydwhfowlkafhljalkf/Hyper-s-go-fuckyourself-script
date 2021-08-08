@@ -1,0 +1,238 @@
+local Config = {
+    WindowName = "V.G Hub",
+	Color = Color3.fromRGB(255,128,64),
+	Keybind = Enum.KeyCode.RightShift
+}
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/im-retarded-3"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab1 = Window:CreateTab("Dungeon Quest")
+local Tab2 = Window:CreateTab("UI Settings")
+
+local Section1 = Tab1:CreateSection("")
+local Section2 = Tab1:CreateSection("")
+local Section3 = Tab2:CreateSection("Menu")
+local Section4 = Tab2:CreateSection("Background")
+local Button1 = Section1:CreateButton("Start Dungeon", function()
+game:GetService("ReplicatedStorage").remotes.changeStartValue:FireServer()
+end)
+
+local Button1 = Section1:CreateButton("HideName SS", function()
+game:GetService('RunService').Stepped:connect(function()
+pcall(function()
+game.Players.LocalPlayer.Character.playerNameplate:remove() end) end) end)
+local Toggle1 = Section1:CreateToggle("Kill Aura", nil, function(State)
+n1 = State
+local ClientSidedMobs = {
+['Sand Peasant'] = true,
+['Sand Giant']= true,
+['Frost Minion'] = true,
+['Frost Wizard'] = true,
+['Ice Minion'] = true,
+['Pirate Savage'] = true,
+['Pirate Rifleman'] = true,
+['Infected Pirate'] = true,
+["King's Guard"] = true,
+['Elementalist'] = true,
+['Hitman'] = true,
+['Demon Warrior'] = true,
+['Dark Mage'] = true,
+['Elder Dark Mage'] = true,
+['Blood Minions'] = true,
+['Samurai Swordsman'] = true,
+['Shuriken Thrower'] = true,
+['Ultimate Swordsman'] = true,
+['Sanada Yukimura'] = true,
+['Ancient Golem Guardian'] = true,
+['Bodyguard'] = true,
+['Dark Magician'] = true,
+['Unknown Minion'] = true,
+['Raider'] = true,
+['Harpoon Gunner'] = true,
+['Burly Enforcer'] = true,
+['Cannon Crab'] = true,
+['Fighter Bot'] = true,
+['Cog Shooter'] = true,
+['Hammer Bot'] = true,
+['Spinner Bot'] = true,
+['Hologram Assassin'] = true,
+['Hologram Warrior'] = true,
+['Scout Drone'] = true,
+['Electric Tower'] = true,
+['Aggressive Lava Walker'] = true,
+['Explosive Lava Walker'] = true,
+['Artillery Lava Walker'] = true,
+['Temple Spirit'] = true,
+['Defensive Cube Pylon'] = true,
+['Defensive Pyramid Pylon'] = true,
+}
+game:GetService('RunService').Stepped:connect(function()
+pcall(function()
+if n1 then
+setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
+setsimulationradius(50,50)
+end end) end)
+
+game:GetService('RunService').Stepped:connect(function()
+if n1 then
+for i, v in next, game.workspace.dungeon:GetChildren() do
+if v:FindFirstChild("enemyFolder") and v.enemyFolder:FindFirstChildOfClass("Model") then
+for a, x in next, v.enemyFolder:GetChildren() do
+if x:IsA("Model") and x:FindFirstChild("HumanoidRootPart") and x:FindFirstChild("Humanoid") then
+if ClientSidedMobs[x.Name] and x:FindFirstChild("enemyStyle") then 
+if isnetworkowner(x.HumanoidRootPart) then
+x.Humanoid.Health = 0
+end
+end
+end
+end
+end
+end 
+end
+end)
+end)
+local Toggle1 = Section1:CreateToggle("Kill All", nil, function(State)
+n2 = State
+local ClientSidedMobs = {
+['Sand Peasant'] = true,
+['Sand Giant']= true,
+['Frost Minion'] = true,
+['Frost Wizard'] = true,
+['Ice Minion'] = true,
+['Pirate Savage'] = true,
+['Pirate Rifleman'] = true,
+['Infected Pirate'] = true,
+["King's Guard"] = true,
+['Elementalist'] = true,
+['Hitman'] = true,
+['Demon Warrior'] = true,
+['Dark Mage'] = true,
+['Elder Dark Mage'] = true,
+['Blood Minions'] = true,
+['Samurai Swordsman'] = true,
+['Shuriken Thrower'] = true,
+['Ultimate Swordsman'] = true,
+['Sanada Yukimura'] = true,
+['Ancient Golem Guardian'] = true,
+['Bodyguard'] = true,
+['Dark Magician'] = true,
+['Unknown Minion'] = true,
+['Raider'] = true,
+['Harpoon Gunner'] = true,
+['Burly Enforcer'] = true,
+['Cannon Crab'] = true,
+['Fighter Bot'] = true,
+['Cog Shooter'] = true,
+['Hammer Bot'] = true,
+['Spinner Bot'] = true,
+['Hologram Assassin'] = true,
+['Hologram Warrior'] = true,
+['Scout Drone'] = true,
+['Electric Tower'] = true,
+['Aggressive Lava Walker'] = true,
+['Explosive Lava Walker'] = true,
+['Artillery Lava Walker'] = true,
+['Temple Spirit'] = true,
+['Defensive Cube Pylon'] = true,
+['Defensive Pyramid Pylon'] = true,
+}
+game:GetService('RunService').Stepped:connect(function()
+pcall(function()
+if n2 then
+setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
+setsimulationradius(math.huge,math.huge)
+end end) end)
+
+game:GetService('RunService').Stepped:connect(function()
+if n2 then
+for i, v in next, game.workspace.dungeon:GetChildren() do
+if v:FindFirstChild("enemyFolder") and v.enemyFolder:FindFirstChildOfClass("Model") then
+for a, x in next, v.enemyFolder:GetChildren() do
+if x:IsA("Model") and x:FindFirstChild("HumanoidRootPart") and x:FindFirstChild("Humanoid") then
+if ClientSidedMobs[x.Name] and x:FindFirstChild("enemyStyle") then 
+if isnetworkowner(x.HumanoidRootPart) then
+x.Humanoid.Health = 0
+end
+end
+end
+end
+end
+end 
+end
+end)
+end)
+
+local Toggle1 = Section1:CreateToggle("AutoSpells", nil, function(State)
+AutoUseAbilities = State
+game:GetService("RunService").Heartbeat:Connect(function()
+pcall(function()
+if AutoUseAbilities then 
+for i, v in next, game:GetService("Players").LocalPlayer.Backpack:GetChildren() do 
+if v.cooldown.Value <= 0 then
+local Event = v:FindFirstChildOfClass("RemoteEvent")
+if Event then 
+Event:FireServer()
+end
+end
+end
+end
+end)
+end)
+end)
+
+local Slider2 = Section1:CreateSlider("WalkSpeed", 5,32,nil,false, function(Value)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+end)
+local Toggle3 = Section3:CreateToggle("UI Toggle", nil, function(State)
+	Window:Toggle(State)
+end)
+Toggle3:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+	Config.Keybind = Enum.KeyCode[Key]
+end)
+Toggle3:SetState(true)
+Section3:CreateLabel("Credits DekuDimz#7960")
+Section3:CreateLabel("Credits AlexR32#3232 Ui")
+local Colorpicker3 = Section3:CreateColorpicker("UI Color", function(Color)
+	Window:ChangeColor(Color)
+end)
+Colorpicker3:UpdateColor(Config.Color)
+-- credits to jan for patterns
+local Dropdown3 = Section4:CreateDropdown("Image")
+local Option7 = Dropdown3:AddOption("Default", function(String)
+	Window:SetBackground("2151741365")
+end)
+local Option8 = Dropdown3:AddOption("Hearts", function(String)
+	Window:SetBackground("6073763717")
+end)
+local Option9 = Dropdown3:AddOption("Abstract", function(String)
+	Window:SetBackground("6073743871")
+end)
+local Option10 = Dropdown3:AddOption("Hexagon", function(String)
+	Window:SetBackground("6073628839")
+end)
+local Option11 = Dropdown3:AddOption("Circles", function(String)
+	Window:SetBackground("6071579801")
+end)
+local Option12 = Dropdown3:AddOption("Lace With Flowers", function(String)
+	Window:SetBackground("6071575925")
+end)
+local Option13 = Dropdown3:AddOption("Floral", function(String)
+	Window:SetBackground("5553946656")
+end)
+Option7:SetOption()
+
+local Colorpicker4 = Section4:CreateColorpicker("Color", function(Color)
+	Window:SetBackgroundColor(Color)
+end)
+Colorpicker4:UpdateColor(Color3.new(1,1,1))
+
+local Slider3 = Section4:CreateSlider("Transparency",0,1,nil,false, function(Value)
+	Window:SetBackgroundTransparency(Value)
+end)
+Slider3:SetValue(0)
+
+local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
+	Window:SetTileScale(Value)
+end)
+Slider4:SetValue(0.5)
