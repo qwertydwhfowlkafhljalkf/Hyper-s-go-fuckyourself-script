@@ -651,7 +651,7 @@ game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(f
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == 'Bandit'  and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-4,0) 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-5,0) 
 wait(0.3)
 c()
 wait(0.3)
@@ -691,7 +691,7 @@ game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(f
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Agni's Minion"  and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-4,0) 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-5,0)  
 wait(0.3)
 c()
 wait(0.3)
@@ -730,7 +730,7 @@ game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(f
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Lars' Minion" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-4,0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-5,0) 
 wait(0.3)
 c()
 wait(0.3)
@@ -768,7 +768,7 @@ game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(f
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Rahgan's Minion" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-4,0) 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-5,0) 
 wait(0.3)
 c()
 wait(0.3)
@@ -805,7 +805,7 @@ game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(f
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Agni's Overseer" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-5,0) 
 wait(0.3)
 c()
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
@@ -841,7 +841,7 @@ game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(f
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Lars' Overseer" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-4,0) 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-5,0) 
 wait(0.3)
 c()
 wait(0.3)
@@ -880,7 +880,7 @@ game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(f
 if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == true then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Rahgan's Overseer"  and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-4,0) 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,-5,0) 
 wait(0.3)
 c()
 wait(0.3)
