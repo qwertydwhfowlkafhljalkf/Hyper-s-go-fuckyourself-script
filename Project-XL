@@ -31,7 +31,7 @@ ScreenGui:Destroy()
 local Config = {
     WindowName = "V.G Hub",
 	Color = Color3.fromRGB(255,128,64),
-	Keybind = Enum.KeyCode.RightShift
+	Keybind = Enum.KeyCode.RightControl
 }
 repeat wait() until game:IsLoaded() wait(2)
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -1038,9 +1038,10 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 end)
 Slider4:SetValue(0.5)
 
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
-Text = "RightShift to toggle";
+Text = "RightControl to toggle";
 })
 game.StarterGui:SetCore("SendNotification", {
 Title = "Credits";
