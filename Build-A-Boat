@@ -309,7 +309,7 @@ local args = { [1] = true } workspace.RefreshLocks:FireServer(unpack(args))
 Lib:Reload()
  game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
-Text = "RightShift to toggle";
+Text = "RightControl to toggle";
 })
 game.StarterGui:SetCore("SendNotification", {
 Title = "Credis";
