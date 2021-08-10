@@ -985,7 +985,7 @@ CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
 Lib:Reload() end
  game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
-Text = "RightShift to toggle";
+Text = "RightControl to toggle";
 })
 game.StarterGui:SetCore("SendNotification", {
 Title = "Credis";
