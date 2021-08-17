@@ -15,7 +15,7 @@ end
 game.Players.PlayerAdded:Connect(function(player)
 if getUserRole(player, 2919215) == "📝Tester" or getUserRole(player, 2919215) == "❤️Contributor"  
 or  getUserRole(player, 2919215) == "📣Staff" or getUserRole(player, 2919215) == "💎Administrator" or getUserRole(player, 2919215) == "🔧Other Developer" or
-getUserRole(player, 2919215) == "🛠️Developer" or getUserRole(player, 2919215) == "👑Co-Owner" or  getUserRole(player, 2919215) == "👑Owner" -- keeps the bad guys out
+getUserRole(player, 2919215) == "🛠️Developer" or getUserRole(player, 2919215) == "👑Co-Owner" or  getUserRole(player, 2919215) == "👑Owner" 
 then
 fuckyou() 
 end
@@ -128,7 +128,7 @@ Text = "Wait just two seconds im getting everything in check for you";
 repeat wait() until game.Players.LocalPlayer.Character wait()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(90, 245, -397)
 
-local Toggle1 = Section1:CreateToggle("Auto Collect", nil, function(State)
+local Toggle1 = Section1:CreateToggle("Auto Collect Solstice", nil, function(State)
 sw1 = State
 spawn(function()
 game:GetService('RunService').Stepped:connect(function()
