@@ -33,11 +33,6 @@ local Config = {
 	Color = Color3.fromRGB(255,128,64),
 	Keybind = Enum.KeyCode.RightControl
 }
-local Config = {
-    WindowName = "V.G Hub",
-	Color = Color3.fromRGB(255,128,64),
-	Keybind = Enum.KeyCode.RightControl
-}
 repeat wait() until game:IsLoaded() wait()
 game:GetService("Players").LocalPlayer.Idled:connect(function()
 game:GetService("VirtualUser"):ClickButton2(Vector2.new())
@@ -156,6 +151,7 @@ game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2846, 334, 2919)
 game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9,9e9))
 end end) end)
+c()
 game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function()
 if Legit then
 wait(3)
