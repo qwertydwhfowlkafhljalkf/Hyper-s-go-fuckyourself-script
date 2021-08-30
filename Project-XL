@@ -242,8 +242,8 @@ while wait(2) do
 pcall(function()
 if stun then
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
-if v:IsA("Part") and v.Name == "HumanoidRootPart" then
-v.Anchored = true
+if v:FindFirstChild("Humanoid") then
+v.Humanoid.PlatformStand = true
 end end end end) end end)
 local Toggle1 = Section1:CreateToggle("Auto Bosses", nil, function(State)
 system3 = State
@@ -1236,7 +1236,6 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
-
 
 
 game.StarterGui:SetCore("SendNotification", {
