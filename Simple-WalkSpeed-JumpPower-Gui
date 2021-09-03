@@ -28,7 +28,7 @@ WalkSpeed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 WalkSpeed.Position = UDim2.new(0.601749778, 0, 0.654571831, 0)
 WalkSpeed.Size = UDim2.new(0, 200, 0, 50)
 WalkSpeed.Font = Enum.Font.SourceSans
-WalkSpeed.Text = ""
+WalkSpeed.Text = "16"
 WalkSpeed.TextColor3 = Color3.fromRGB(255, 255, 255)
 WalkSpeed.TextSize = 14.000
 spawn(function()
@@ -51,7 +51,7 @@ JumpPower.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 JumpPower.Position = UDim2.new(0.601749778, 0, 0.719235659, 0)
 JumpPower.Size = UDim2.new(0, 200, 0, 59)
 JumpPower.Font = Enum.Font.SourceSans
-JumpPower.Text = ""
+JumpPower.Text = "50"
 JumpPower.TextColor3 = Color3.fromRGB(255, 255, 255)
 JumpPower.TextSize = 14.000
 spawn(function()
