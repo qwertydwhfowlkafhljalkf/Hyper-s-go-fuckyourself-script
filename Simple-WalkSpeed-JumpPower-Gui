@@ -1,0 +1,86 @@
+
+local screen = Instance.new("ScreenGui")
+local WalkSpeed = Instance.new("TextBox")
+local Walk = Instance.new("TextLabel")
+local JumpPower = Instance.new("TextBox")
+local Jump = Instance.new("TextLabel")
+
+--Properties:
+spawn(function()
+for i = 1 , math.huge do wait()
+screen.Name = game:GetService("HttpService"):GenerateGUID(false)
+end end)
+if syn and syn.protect_gui then
+syn.protect_gui(screen)
+screen.Parent = game.CoreGui
+elseif hiddenUI then
+screen.Parent = hiddenUI()
+else
+screen.Parent = game.CoreGui
+end 
+screen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+spawn(function()
+for i = 1 , math.huge do wait()
+WalkSpeed.Name = game:GetService("HttpService"):GenerateGUID(false)
+end end)
+WalkSpeed.Parent = screen
+WalkSpeed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+WalkSpeed.Position = UDim2.new(0.601749778, 0, 0.654571831, 0)
+WalkSpeed.Size = UDim2.new(0, 200, 0, 50)
+WalkSpeed.Font = Enum.Font.SourceSans
+WalkSpeed.Text = ""
+WalkSpeed.TextColor3 = Color3.fromRGB(255, 255, 255)
+WalkSpeed.TextSize = 14.000
+spawn(function()
+for i = 1 , math.huge do wait()
+Walk.Name = game:GetService("HttpService"):GenerateGUID(false)
+end end)
+Walk.Parent = WalkSpeed
+Walk.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Walk.Size = UDim2.new(0, 200, 0, 11)
+Walk.Font = Enum.Font.SourceSans
+Walk.Text = "WalkSpeed"
+Walk.TextColor3 = Color3.fromRGB(255, 255, 255)
+Walk.TextSize = 14.000
+spawn(function()
+for i = 1 , math.huge do wait()
+JumpPower.Name = game:GetService("HttpService"):GenerateGUID(false)
+end end)
+JumpPower.Parent = screen
+JumpPower.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+JumpPower.Position = UDim2.new(0.601749778, 0, 0.719235659, 0)
+JumpPower.Size = UDim2.new(0, 200, 0, 59)
+JumpPower.Font = Enum.Font.SourceSans
+JumpPower.Text = ""
+JumpPower.TextColor3 = Color3.fromRGB(255, 255, 255)
+JumpPower.TextSize = 14.000
+spawn(function()
+for i = 1 , math.huge do wait()
+Jump.Name = game:GetService("HttpService"):GenerateGUID(false)
+end end)
+Jump.Parent = JumpPower
+Jump.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Jump.Size = UDim2.new(0, 200, 0, 11)
+Jump.Font = Enum.Font.SourceSans
+Jump.Text = "JumpPower"
+Jump.TextColor3 = Color3.fromRGB(255, 255, 255)
+Jump.TextSize = 14.000
+
+spawn(function()
+local script = Instance.new('LocalScript', WalkSpeed)
+for i = 1 , math.huge do wait()
+script.Name = game:GetService("HttpService"):GenerateGUID(false)
+end end)
+spawn(function()
+while wait() do
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeed.Text
+end  end)
+spawn(function()
+local script = Instance.new('LocalScript', JumpPower)
+for i = 1 , math.huge do wait()
+script.Name = game:GetService("HttpService"):GenerateGUID(false)
+end end)
+spawn(function()
+while wait() do
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = JumpPower.Text
+end end) 
