@@ -1,4 +1,5 @@
-
+setfflag("HumanoidParallelRemoveNoPhysics", "False")
+setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")-- thanks panda ily :flushed:
 local blur = Instance.new("BlurEffect", game.Lighting)
 blur.Size = 0
 local ScreenGui = Instance.new("ScreenGui")
