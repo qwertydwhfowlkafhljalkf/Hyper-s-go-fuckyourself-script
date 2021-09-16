@@ -1243,9 +1243,10 @@ Title = "Warning";
 Text = "RightControl to toggle";
 })
 game.StarterGui:SetCore("SendNotification", {
-Title = "Credits";
-Text = "CharWar Serverhops";
+Title = "Credis";
+Text = "CharWar Serverhops Toxic Mods screen thingy And Kiriot22 esp";
 })
+
 local function copyDiscord()
     setclipboard("https://discord.gg/jdt5z8T5ws")
 end
