@@ -1,0 +1,54 @@
+
+repeat wait() until game:IsLoaded() wait(2)
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+if game.PlaceId == 2414851778 then
+spawn(function()
+for i = 1,math.huge do wait() 
+pcall(function()
+game:GetService("ReplicatedStorage").remotes.loadPlayerCharacter:FireServer(true)
+end)
+end end)
+spawn(function()
+while wait() do
+pcall(function()
+deku=game.Players.LocalPlayer.leaderstats.Level.Value
+if deku < 0 and deku < 5 then
+game:GetService("ReplicatedStorage").remotes.loadPlayerCharacter:FireServer(true)
+game:GetService("ReplicatedStorage").remotes.getDungeonStats:InvokeServer("Desert Temple")
+game:GetService("ReplicatedStorage").remotes.createLobby:InvokeServer("Desert Temple","Easy",0,true,false,false)
+game:GetService("ReplicatedStorage").remotes.startDungeon:FireServer() end
+if deku < 6 and deku < 12 then
+game:GetService("ReplicatedStorage").remotes.loadPlayerCharacter:FireServer(true)
+game:GetService("ReplicatedStorage").remotes.getDungeonStats:InvokeServer("Desert Temple")
+game:GetService("ReplicatedStorage").remotes.createLobby:InvokeServer("Desert Temple","Medium",0,true,false,false)
+game:GetService("ReplicatedStorage").remotes.startDungeon:FireServer() end
+if deku < 13 and deku < 20 then
+game:GetService("ReplicatedStorage").remotes.loadPlayerCharacter:FireServer(true)
+game:GetService("ReplicatedStorage").remotes.getDungeonStats:InvokeServer("Desert Temple")
+game:GetService("ReplicatedStorage").remotes.createLobby:InvokeServer("Desert Temple","Hard",0,true,false,false)
+game:GetService("ReplicatedStorage").remotes.startDungeon:FireServer() end 
+if deku < 27 and deku < 900 then
+game:GetService("ReplicatedStorage").remotes.loadPlayerCharacter:FireServer(true)
+game:GetService("ReplicatedStorage").remotes.getDungeonStats:InvokeServer("Desert Temple")
+game:GetService("ReplicatedStorage").remotes.createLobby:InvokeServer("Desert Temple","Insane",0,true,false,false)
+game:GetService("ReplicatedStorage").remotes.startDungeon:FireServer() end  end) end end)
+end 
+
+
+
+if game.PlaceId == 2606294912 then
+setsimulationradius(math.huge,math.huge)
+while wait(1) do
+pcall(function()
+game:GetService("ReplicatedStorage").remotes.changeStartValue:FireServer()
+for i,v in pairs(game.Workspace:GetDescendants()) do
+if v:IsA("Humanoid") and v.Parent.Name ~= game.Players.LocalPlayer.Name then
+v.Health = 0
+game.Players.LocalPlayer.Character:MoveTo(v.Parent.Head.CFrame.p)
+end
+end
+end)
+end
+end 
