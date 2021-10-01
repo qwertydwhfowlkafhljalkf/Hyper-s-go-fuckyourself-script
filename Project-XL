@@ -1274,7 +1274,7 @@ Text = "CharWar Serverhops Toxic Mods screen thingy And Kiriot22 esp";
 })
 
 local function copyDiscord()
-    setclipboard("https://discord.gg/jdt5z8T5ws")
+    setclipboard("https://discord.gg/RHemSXfPpw")
 end
 
 local StarterGui = game:GetService("StarterGui")
