@@ -52,6 +52,7 @@ setreadonly(Meta, true)
 uu = 4
 aa = 0
 getgenv().delay = 2
+getgenv().delay2 = 0.3
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 wait(3)
@@ -231,14 +232,14 @@ pcall(function()
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == system and v:FindFirstChildOfClass("Humanoid") and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(aa,0,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
 wait(0.3)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end
 end
 end)
@@ -271,7 +272,9 @@ end)
 local Slider2 = Section1:CreateSlider("Attack Angle", 0,360,nil,false, function(Value)
 aa = Value
 end)
-
+local Slider2 = Section1:CreateSlider("AutoFarm Speed", 0,7,nil,false, function(Value)
+getgenv().delay2 = Value
+end)
 local Button1 = Section1:CreateButton("Redeem Selected Code", function()
 game:GetService("ReplicatedStorage").RemoteEvents.CodeRemote:FireServer(code)
 end)
@@ -309,7 +312,7 @@ pcall(function()
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "KiddStan" or v.Name == "CrimsonMikami" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(aa,0,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
@@ -338,14 +341,14 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == t
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == 'Bandit'  and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(0,aa,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
-wait(0.3)
+wait(getgenv().delay2)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end end 
 if Ban == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SafeZoneIndicator.CFrame *CFrame.new(0,5,0)
@@ -376,14 +379,14 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == t
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Agni's Minion"  and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(0,aa,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
-wait(0.3)
+wait(getgenv().delay2)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end end 
 if Ban7 == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SafeZoneIndicator.CFrame *CFrame.new(0,5,0)
@@ -411,14 +414,14 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == t
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Lars' Minion" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(0,aa,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
-wait(0.3)
+wait(getgenv().delay2)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end end 
 if Ban1 == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SafeZoneIndicator.CFrame *CFrame.new(0,5,0)
@@ -450,14 +453,14 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == t
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Rahgan's Minion" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(0,aa,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
-wait(0.3)
+wait(getgenv().delay2)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end end 
 if Ban2 == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SafeZoneIndicator.CFrame *CFrame.new(0,5,0)
@@ -488,13 +491,13 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == t
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Agni's Overseer" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(0,aa,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end end 
 if Ban3 == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SafeZoneIndicator.CFrame *CFrame.new(0,5,0)
@@ -528,14 +531,14 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == t
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Lars' Overseer" and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(0,aa,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
-wait(0.3)
+wait(getgenv().delay2)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end end 
 if Ban4 == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SafeZoneIndicator.CFrame *CFrame.new(0,5,0)
@@ -565,14 +568,14 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Menu.QuestFrame.Visible == t
 for i,v in pairs(game:GetService("Workspace").Live:GetDescendants()) do
 if v:IsA("Model") and v.Name == "Rahgan's Overseer"  and v:FindFirstChildOfClass("Humanoid")  and v.Humanoid.Health > 0 then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame  * CFrame.new(0,-uu,2) *CFrame.Angles(0,aa,0)
-wait(0.3)
+wait(getgenv().delay2)
 c()
-wait(0.3)
+wait(getgenv().delay2)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
 game:GetService("ReplicatedStorage").RemoteEvents.BladeCombatRemote:FireServer(false,nil,nil)
-wait(0.3)
-v.Humanoid.Health = 0 wait(.2)
+wait(getgenv().delay2)
+v.Humanoid.Health = 0 wait(getgenv().delay2)
 end end 
 if Ban5 == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SafeZoneIndicator.CFrame *CFrame.new(0,5,0)
