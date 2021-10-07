@@ -1,0 +1,33 @@
+if game.PlaceId == 735030788 then
+getgenv().chest = true
+while wait() do
+pcall(function()
+if getgenv().chest then
+for i,v in pairs(game:GetService("Workspace").TreasureChests:GetChildren()) do
+
+game:GetService("ReplicatedStorage").TreasureChestEvents.OpenTreasureChest:InvokeServer(v.Name)
+end 
+end  end) end end
+if game.PlaceId ~= 735030788 then
+game:GetService("TeleportService"):Teleport(735030788, LocalPlayer)
+end
+if game.PlaceId == 735030788 then
+repeat wait() until game:IsLoaded() wait()
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+game:GetService("Players").LocalPlayer.PlayerGui.CaptchaGui.Captcha.FloatArea.ChildAdded:Connect(function(v)
+if v.Name == "FloatBox" and v:FindFirstChild("ImageLabel") then
+wait()
+firesignal(v.MouseButton1Click)
+v:remove()
+
+end
+end)
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").AppleBobbing.AppleBobbingScripts.Seat.CFrame.p)
+while wait() do
+fireproximityprompt(game:GetService("Workspace").AppleBobbing.AppleBobbingScripts.Seat.Attachment.ProximityPrompt)
+end end 
+if game.PlaceId ~= 735030788 then
+game:GetService("TeleportService"):Teleport(735030788, LocalPlayer)
+end
