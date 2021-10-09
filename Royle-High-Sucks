@@ -78,7 +78,9 @@ wait(1)
 pcall(function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Doorbell.CFrame
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-game.Workspace.Gravity = 0
+if not getgenv().start then
+game.Workspace.Gravity = 196.255
+end
 wait(1)
 fireproximityprompt(v.Doorbell.Attachment.ProximityPrompt)
 wait()
