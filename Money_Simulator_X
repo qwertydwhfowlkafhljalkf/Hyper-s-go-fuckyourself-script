@@ -14,10 +14,10 @@ OldNameCall = hookmetamethod(game, "__newindex", function(A, B, C)
     return OldNameCall(A, B, C)
 end)
 
-
+pcall(function()
 game:GetService("ReplicatedStorage").StartChallange:FireServer()
-
-
+game:GetService("Workspace").RadioactiveDamage:remove()
+end)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/im-retarded-3"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
@@ -74,6 +74,31 @@ local RootTwo = v
 if (Root.Position - RootTwo.Position).Magnitude < 25 then
 fireclickdetector(v.ClickDetector)
 end end  end end) end end)
+
+
+local Toggle1 = Section1:CreateToggle("Auto Buy Runes", nil, function(State)
+rune = State
+while rune do wait()
+
+game:GetService("ReplicatedStorage").BuyRune:FireServer(1)
+end end)
+local Toggle1 = Section1:CreateToggle("Auto Buy GenerateCopper", nil, function(State)
+copper = State
+while copper do wait()
+game:GetService("ReplicatedStorage").GenerateCopper:FireServer(1)
+end end)
+
+
+local Toggle1 = Section1:CreateToggle("Auto Ore Upgrades", nil, function(State)
+Ore1 = State
+while Ore1 and wait() do
+pcall(function()
+game:GetService("ReplicatedStorage").OreUpgrades:FireServer("GeneratorsLimit")
+game:GetService("ReplicatedStorage").OreUpgrades:FireServer("RuneLuck")
+game:GetService("ReplicatedStorage").OreUpgrades:FireServer("MoreClickPoints")
+game:GetService("ReplicatedStorage").OreUpgrades:FireServer("MoreMoney4")
+end) end end)
+
 local Toggle1 = Section1:CreateToggle("Auto Power", nil, function(State)
 power = State
 while power do wait()
