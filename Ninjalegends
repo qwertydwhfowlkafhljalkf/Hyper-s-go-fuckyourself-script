@@ -989,5 +989,5 @@ Text = "RightControl to toggle";
 })
 game.StarterGui:SetCore("SendNotification", {
 Title = "Credis";
-Text = "CharWar Serverhops Toxic Mods screen thingy";
+Text = "CharWar Serverhops Toxic Mods screen thingy and IY";
 })
