@@ -374,3 +374,11 @@ game:GetService("ReplicatedStorage").Store.Remote.PurchaseRequest:FireServer("ha
 game:GetService("ReplicatedStorage").Store.Remote.PurchaseRequest:FireServer("steven_costume",false)
 game:GetService("ReplicatedStorage").Store.Remote.PurchaseRequest:FireServer("will_costume",false)
 end end 
+game.StarterGui:SetCore("SendNotification", {
+Title = "Warning";
+Text = "RightControl to toggle";
+})
+game.StarterGui:SetCore("SendNotification", {
+Title = "Credis";
+Text = "CharWar Serverhops Toxic Mods screen thingy And Kiriot22 esp";
+})
