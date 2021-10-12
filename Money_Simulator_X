@@ -56,7 +56,7 @@ end end end) end end)
 
 local Toggle1 = Section1:CreateToggle("Auto Gems", nil, function(State)
 gems = State
-while gem and wait() do
+while gems and wait() do
 pcall(function()
 for i,v in pairs(game.Workspace:GetChildren()) do
 if v:FindFirstChild("Gems") then
@@ -133,7 +133,7 @@ game:GetService("ReplicatedStorage").StartChallange:FireServer(1)
 game:GetService("ReplicatedStorage").StartChallange:FireServer(2)
 end)
 local Button1 = Section1:CreateButton("Finsh Maze", function()
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace").ExitDoor, 0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").ExitDoor.CFrame
 end)
 
 local Button1 = Section1:CreateButton("Remove Tier Borders", function()
@@ -183,7 +183,7 @@ if k:lower() == 'b' then
 Max = Max + 1
 getgenv().Fly = false
 if sex2 then
-local T = LP.Character.UpperTorso
+local T = LP.Character.Torso
 local S = {
 F = 0,
 B = 0,
@@ -433,6 +433,8 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+
 
 
 
