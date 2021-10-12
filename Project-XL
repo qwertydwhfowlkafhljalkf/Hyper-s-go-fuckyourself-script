@@ -1102,7 +1102,7 @@ BodyVelocity.maxForce = Vector3.new(9e9, 9e9, 9e9)
 spawn(function()
 repeat
 wait()
-LP.Character.Humanoid.PlatformStand = true
+LP.Character.Humanoid.PlatformStand = false
 if S.L + S.R ~= 0 or S.F + S.B ~= 0 then
 SPEED = 200
 elseif not (S.L + S.R ~= 0 or S.F + S.B ~= 0) and SPEED ~= 0 then
@@ -1326,7 +1326,6 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
-
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
