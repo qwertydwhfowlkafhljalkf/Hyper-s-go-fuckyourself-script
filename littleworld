@@ -429,10 +429,11 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 end)
 Slider4:SetValue(0.5)
 
-
-
-
 game.StarterGui:SetCore("SendNotification", {
-			Title = "Credits",
-			Text = "CharWar severhops",
-		})
+Title = "Warning";
+Text = "RightControl to toggle";
+})
+game.StarterGui:SetCore("SendNotification", {
+Title = "Credis";
+Text = "CharWar Serverhops Toxic Mods screen thingy And Kiriot22 esp and IY";
+})
