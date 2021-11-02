@@ -1,4 +1,8 @@
 getgenv().AutoCandy = true
+game.StarterGui:SetCore("SendNotification", {
+Title = "Credis";
+Text = "CharWar Serverhops";
+})
 game:GetService("RunService").Stepped:connect(
     function()
         if getgenv().AutoCandy then
