@@ -35,6 +35,7 @@ while getgenv().AutoCandy do
         end
     )
 end
+spawn(function()
 for i = 1, math.huge do
 if getgenv().AutoCandy  and getgenv().ServerHop then
     wait(getgenv().ServerHopTime)
@@ -123,6 +124,7 @@ if getgenv().AutoCandy  and getgenv().ServerHop then
     Teleport()
 end
 end
+end)
 local queue_on_teleport = queue_on_teleport or syn and syn.queue_on_teleport [[
 repeat wait() until game:IsLoaded() wait(5) print("ServerHoped or rejoined")
 loadstring(game:HttpGet('loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/hm'))()'))()]]
