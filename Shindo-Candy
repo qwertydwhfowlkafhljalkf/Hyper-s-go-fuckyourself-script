@@ -3,6 +3,7 @@ game.StarterGui:SetCore("SendNotification", {
 Title = "Credis";
 Text = "CharWar Serverhops";
 })
+spawn(function()
 game:GetService("RunService").Stepped:connect(
     function()
         if getgenv().AutoCandy then
@@ -34,7 +35,7 @@ while getgenv().AutoCandy do
             until getgenv().AutoCandy == false
         end
     )
-end
+end end)
 spawn(function()
 for i = 1, math.huge do
 if getgenv().AutoCandy  and getgenv().ServerHop then
