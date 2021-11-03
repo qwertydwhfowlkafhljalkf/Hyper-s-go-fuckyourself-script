@@ -34,6 +34,8 @@ game:GetService("Players").LocalPlayer.Idled:connect(
         vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
     end
 )
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G_Hub_Extras/main/Universal_Client_Bypass"))()
+
 function ToxmodsisHOT()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-51.1823959, 80.6168747, -536.437805)
     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(30, Enum.EasingStyle.Linear)
