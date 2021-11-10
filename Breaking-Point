@@ -1,0 +1,30 @@
+if game.PlaceId == 834827615 then
+local Players = game.Players
+local Player = Players.LocalPlayer
+local Character = Player.Character
+local RS = game:GetService("ReplicatedStorage")
+Clone = Character.HumanoidRootPart:Clone()
+Character.HumanoidRootPart:Destroy()
+Clone.Parent = Character  
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+repeat wait() until Character wait(2)
+Clone = Character.HumanoidRootPart:Clone()
+Character.HumanoidRootPart:Destroy()
+Clone.Parent = Character
+end)
+
+
+while getgenv().AutoFarm do wait()
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(16, "public")
+wait()
+for i,v in pairs(Players:GetPlayers()) do
+if v.Name == Player.Name then
+           else
+          RS.RemoteEvent:FireServer(30, v)
+       end
+   end
+end
+else 
+game:GetService("TeleportService"):Teleport(834827615, LocalPlayer)
+end 
