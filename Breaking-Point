@@ -1,4 +1,12 @@
+getgenv().AutoFarm = true
 if game.PlaceId == 834827615 then
+    game.StarterGui:SetCore(
+        "SendNotification",
+        {
+            Title = "Credis",
+            Text = "IsaaaKK#9010, DekuDimz"
+        }
+    )
     local Players = game.Players
     local Player = Players.LocalPlayer
     local Character = Player.Character
@@ -33,3 +41,4 @@ if game.PlaceId == 834827615 then
 else
     game:GetService("TeleportService"):Teleport(834827615, LocalPlayer)
 end
+
