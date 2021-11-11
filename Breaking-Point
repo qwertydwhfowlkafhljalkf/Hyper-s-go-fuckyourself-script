@@ -7,40 +7,28 @@ if game.PlaceId == 834827615 then
             Text = "IsaaaKK#9010, DekuDimz"
         }
     )
-    local Players = game.Players
-    local Player = Players.LocalPlayer
-    local Character = Player.Character
-    local RS = game:GetService("ReplicatedStorage")
-    Clone = Character.HumanoidRootPart:Clone()
-    Character.HumanoidRootPart:Destroy()
-    Clone.Parent = Character
+    Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Destroy()
+    Clone.Parent = game:GetService("Players").LocalPlayer.Character
 
     game.Players.LocalPlayer.CharacterAdded:Connect(
         function()
-            repeat
-                wait()
-            until Character
-            wait(2)
-            Clone = Character.HumanoidRootPart:Clone()
-            Character.HumanoidRootPart:Destroy()
-            Clone.Parent = Character
+            if getgenv().AutoFarm then
+                wait(4)
+                Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
+                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Destroy()
+                Clone.Parent = game:GetService("Players").LocalPlayer.Character
+            end
         end
     )
 
     while getgenv().AutoFarm do
+        game:GetService("ReplicatedStorage").RemoteEvent:FireServer(16, "public")
         wait()
-        pcall(function()
-        RS.RemoteEvent:FireServer(16, "public")
-        Character.Humanoid:MoveTo(Vector3.new(0,0,0))
-        end)
-        wait()
-        for i, v in pairs(Players:GetPlayers()) do
-            if v.Name == Player.Name then
+        for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Name == game.Players.LocalPlayer.Name then
             else
-                pcall(function()
-                RS.RemoteEvent:FireServer(30, v)
-                Character.Humanoid:MoveTo(Vector3.new(0,0,0))
-                end)
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(30, v)
             end
         end
     end
