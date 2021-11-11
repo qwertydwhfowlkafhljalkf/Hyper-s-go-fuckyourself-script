@@ -1,3 +1,4 @@
+
 if game.PlaceId == 834827615 then
     game.StarterGui:SetCore(
         "SendNotification",
@@ -28,18 +29,21 @@ if game.PlaceId == 834827615 then
 
     while getgenv().AutoFarm do
         wait()
+        pcall(function()
         RS.RemoteEvent:FireServer(16, "public")
         Character.Humanoid:MoveTo(Vector3.new(0,0,0))
+        end)
         wait()
         for i, v in pairs(Players:GetPlayers()) do
             if v.Name == Player.Name then
             else
+                pcall(function()
                 RS.RemoteEvent:FireServer(30, v)
                 Character.Humanoid:MoveTo(Vector3.new(0,0,0))
+                end)
             end
         end
     end
 else
     game:GetService("TeleportService"):Teleport(834827615, LocalPlayer)
 end
-
