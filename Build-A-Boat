@@ -102,7 +102,7 @@ game.Players.LocalPlayer.CharacterAdded:Connect(
     function()
         repeat
             wait()
-        until game.Players.LocalPlayer:WaitForChild("Character")
+        until game.Players.LocalPlayer.Character
         wait(3)
         if getgenv().Autofarm then
             ToxmodsisHOT()
@@ -506,6 +506,7 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
 
 
 game.StarterGui:SetCore(
