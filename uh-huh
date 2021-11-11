@@ -37,7 +37,7 @@ else
     game:GetService("TeleportService"):Teleport(834827615, LocalPlayer)
 end
 if game.PlaceId == 834827615 then
-for i=1,math.huge do wait(600)
+for i=1,math.huge do wait()
 local PlaceID = game.PlaceId
 local AllIDs = {}
 local foundAnything = ""
