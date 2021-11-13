@@ -1334,7 +1334,7 @@ while hhg do
                     }
                 )
                 hhg = false
-            elseif 
+            elseif  v.ClassName == "Tool" and not v:FindFirstChild("Meshes/Sphere_009") and not v:FindFirstChild("Combat Script") then 
                 v.Parent = game.Players.LocalPlayer.Character
                 v:remove()
             end
@@ -2224,6 +2224,7 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
