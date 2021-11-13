@@ -97,7 +97,17 @@ Dropdown1:AddOption(v, function(String)
 Table = String
 end)
 end
-
+local Toggle1 = Section1:CreateToggle("Telekinesis No Cooldown", nil, function(State)
+a = require(game.Players.LocalPlayer.Character.telekinesisClient)
+if nocool then
+a.coolDown = 0 
+a.startCost = 0 
+a.loopCost = 0
+else 
+a.coolDown = 5 
+a.startCost = 30
+a.loopCost = 20
+end end)
 local TextBox1 = Section2:CreateTextBox("WalkSpeed", "Only numbers", true, function(Value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 end)
@@ -402,6 +412,8 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+
 
 
 
