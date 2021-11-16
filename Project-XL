@@ -2230,12 +2230,6 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 end)
 Slider4:SetValue(0.5)
 
-if game.PlaceId == 6200884264 then
-game:GetService("ReplicatedStorage").RemoteEvents.SaveCharacterRemote:FireServer(2,65,2,18,13)
-game:GetService("TeleportService"):Teleport(6186867282, game:GetService("Players").LocalPlayer)
-end
-
-
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightControl to toggle";
