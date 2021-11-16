@@ -46,6 +46,11 @@ OldNameCall = hookmetamethod(game, "__newindex", function(A, B, C)
 end)
 uu = 4
 aa = 0
+for _, v in pairs(game.Workspace:GetChildren()) do
+if v:IsA("BasePart") then
+v.Locked = false
+end
+end
 getgenv().delay = 2
 getgenv().delay2 = 0.3
 local LP = game:GetService("Players").LocalPlayer
@@ -2224,6 +2229,11 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+if game.PlaceId == 6200884264 then
+game:GetService("ReplicatedStorage").RemoteEvents.SaveCharacterRemote:FireServer(2,65,2,18,13)
+game:GetService("TeleportService"):Teleport(6186867282, game:GetService("Players").LocalPlayer)
+end
 
 
 game.StarterGui:SetCore("SendNotification", {
