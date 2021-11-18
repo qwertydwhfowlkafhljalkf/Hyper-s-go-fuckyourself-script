@@ -647,10 +647,10 @@ end
 end)
 local Toggle1 = Section1:CreateToggle("Anti Sit", nil, function(State)
 yo = State
-game.Players.LocalPlayer:WaitForChild('Character'):WaitForChild('Humanoid').Seated:Connect(function()
+game.Players.LocalPlayer.Character:WaitForChild('Humanoid').Seated:Connect(function()
         if yo then
      pcall(function()
-     game.Players.LocalPlayer:WaitForChild('Character'):WaitForChild('Humanoid'):ChangeState(Enum.HumanoidStateType.Running)
+     game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
      end)
      end
 end)
@@ -770,6 +770,7 @@ local K = game:GetService("Players").LocalPlayer.PlayerValues
 local A = game.Players.LocalPlayer
 while Dragoon do
     wait()
+    pcall(function()
     if K.DragonBall1.Value == false then
         wait(getgenv().delay)
         A.Character.Humanoid:EquipTool(A.Backpack["One Star Dragonball"])
@@ -805,6 +806,7 @@ while Dragoon do
         A.Character.Humanoid:EquipTool(A.Backpack["Seven Star Dragonball"])
         game:GetService("ReplicatedStorage").RemoteEvents.ItemRemote:FireServer()
     end
+    end)
 end
 end)
 
@@ -2278,6 +2280,8 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightControl to toggle";
