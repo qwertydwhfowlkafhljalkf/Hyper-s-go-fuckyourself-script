@@ -46,11 +46,6 @@ OldNameCall = hookmetamethod(game, "__newindex", function(A, B, C)
 end)
 uu = 4
 aa = 0
-for _, v in pairs(game.Workspace:GetChildren()) do
-if v:IsA("BasePart") then
-v.Locked = false
-end
-end
 getgenv().delay = 2
 getgenv().delay2 = 0.3
 local LP = game:GetService("Players").LocalPlayer
@@ -524,7 +519,7 @@ nocool = State
 while wait() do
     wait()
     if nocool then
-        game:GetService("Players").LocalPlayer.PlayerValues.CooldownReduction.Value = 0
+        game:GetService("Players").LocalPlayer.PlayerValues.CooldownReduction.Value = -9e9
     else
         game:GetService("Players").LocalPlayer.PlayerValues.CooldownReduction.Value = 1
     end
@@ -2229,7 +2224,6 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
-
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightControl to toggle";
