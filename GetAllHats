@@ -57,6 +57,8 @@ game:GetService("TeleportService"):Teleport(7234162497, LocalPlayer) end)
 local Button1 = Section1:CreateButton("Stranger Things: Starcourt Mall", function()
 game:GetService("TeleportService"):Teleport(5853107391, LocalPlayer) end)
 
+local Button1 = Section1:CreateButton("NIKELANd", function()
+game:GetService("TeleportService"):Teleport(7462526249, LocalPlayer) end)
 
 local Toggle3 = Section3:CreateToggle("UI Toggle", nil, function(State)
 	Window:Toggle(State)
@@ -234,6 +236,10 @@ game:GetService("ReplicatedStorage").Store.Remote.PurchaseRequest:FireServer("ha
 game:GetService("ReplicatedStorage").Store.Remote.PurchaseRequest:FireServer("steven_costume",false)
 game:GetService("ReplicatedStorage").Store.Remote.PurchaseRequest:FireServer("will_costume",false)
 end end 
+if game.PlaceId == 7462526249 then
+
+game:GetService("ReplicatedStorage").TGSButtonCallbacks_ServerInvoke:FireServer("ClaimFreeItems")
+end
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightControl to toggle";
