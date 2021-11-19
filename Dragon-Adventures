@@ -158,6 +158,11 @@ for i,v in pairs(game:GetService("ReplicatedStorage").Storage.Items.Items.Food:G
 if v.ClassName == "Tool" then
 table.insert(list,v.Name)
 end end 
+Dragon = {}
+for i,v in pairs(game:GetService("Players").LocalPlayer.Data.Dragons:GetChildren()) do
+if v:FindFirstChild("Age") then
+table.insert(Dragon,v.Value)
+end end 
 
 
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
@@ -211,16 +216,6 @@ end
 end
 
 end)
-local Button1 = SectionA:CreateButton("PoppyEvent", function()
-
-for i,v in pairs(game:GetService("Workspace").Interactions.PoppyEvent:GetDescendants()) do
-if v.ClassName == "Model" and v:FindFirstChild("Platform")  then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Interactions.PoppyEvent[v.Name].Platform.Part.CFrame
-wait(1)
-game:GetService("ReplicatedStorage").Remotes.PlayMusicRemote:FireServer(v.Name) wait(1)
-end end
-end)
-
 
 local Toggle1 = Section1:CreateToggle("Auto Incubate Eggs", nil, function(State) 
 Incubate = State
@@ -464,14 +459,37 @@ end)
 Toggle1:CreateKeybind("F", function(Key)
 end)
 
+local Button1 = Section1:CreateButton("Equip Selected Dragon", function()
+for i,v in pairs(game:GetService("Players").LocalPlayer.Data.Dragons:GetDescendants()) do
+if  v.ClassName == 'StringValue' and  v.Value == Dragon and v:FindFirstChild("Stats") then 
+game:GetService("ReplicatedStorage").Remotes.EquipDragonRemote:InvokeServer(v.Name)
+end end 
+end)
+
+local Dropdown1 = Section1:CreateDropdown("Select Dragon")
+Dropdown1:AddToolTip("Select Dragon")
+for i,v in next,Dragon do
+Dropdown1:AddOption(v, function(String)
+Dragon = String
+end)
+end
+
+
+local Button1 = Section1:CreateButton("UnEquip All Dragons", function()
+for i,v in pairs(game:GetService('Players').LocalPlayer.Character.Dragons:GetDescendants()) do
+if v.ClassName == "Model" and  v:FindFirstChild("ID") then
+game:GetService("ReplicatedStorage").Remotes.UnequipDragonRemote:InvokeServer(v.Name)
+end
+end
+end)
 local Toggle1 = Section1:CreateToggle("Auto Feed Dragon", nil, function(State) 
 pcall(function()
 feed = State
 game:GetService('RunService').Stepped:connect(function()
 if feed then
 for i,v in pairs(game:GetService('Players').LocalPlayer.Character.Dragons:GetDescendants()) do
-if v:FindFirstChild("ID") then
-game:GetService("ReplicatedStorage").Remotes.FeedDragonRemote:InvokeServer(v.ID.Value,{["Amount"] = 1,["ItemName"] = list})
+if v.ClassName == "Model" and  v:FindFirstChild("ID") then
+game:GetService("ReplicatedStorage").Remotes.FeedDragonRemote:InvokeServer(v.Name,{["Amount"] = 1,["ItemName"] = list})
 end
 end
 end
@@ -800,6 +818,8 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightControl to toggle";
