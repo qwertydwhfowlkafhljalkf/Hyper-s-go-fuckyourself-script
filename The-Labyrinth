@@ -1,7 +1,7 @@
 local Config = {
     WindowName = "V.G Hub",
 	Color = Color3.fromRGB(255,128,64),
-	Keybind = Enum.KeyCode.RightShift
+	Keybind = Enum.KeyCode.RightControl
 }
 game:GetService("Players").LocalPlayer.Idled:connect(function()
 game:GetService("VirtualUser"):ClickButton2(Vector2.new())
@@ -175,7 +175,7 @@ while getgenv().Tween1 do
                 if getNearestOres().MouseTarget:FindFirstChild("HP") then
                     game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9, 9e9))
                 end
-            until getNearestOres():FindFirstChild("MouseTarget").HP.Health.Percent.Text == "0%"
+            until getNearestOres():FindFirstChild("MouseTarget").HP == nil
         end
     )
 end
@@ -233,7 +233,7 @@ while getgenv().Tween do
                 if getNearestTrees().MouseTarget:FindFirstChild("HP") then
                     game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9, 9e9))
                 end
-            until getNearestTrees():FindFirstChild("MouseTarget").HP.Health.Percent.Text == "0%"
+            until getNearestTrees():FindFirstChild("MouseTarget").HP == nil
         end
     )
 end
@@ -289,7 +289,7 @@ while getgenv().Tween2 do
                 if getNearestIngredients().MouseTarget:FindFirstChild("HP") then
                     game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9, 9e9))
                 end
-            until getNearestIngredients():FindFirstChild("MouseTarget").HP.Health.Percent.Text == "0%"
+            until getNearestIngredients():FindFirstChild("MouseTarget").HP == nil
         end
     )
 end
@@ -346,7 +346,7 @@ while getgenv().Tween3 do
                 if getNearestFish().MouseTarget:FindFirstChild("HP") then
                     game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9, 9e9))
                 end
-            until getNearestFish():FindFirstChild("MouseTarget").HP.Health.Percent.Text == "0%"
+            until getNearestFish():FindFirstChild("MouseTarget").HP == nil
         end
     )
 end
@@ -688,6 +688,7 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
