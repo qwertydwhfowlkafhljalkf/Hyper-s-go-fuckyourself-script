@@ -16,7 +16,11 @@ local Cooldown; Cooldown = hookfunction(wait, function(v)
     v = 0;
     return Cooldown(v);
 end);
-
+game:GetService('RunService').Stepped:connect(function()
+if game.Players.LocalPlayer.Character.Head:FindFirstChild("name") then
+game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("name"):remove()
+end
+end)
 
 local function getNearestMob()
     local TargetDistance = math.huge
