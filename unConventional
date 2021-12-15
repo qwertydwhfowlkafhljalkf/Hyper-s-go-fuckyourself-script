@@ -63,7 +63,7 @@ while mobs do
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - getNearestMob():FindFirstChildOfClass("Part").Position).Magnitude < 5 then
     game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9,9e9))
     end
- game.Players.LocalPlayer.Character.Humanoid:MoveTo(getNearestMob().HumanoidRootPart.CFrame.p + Vector3.new(0,0,3))
+ game.Players.LocalPlayer.Character.Humanoid:MoveTo(getNearestMob().HumanoidRootPart.CFrame.p + Vector3.new(0,0,1))
     end)
 end
 end)
