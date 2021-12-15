@@ -12,6 +12,11 @@ local Mobs = {}
 for i,v in pairs(A) do
 table.insert(Mobs, i)
 end 
+local Cooldown; Cooldown = hookfunction(wait, function(v)
+    v = 0;
+    return Cooldown(v);
+end);
+
 
 local function getNearestMob()
     local TargetDistance = math.huge
@@ -38,8 +43,8 @@ local Section1 = Tab1:CreateSection("")
 local Section2 = Tab1:CreateSection("")
 local Section3 = Tab2:CreateSection("Menu")
 local Section4 = Tab2:CreateSection("Background")
-getgenv().speed = 15
-local Toggle1 = Section1:CreateToggle("KillAura", nil, function(State)
+
+local Toggle1 = Section1:CreateToggle("Auto Mob", nil, function(State)
 mobs = State
 game:GetService("RunService").Stepped:connect(
     function()
@@ -58,7 +63,7 @@ game:GetService("RunService").Stepped:connect(
 )
 
 while mobs do
-    wait(0.5)
+    wait()
     pcall(function()
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - getNearestMob():FindFirstChildOfClass("Part").Position).Magnitude < 5 then
     game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9,9e9))
@@ -75,6 +80,39 @@ Dropdown1:AddOption(v, function(String)
 Mobs = String
 end)
 end 
+
+local Toggle1 = Section1:CreateToggle("Anti Stun", nil, function(State)
+getgenv().AntiStun = State
+while wait() and getgenv().AntiStun do
+    pcall(
+        function()
+            repeat
+                wait()
+            until game.Players.LocalPlayer.Character
+            for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                if v.Name == "Stunned" then
+                    v:Destroy()
+                end
+            end
+        end
+    )
+end end)
+
+local Toggle1 = Section1:CreateToggle("Anti Knockback", nil, function(State)
+Infinite = State
+local OldNameCall = nil
+OldNameCall = hookmetamethod(game, "__namecall", function(...)
+    local Args = {...}
+    local Self = Args[1]
+    if getnamecallmethod()=="FireServer" and tostring(Self)=="Knockback" and Infinite then
+            return wait(math.huge)
+    end
+    return OldNameCall(...)
+end) 
+end)
+
+
+
 
 
 local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/Karrot-Esp"))()
@@ -388,7 +426,6 @@ end)
 Toggle3:SetState(true)
 Section3:CreateLabel("Credits DekuDimz#7960")
 Section3:CreateLabel("Credits AlexR32#3232 Ui")
-Section3:CreateLabel("Credits Sensei Joshy#1060")
 local Colorpicker3 = Section3:CreateColorpicker("UI Color", function(Color)
 	Window:ChangeColor(Color)
 end)
