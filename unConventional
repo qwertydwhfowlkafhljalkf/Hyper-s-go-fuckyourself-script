@@ -12,10 +12,7 @@ local Mobs = {}
 for i,v in pairs(A) do
 table.insert(Mobs, i)
 end 
-local Cooldown; Cooldown = hookfunction(wait, function(v)
-    v = 0;
-    return Cooldown(v);
-end);
+
 game:GetService('RunService').Stepped:connect(function()
 if game.Players.LocalPlayer.Character.Head:FindFirstChild("name") then
 game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("name"):remove()
@@ -473,6 +470,8 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
