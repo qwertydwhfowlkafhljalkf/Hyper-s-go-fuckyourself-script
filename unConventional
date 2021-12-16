@@ -9,15 +9,31 @@ game:GetService("VirtualUser"):ClickButton2(Vector2.new())
 end)
 A = require(game:GetService("Workspace").EnemyStats)
 local Mobs = {}
-for i,v in pairs(A) do
-table.insert(Mobs, i)
-end 
-
-game:GetService('RunService').Stepped:connect(function()
-if game.Players.LocalPlayer.Character.Head:FindFirstChild("name") then
-game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("name"):remove()
+for i, v in pairs(A) do
+    table.insert(Mobs, i)
 end
-end)
+
+A = require(game:GetService("Workspace").EnemyStats)
+local HitBoxs = {}
+for i, v in pairs(A) do
+    table.insert(HitBoxs, i)
+end
+game:GetService("RunService").Stepped:connect(
+    function()
+        if game.Players.LocalPlayer.Character.Head:FindFirstChild("name") then
+            game.Players.LocalPlayer.Character:WaitForChild("Head"):WaitForChild("name"):remove()
+        end
+    end
+)
+Ticket = {}
+for i, v in pairs(
+    game:GetService("Players").LocalPlayer.PlayerGui.Trading.Trading.TradeFrame.ReceivingTickets.items:GetDescendants()
+) do
+    if v.ClassName == "ImageButton" and v:FindFirstChild("ticket") then
+        table.insert(Ticket, v.Name)
+    end
+end
+
 
 local function getNearestMob()
     local TargetDistance = math.huge
@@ -33,7 +49,8 @@ local function getNearestMob()
     end
     return Target
 end;
-
+getgenv().Mobss = 5
+ getgenv().speed = 16
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/im-retarded-3"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
@@ -66,19 +83,112 @@ game:GetService("RunService").Stepped:connect(
 while mobs do
     wait()
     pcall(function()
-    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - getNearestMob():FindFirstChildOfClass("Part").Position).Magnitude < 5 then
+    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - getNearestMob():FindFirstChildOfClass("Part").Position).Magnitude < getgenv().Mobss then
     game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9,9e9))
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, uwu)
+    getNearestMob().HumanoidRootPart.Anchored = true
     end
- game.Players.LocalPlayer.Character.Humanoid:MoveTo(getNearestMob().HumanoidRootPart.CFrame.p + Vector3.new(0,0,1))
+    game.Players.LocalPlayer.Character.Humanoid:MoveTo(getNearestMob().HumanoidRootPart.CFrame.p + Vector3.new(0,0,1))
+    
     end)
 end
 end)
 
+
+
+local Toggle1 = Section1:CreateToggle("Auto Mob Tweening", nil, function(State)
+mobs1 = State
+game:GetService("RunService").Stepped:connect(
+    function()
+        if mobs1 then
+            for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                pcall(
+                    function()
+                        if v.ClassName == "Part" or v.ClassName == "MeshPart" then
+                            v.CanCollide = false
+                        end
+                    end
+                )
+            end
+        end
+    end
+)
+
+while mobs1 do
+    wait()
+    pcall(
+        function()
+            if
+                (game.Players.LocalPlayer.Character.HumanoidRootPart.Position -
+                    getNearestMob():FindFirstChildOfClass("Part").Position).Magnitude < getgenv().Mobss
+             then
+                game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, uwu)
+                game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9, 9e9))
+            end
+            local Time =
+                (getNearestMob().HumanoidRootPart.CFrame.p + Vector3.new(0, 0, 3) -
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude / getgenv().speed
+            local Info = TweenInfo.new(Time, Enum.EasingStyle.Linear)
+            local Tween =
+                game:GetService("TweenService"):Create(
+                game.Players.LocalPlayer.Character.HumanoidRootPart,
+                Info,
+                {CFrame = CFrame.new(getNearestMob().HumanoidRootPart.CFrame.p + Vector3.new(0, 0, 3))}
+            )
+            Tween:Play()
+            getNearestMob().HumanoidRootPart.Anchored = true
+        end
+    )
+end
+end)
+local Slider2 = Section1:CreateSlider("Auto Mob Hit Distance", 0,50,nil,false, function(Value)
+getgenv().Mobss = Value
+end)
 local Dropdown1 = Section1:CreateDropdown("Select Mob")
 Dropdown1:AddToolTip("Select Mob")
 for i,v in next, Mobs do
 Dropdown1:AddOption(v, function(String)
 Mobs = String
+end)
+end 
+
+local Toggle1 = Section1:CreateToggle("AntiAFK", nil, function(State)
+ban = State
+while ban do
+    wait(2)
+    pcall(
+        function()
+            local text = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.AntiAFK.question.Text
+            local text = string.split(text, "What's ")[2]
+            local text = string.split(text, "?")[1]
+
+            game:GetService("ReplicatedStorage").UnAFK:InvokeServer(loadstring("return " .. text)(), 59)
+        end
+    )
+end
+
+end)
+local Toggle1 = Section1:CreateToggle("Auto Buy Ticket", nil, function(State)
+buy = State
+while buy do
+    wait()
+    game:GetService("ReplicatedStorage").PurchaseTickets:FireServer(1)
+end
+end)
+
+local Toggle1 = Section1:CreateToggle("Auto Craft Ticket", nil, function(State)
+autocraft = State
+while autocraft do
+    wait()
+    game:GetService("ReplicatedStorage").Craft:FireServer(Ticket)
+end
+end)
+
+local Dropdown1 = Section1:CreateDropdown("Select Ticket-Tir")
+Dropdown1:AddToolTip("Select Ticket-Tir")
+for i,v in next, Ticket do
+Dropdown1:AddOption(v, function(String)
+Ticket = String
 end)
 end 
 
@@ -99,7 +209,7 @@ while wait() and getgenv().AntiStun do
     )
 end end)
 
-local Toggle1 = Section1:CreateToggle("Anti Knockback", nil, function(State)
+local Toggle1 = Section1:CreateToggle("Anti Knockback Mob", nil, function(State)
 Infinite = State
 local OldNameCall = nil
 OldNameCall = hookmetamethod(game, "__namecall", function(...)
@@ -112,10 +222,93 @@ OldNameCall = hookmetamethod(game, "__namecall", function(...)
 end) 
 end)
 
+local Toggle = Section1:CreateToggle("HitBox", nil, function(State)
+doodoo = State
+
+game:GetService("RunService").Stepped:connect(
+    function()
+        if doodoo then
+            for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                pcall(
+                    function()
+                        if v.ClassName == "Part" or v.ClassName == "MeshPart" then
+                            v.CanCollide = false
+                        end
+                    end
+                )
+            end
+        end
+    end
+)
+
+while doodoo do
+    wait(1)
+    pcall(
+        function()
+            for i, v in pairs(game.Workspace:GetDescendants()) do
+                if table.find(HitBoxs, v.Name) and v:FindFirstChild("HumanoidRootPart") then
+                    v.LowerTorso.CanCollide = false
+                    v.LowerTorso.Material = "Neon"
+                    v.LowerTorso.Transparency = 0.5
+                    v.LowerTorso.Size = Vector3.new(head, head, head)
+                    v.HumanoidRootPart.Size = Vector3.new(head, head, head)
+                    v.HumanoidRootPart.CanCollide = false
+                end
+            end
+        end
+    )
+end
+
+end)
+local Slider2 = Section1:CreateSlider("Hitbox Radius", 0,50,nil,false, function(Value)
+head = Value
+end)
 
 
+local Button1 = Section1:CreateButton("Anti Player knockback", function()
+hookfunction(getsenv(game.Players.LocalPlayer.PlayerScripts.MoveHandler)._G.knockback, function(...) return; end)
+end)
+local Button1 = Section1:CreateButton("Anti Flash Bang", function()
+hookfunction(getsenv(game.Players.LocalPlayer.PlayerScripts.MoveHandler)._G.flasheffect, function(...) return; end)
+end)
 
+local Toggle = Section1:CreateToggle("Auto Power Stat", nil, function(State)
+Points = State
+while Points do
+    wait()
+    game:GetService("ReplicatedStorage").StatPoint:InvokeServer("Power")
+end
+end)
+local Toggle = Section1:CreateToggle("Auto Speed Stat", nil, function(State)
+Points1 = State
+while Points1 do
+    wait()
+    game:GetService("ReplicatedStorage").StatPoint:InvokeServer("Speed")
+end
+end)
 
+local Toggle = Section1:CreateToggle("Auto trick Stat", nil, function(State)
+Points2 = State
+while Points2 do
+    wait()
+    game:GetService("ReplicatedStorage").StatPoint:InvokeServer("Trick")
+end
+end)
+
+local Toggle = Section1:CreateToggle("Auto Recovery Stat", nil, function(State)
+Points3 = State
+while Points3 do
+    wait()
+    game:GetService("ReplicatedStorage").StatPoint:InvokeServer("Recovery")
+end
+end)
+local Toggle = Section1:CreateToggle("Auto Defense Stat", nil, function(State)
+Points4 = State
+while Points4 do
+    wait()
+    game:GetService("ReplicatedStorage").StatPoint:InvokeServer("Defense")
+end
+end)
 local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/Karrot-Esp"))()
 
 local Toggle1 = Section2:CreateToggle("Player Esp", nil, function(State)
@@ -131,6 +324,15 @@ local Toggle1 = Section2:CreateToggle("Boxes Esp", nil, function(State)
     ESP.Boxes = State
 end)
 
+
+if syn then
+local TextBox1 = Section2:CreateTextBox("Fps Cap", "Only numbers", true, function(Value)
+    getgenv().Fps = Value
+    pcall(function()
+setfpscap(getgenv().Fps)
+end)
+end)
+end
 
 local TextBox1 = Section2:CreateTextBox("WalkSpeed", "Only numbers", true, function(Value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
@@ -427,6 +629,7 @@ end)
 Toggle3:SetState(true)
 Section3:CreateLabel("Credits DekuDimz#7960")
 Section3:CreateLabel("Credits AlexR32#3232 Ui")
+Section3:CreateLabel("Credits e621")
 local Colorpicker3 = Section3:CreateColorpicker("UI Color", function(Color)
 	Window:ChangeColor(Color)
 end)
@@ -470,6 +673,8 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+
 
 
 
