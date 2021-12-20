@@ -407,6 +407,24 @@ while wait() and getgenv().AntiStun do
     )
 end end)
 
+
+local Toggle1 = Section1:CreateToggle("Anti TimeStop", nil, function(State)
+getgenv().AntiTimeStop = State
+while wait() and getgenv().AntiTimeStop do
+    pcall(
+        function()
+            repeat
+                wait()
+            until game.Players.LocalPlayer.Character
+            for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                if v.Name == "TimeStop" then
+                    v:Destroy()
+                end
+            end
+        end
+    )
+end end)
+
 local Toggle1 = Section1:CreateToggle("Anti Knockback Mob", nil, function(State)
 Infinite = State
 local OldNameCall = nil
@@ -871,8 +889,6 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
-
-
 
 
 
