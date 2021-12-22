@@ -9,6 +9,24 @@ game:GetService("VirtualUser"):ClickButton2(Vector2.new())
 end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G_Hub_Extras/main/Universal_Client_Bypass"))()
 
+for i, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
+    v:Disable()
+    game:GetService("ScriptContext").Error:Connect(
+        function(...)
+            local Arg = {...}
+            local i, v =
+                pcall(
+                function()
+                    return Arg[3].Name
+                end
+            )
+            if i == false then
+                return
+            end
+            v:Fire(...)
+        end
+    )
+end
 function FreeForAll(v)
     if getgenv().FreeForAll == false then
         if game.Players.LocalPlayer.Team == v.Team then return false
