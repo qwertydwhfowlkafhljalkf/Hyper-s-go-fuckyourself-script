@@ -420,7 +420,7 @@ while yes33 do
                     end
                     game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, uwu)
                     spawn(function()
-                    for i=1,20 do wait(0.4)
+                    for i=1,40 do wait(0.2)
                     v.BoostRemote:InvokeServer(true,"Food" .. v.CurrentBoosts.Value)
                     end 
                     end)
@@ -1083,6 +1083,7 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
