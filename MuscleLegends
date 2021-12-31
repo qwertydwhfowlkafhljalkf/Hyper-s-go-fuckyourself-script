@@ -1,258 +1,104 @@
-
-local vu = game:GetService("VirtualUser")
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-   wait(1)
-   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
-local Meta = getrawmetatable(game)
-local NewIndex = Meta.__newindex
-setreadonly(Meta, false)
-
-Meta.__newindex = newcclosure(function(t, k, ...)
-    
-   if not checkcaller() and (k == "WalkSpeed" or k == "JumpPower") then
-       return
-   end
-   NewIndex(t, k, ...)
-end)
-setreadonly(Meta, true)
-
-local blur = Instance.new("BlurEffect", game.Lighting)
-blur.Size = 0
-local ScreenGui = Instance.new("ScreenGui")
-local ImageLabel = Instance.new("ImageLabel")
-ScreenGui.Parent = game.CoreGui
-ImageLabel.Parent = ScreenGui
-ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
-ImageLabel.BackgroundTransparency = 1
-ImageLabel.Position = UDim2.new(0.5, -(303 / 2), 0.5, -(263 / 2))
-ImageLabel.Rotation = 0
-ImageLabel.Size = UDim2.new(0, 303,0, 263)
-ImageLabel.Image = "rbxassetid://6587457747"
-ImageLabel.ImageTransparency = 1
- 
-for i = 1, 50, 2 do
-    blur.Size = i
-    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency - 0.1
-    wait()
-end
-wait(0.1)
- 
-for i = 1, 50, 2 do
-    blur.Size = 50 - i
-    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency + 0.1
-    wait()
-end
-blur:Destroy()
-ScreenGui:Destroy()
-
-local Lib = loadstring(game:HttpGet('https://pastebin.com/raw/GaRF4FDA'))()
-local CategoryVariableHere= Lib:Category("Muscle Legends")
-CategoryVariableHere:Toggle("Auto strength",function(State)
-deku = State
-
-while deku do wait(1)
-local args = {
-    [1] = "rep"
+local Config = {
+    WindowName = "V.G Hub",
+	Color = Color3.fromRGB(255,128,64),
+	Keybind = Enum.KeyCode.RightControl
 }
-game:GetService("Players").LocalPlayer.muscleEvent:FireServer(unpack(args))
+jk = {}
+for _,v in pairs(game:GetService("ReplicatedStorage").chestRewards:GetDescendants()) do
+if v.Name ~= "Light Karma Chest" or v.Name ~= "Evil Karma Chest" then
+table.insert(jk,v.Name)
+end end 
+
+jk1 = {}
+for _,v in pairs(game:GetService("Workspace").mapCrystalsFolder:GetDescendants()) do
+if v:FindFirstChild("Crystal") then
+table.insert(jk1,v.Name)
+end end 
+function c()
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == "Handstands" then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == "Situps" then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == "Pushups" then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
-if v.ClassName == "Tool" and v.Name == "Weight" then 
-v.Parent = game.Players.LocalPlayer.Character
-end
-end
 
 
+if v.ClassName == "Tool" and v.Name == "Handstands" or v.Name == "Situps" or v.Name == "Pushups" or v.Name == "Weight" then
+repeat wait() until game.Players.LocalPlayer.Backpack:FindFirstChildOfClass("Tool") 
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):EquipTool(v)
 end
-end)
-CategoryVariableHere:Toggle("Auto Rebirth",function(State)
+end
+end
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/1201for/V.G-Hub/main/im-retarded-3"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab1 = Window:CreateTab("Ninja Legends")
+local Tab2 = Window:CreateTab("UI Settings")
+
+local Section1 = Tab1:CreateSection("")
+local Section2 = Tab1:CreateSection("")
+local Section3 = Tab2:CreateSection("")
+local Section4 = Tab2:CreateSection("")
+
+
+local Toggle1 = Section1:CreateToggle("AutoFarm", nil, function(State)
+workout = State
+game:GetService('RunService').Stepped:connect(function()
+pcall(function()
+if workout then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end end) end)
+while workout do wait()
+pcall(function()
+game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+c()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(148, 2945, 238)
+if not workout then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,0,0) end end)
+end end)
+local Toggle1 = Section1:CreateToggle("Auto Rebirth", nil, function(State)
 dragons= State
 while dragons do wait(0.1)
-local args = {
-    [1] = "rebirthRequest"
-}
-
-game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer(unpack(args))
-
+game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
 end
 end)
-CategoryVariableHere:Button("Fe invis",function()
-local Player = game.Players.LocalPlayer
-local savepos = Player.Character.HumanoidRootPart.CFrame
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(915.095215, 37.5268936, 349.808533)
-wait(0.5)
-local Character = game:GetService('Players').LocalPlayer.Character
-local Clone = Character.LowerTorso.Root:Clone()
-Character.LowerTorso.Root:Destroy()
-Clone.Parent = Character.LowerTorso
-wait(0.5)
-
-Player.Character.HumanoidRootPart.CFrame = savepos
-
-game.Players.LocalPlayer.CharacterAdded:Connect(function()
-wait(3)
-local Player = game.Players.LocalPlayer
-local savepos = Player.Character.HumanoidRootPart.CFrame
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(915.095215, 37.5268936, 349.808533)
-
-local Character = game:GetService('Players').LocalPlayer.Character
-local Clone = Character.LowerTorso.Root:Clone()
-Character.LowerTorso.Root:Destroy()
-Clone.Parent = Character.LowerTorso
-wait(0.5)
-
-Player.Character.HumanoidRootPart.CFrame = savepos 
-  end) end)
-CategoryVariableHere:Toggle("Auto Speed Keypress",function(State)
-China = State
-local args = {
-    [1] = "changeSize",
-    [2] = 1
-}
-
-game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer(unpack(args))
-while China do wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(243.039078, 4.8158493, 361.3414)
-keypress(0x57) wait(.1) keyrelease(0x57)
-end    
-end)
-CategoryVariableHere:Toggle("Do not disturb",function(State)
-china1 = State
-game:GetService('RunService').RenderStepped:connect(function()
-if china1 then
-game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4011, 26043, -2394)
- end end)
-end)
-CategoryVariableHere:Toggle("Auto Chests",function(State)
-tootooisgay = State
-while tootooisgay do wait()
-local args = {
-    [1] = "Magma Chest"
-}
-
-game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(unpack(args))
-local args = {
-    [1] = "Mythical Chest"
-}
-
-game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(unpack(args))
-local args = {
-    [1] = "Golden Chest"
-}
-game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(unpack(args))
-local args = {
-    [1] = "Enchanted Chest"
-}
-game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(unpack(args))
-local args = {
-    [1] = "Legends Chest"
-}
-game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(unpack(args))
-end 
-end)
-CategoryVariableHere:Toggle("Auto join brawl",function(State)
+local Toggle1 = Section1:CreateToggle("Auto Join Brawl", nil, function(State)
 hot = State
 while hot do wait(2)
-local args = {
-    [1] = "joinBrawl"
-}
-
-game:GetService("ReplicatedStorage").rEvents.brawlEvent:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").rEvents.brawlEvent:FireServer("joinBrawl")
+end end)
+local Button1 = Section1:CreateButton("Get All Chests", function()
+for i = 1, #jk do
+    wait(2)
+    game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(jk[i])
 end
 end)
-CategoryVariableHere:Button("Turn Small",function()   
-local args = {
-    [1] = "changeSize",
-    [2] = 1
-}
 
-game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer(unpack(args))
-end)
+local Toggle1 = Section1:CreateToggle("Auto Crystal", nil, function(State)
+pets = State
+while pets do wait() 
+game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer("openCrystal",jk2)
+end end)
 
-CategoryVariableHere:Button("Blue Crystal",function()
-local args = {
-    [1] = "openCrystal",
-    [2] = "Blue Crystal"
-}
-game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+local Dropdown1 = Section1:CreateDropdown("Select Crystal")
+Dropdown1:AddToolTip("Select Crystal")
+for i,v in next, jk1 do
+Dropdown1:AddOption(v, function(String)
+jk1 = String
 end)
-CategoryVariableHere:Button("Green Crystal",function()
-local args = {
-    [1] = "openCrystal",
-    [2] = "Green Crystal"
-}
+end
 
-game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+local TextBox1 = Section2:CreateTextBox("JumpPower", "Only numbers", true, function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 end)
-CategoryVariableHere:Button("Mythical Crystal",function()
-local args = {
-    [1] = "openCrystal",
-    [2] = "Mythical Crystal"
-}
+local TextBox1 = Section2:CreateTextBox("JumpPower", "Only numbers", true, function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+end)
+local Toggle1 = Section2:CreateToggle("Infinite Jump", nil, function(State)
+Infinite = State
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if Infinite then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end) end)
 
-game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
-end)
-CategoryVariableHere:Button("Frost Crystal",function()
-local args = {
-    [1] = "openCrystal",
-    [2] = "Frost Crystal"
-}
-
-game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
-end)
-CategoryVariableHere:Button("Inferno Crystal",function()
-local args = {
-    [1] = "openCrystal",
-    [2] = "Inferno Crystal"
-}
-
-game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
-end)
-CategoryVariableHere:Button("Legends Crystal",function()
-local args = {
-    [1] = "openCrystal",
-    [2] = "Legends Crystal"
-}
-
-game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
-end)
-CategoryVariableHere:Button("Muscle Elite Crystal",function()
-local args = {
-    [1] = "openCrystal",
-    [2] = "Muscle Elite Crystal"
-}
-
-game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
-end)
-CategoryVariableHere:Slider("WalkSpeed",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Val end)
-CategoryVariableHere:Slider("JumpPower",16,16,100,function(Val) game.Players.LocalPlayer.Character.Humanoid.JumpPower = Val end)
-CategoryVariableHere:Button("BTools",function() 
-game.StarterGui:SetCoreGuiEnabled(2, true)
-a = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
-a.BinType = 2
-b = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
-b.BinType = 3
-c = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
-c.BinType = 4 end)
-CategoryVariableHere:Button("G NoClip",function() 
+local Toggle1 = Section2:CreateToggle("G Noclip", nil, function(State)
+sex = State
 noclip = false
 game:GetService('RunService').Stepped:connect(function()
 if noclip then
@@ -264,114 +110,108 @@ mouse = plr:GetMouse()
 mouse.KeyDown:connect(function(key)
 
 if key == "g" then
+if sex then
 noclip = not noclip
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-end
+end end 
 end) end)
-CategoryVariableHere:Button("B Fly",function()
-    local gogo1000 = 0
+local Toggle1 = Section2:CreateToggle("B Fly", nil, function(State)
+sex2 = State
+local gogo1000 = 0
 local LP = game:service('Players').LocalPlayer
 local MOUSE = LP:GetMouse()
- 
 MOUSE.KeyDown:connect(function(KEY)
- if KEY:lower() == 'b' then
-    local LP = game:service('Players').LocalPlayer
+if KEY:lower() == 'b' then
+if sex2 then
+local LP = game:service('Players').LocalPlayer
 local MOUSE = LP:GetMouse()
- 
-    gogo1000 = gogo1000 + 1
-    _G.FLYING = false
- 
+gogo1000 = gogo1000 + 1
+_G.FLYING = false
 local T = LP.Character.UpperTorso
 local CONTROL = {F = 0, B = 0, L = 0, R = 0}
 local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
 local SPEED = 5
- 
- 
- 
 local function FLY()
-    _G.FLYING = true
-    local BG = Instance.new('BodyGyro', T)
-    local BV = Instance.new('BodyVelocity', T)
-    BG.P = 9e4
-    BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-    BG.cframe = T.CFrame
-    BV.velocity = Vector3.new(0, 0.1, 0)
-    BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
- 
- 
-    spawn(function()
-      repeat wait()
-        LP.Character.Humanoid.PlatformStand = true
-        if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
-          SPEED = 50
-        elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
-          SPEED = 0
-        end
-        if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
-          BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-          lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
-        elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
-          BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
-        else
-          BV.velocity = Vector3.new(0, 0.1, 0)
-        end
-        BG.cframe = game.Workspace.CurrentCamera.CoordinateFrame
-      until not _G.FLYING
-      CONTROL = {F = 0, B = 0, L = 0, R = 0}
-      lCONTROL = {F = 0, B = 0, L = 0, R = 0}
-      SPEED = 0
-      BG:destroy()
-      BV:destroy()
-      LP.Character.Humanoid.PlatformStand = false
-    end)
-  end
- 
-  MOUSE.KeyDown:connect(function(KEY)
-    if KEY:lower() == 'w' then
-      CONTROL.F = 1
-    elseif KEY:lower() == 's' then
-      CONTROL.B = -1
-    elseif KEY:lower() == 'a' then
-      CONTROL.L = -1 
-    elseif KEY:lower() == 'd' then 
-      CONTROL.R = 1
-    end
-  end)
- 
-  MOUSE.KeyUp:connect(function(KEY)
-    if KEY:lower() == 'w' then
-      CONTROL.F = 0
-    elseif KEY:lower() == 's' then
-      CONTROL.B = 0
-    elseif KEY:lower() == 'a' then
-      CONTROL.L = 0
-    elseif KEY:lower() == 'd' then
-      CONTROL.R = 0
-    end
-  end)
- 
- 
- 
- 
-  FLY()
- 
-    if gogo1000 == 2 then
-    _G.FLYING = false
-    gogo1000 = 0
- 
-    end
- 
- 
- 
+_G.FLYING = true
+local BG = Instance.new('BodyGyro', T)
+local BV = Instance.new('BodyVelocity', T)
+BG.P = 9e4
+BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+BG.cframe = T.CFrame
+BV.velocity = Vector3.new(0, 0.1, 0)
+BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+spawn(function()
+repeat wait()
+LP.Character.Humanoid.PlatformStand = true
+if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 then
+SPEED = 50
+elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0) and SPEED ~= 0 then
+SPEED = 0
+end
+if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
+BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
+BV.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B) * 0.2, 0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+else
+BV.velocity = Vector3.new(0, 0.1, 0)
+end
+BG.cframe = game.Workspace.CurrentCamera.CoordinateFrame
+until not _G.FLYING
+CONTROL = {F = 0, B = 0, L = 0, R = 0}
+lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+SPEED = 0
+BG:destroy()
+BV:destroy()
+LP.Character.Humanoid.PlatformStand = false
+end)
+end
+MOUSE.KeyDown:connect(function(KEY)
+if KEY:lower() == 'w' then
+CONTROL.F = 1
+elseif KEY:lower() == 's' then
+CONTROL.B = -1
+elseif KEY:lower() == 'a' then
+CONTROL.L = -1 
+elseif KEY:lower() == 'd' then 
+CONTROL.R = 1
+end
+end)
+MOUSE.KeyUp:connect(function(KEY)
+if KEY:lower() == 'w' then
+CONTROL.F = 0
+elseif KEY:lower() == 's' then
+CONTROL.B = 0
+elseif KEY:lower() == 'a' then
+CONTROL.L = 0
+elseif KEY:lower() == 'd' then
+CONTROL.R = 0
+end
+end)
+FLY()
+if gogo1000 == 2 then
+_G.FLYING = false
+gogo1000 = 0
+end
+end
 end
 end) end)
+local Button1 = Section2:CreateButton("Anti Lag", function()
+for _,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+if v:IsA("BasePart") and not v.Parent:FindFirstChild("Humanoid") then --- i stole this from the actual game LOL >-<
+v.Material = Enum.Material.SmoothPlastic;
+if v:IsA("Texture") then
+v:Destroy();
+end end;		
+end;
+end)
 
-CategoryVariableHere:Button("teleport to Random Player",function()
+local Button1 = Section2:CreateButton("Teleport to RandomPlayer", function()
 local randomPlayer = game.Players:GetPlayers()
 [math.random(1,#game.Players:GetPlayers())]
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(randomPlayer.Character.Head.Position.X, randomPlayer.Character.Head.Position.Y, randomPlayer.Character.Head.Position.Z)) end)
-CategoryVariableHere:Button("Lag Switch F3",function()
+local Button1 = Section2:CreateButton("Lag Switch F3", function()
 local a = false
 local b = settings()
 
@@ -381,7 +221,7 @@ a = not a
 b.Network.IncomingReplicationLag = a and 10 or 0
 end
 end) end) 
-CategoryVariableHere:Button("ServerHop",function()
+local Button1 = Section2:CreateButton("ServerHop", function()
 local PlaceID = game.PlaceId
 local AllIDs = {}
 local foundAnything = ""
@@ -452,46 +292,65 @@ function Teleport()
 end
 
 -- If you'd like to use a script before server hopping (Like a Automatic Chest collector you can put the Teleport() after it collected everything.
-Teleport()
+Teleport() 
 end)
-CategoryVariableHere:Button("Rejoin",function()
-    local ts = game:GetService("TeleportService")
-local p = game:GetService("Players").LocalPlayer
-ts:Teleport(game.PlaceId, p) end)
-local CategoryVariableHere= Lib:Category("Teleports")
-CategoryVariableHere:Button("Go to Legends gym",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4298.60059, 1121.89404, -3898.68066)
-end)
-CategoryVariableHere:Button("Go to Mythical gym",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2386.89038, 139.607956, 1094.26367)
-end)
-CategoryVariableHere:Button("Go to Frost gym",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2752.56543, 125.822533, -386.73703)
-end)
-CategoryVariableHere:Button("Go to Eternal gym",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6917.79248, 182.352829, -1336.63928)
-end)
-CategoryVariableHere:Button("Go to Tiny island",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4.25301933, 220.993713, 1963.60168)
-end)
-CategoryVariableHere:Button("Go to Brawl aura 1",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(985.910645, 163.795364, -7037.80615)
-end)
-CategoryVariableHere:Button("Go to Brawl aura 2",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4466.75342, 334.973602, -8425.74512)
-end)
-CategoryVariableHere:Button("Go to Brawl aura 3",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1901.87695, 251.895432, -5899.64795)
-end)
+local Button1 = Section2:CreateButton("Rejoin", function()
+game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer) end)
 
-local CategoryVariableHere= Lib:Category("Credits")
-CategoryVariableHere:Label("Credits to a r q for ui liba")
-CategoryVariableHere:Label("Credits to DekuDimz#7960 aka me lol")
-Lib:Reload()
+local Toggle3 = Section3:CreateToggle("UI Toggle", nil, function(State)
+	Window:Toggle(State)
+end)
+Toggle3:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+	Config.Keybind = Enum.KeyCode[Key]
+end)
+Toggle3:SetState(true)
+Section3:CreateLabel("Credits DekuDimz#7960")
+Section3:CreateLabel("Credits AlexR32#3232 Ui")
+Section3:CreateLabel("Credits The3Bakers")
+local Colorpicker3 = Section3:CreateColorpicker("UI Color", function(Color)
+	Window:ChangeColor(Color)
+end)
+Colorpicker3:UpdateColor(Config.Color)
+-- credits to jan for patterns
+local Dropdown3 = Section4:CreateDropdown("Image")
+local Option7 = Dropdown3:AddOption("Default", function(String)
+	Window:SetBackground("2151741365")
+end)
+local Option8 = Dropdown3:AddOption("Hearts", function(String)
+	Window:SetBackground("6073763717")
+end)
+local Option9 = Dropdown3:AddOption("Abstract", function(String)
+	Window:SetBackground("6073743871")
+end)
+local Option10 = Dropdown3:AddOption("Hexagon", function(String)
+	Window:SetBackground("6073628839")
+end)
+local Option11 = Dropdown3:AddOption("Circles", function(String)
+	Window:SetBackground("6071579801")
+end)
+local Option12 = Dropdown3:AddOption("Lace With Flowers", function(String)
+	Window:SetBackground("6071575925")
+end)
+local Option13 = Dropdown3:AddOption("Floral", function(String)
+	Window:SetBackground("5553946656")
+end)
+Option7:SetOption()
 
-while wait() do
-wait(600)
-game.Players.LocalPlayer.Character.Head:Destroy() end
+local Colorpicker4 = Section4:CreateColorpicker("Color", function(Color)
+	Window:SetBackgroundColor(Color)
+end)
+Colorpicker4:UpdateColor(Color3.new(1,1,1))
+
+local Slider3 = Section4:CreateSlider("Transparency",0,1,nil,false, function(Value)
+	Window:SetBackgroundTransparency(Value)
+end)
+Slider3:SetValue(0)
+
+local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
+	Window:SetTileScale(Value)
+end)
+Slider4:SetValue(0.5)
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightShift to toggle";
