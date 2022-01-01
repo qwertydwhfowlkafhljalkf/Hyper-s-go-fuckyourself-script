@@ -1,0 +1,22 @@
+getgenv().S = true
+repeat wait() until game:IsLoaded() wait()
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+if game.PlaceId == 8305337434 then
+game:GetService('RunService').Stepped:connect(function()
+if getgenv().S then
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(11)
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace"):WaitForChild("Circle").CFrame * CFrame.new(0,9e9,0)
+if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health == 0 then
+game:GetService("TeleportService"):Teleport(8305160617, game:GetService("Players").LocalPlayer) 
+end
+end
+end)
+end
+if game.PlaceId == 8305160617 then
+game:GetService('RunService').Stepped:connect(function()
+if getgenv().S then
+firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace").Interactions.ReadyPlatform, 0) 
+end end)
+end
