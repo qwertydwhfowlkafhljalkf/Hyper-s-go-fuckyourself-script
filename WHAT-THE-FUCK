@@ -16,7 +16,7 @@ if game.PlaceId == 1765700510 then
     game.StarterGui:SetCore(
         "SendNotification",
         {
-            Title = "Credis",
+            Title = "Credits",
             Text = "CharWar Serverhops, DekuDimz Aka the retard"
         }
     )
