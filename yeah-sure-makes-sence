@@ -1,0 +1,4 @@
+ local queue_on_teleport =   [[
+ repeat wait() until game:IsLoaded() wait() print("ServerHoped")
+ loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/WHAT-THE-FUCK'))()]]
+    
