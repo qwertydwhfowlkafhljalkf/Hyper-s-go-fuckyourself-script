@@ -27,14 +27,13 @@ if game.PlaceId == 1765700510 then
             function()
                 for _, v in pairs(game:GetService("Workspace").CollectibleDiamonds:GetChildren()) do
                     if v:IsA("Part") and v.Transparency == 0 then
+                        wait()
                         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0) --0 is touch
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                             game:GetService("Workspace").LocalContent.Triggers.Buildings.LectureHall.CFrame
-                        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
-                            game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                        end
-                        wait()
+
                         game.Workspace.Gravity = 0
+
                         if v.Transparency ~= 0 then
                             local PlaceID = game.PlaceId
                             local AllIDs = {}
@@ -134,3 +133,11 @@ if game.PlaceId == 1765700510 then
         )
     end
 end
+
+task.spawn(
+    function()
+        while wait(30) do
+            Teleport()
+        end
+    end
+)
