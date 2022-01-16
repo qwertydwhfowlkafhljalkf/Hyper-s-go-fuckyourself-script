@@ -1,6 +1,6 @@
 repeat
     wait()
-until game:IsLoaded()
+until game:IsLoaded() or game.Players.LocalPlayer.Character.HumanoidRootPart
 
 if game.PlaceId == 735030788 then
     game:GetService("TeleportService"):Teleport(1765700510, LocalPlayer)
@@ -20,17 +20,19 @@ if game.PlaceId == 1765700510 then
             Text = "CharWar Serverhops, DekuDimz Aka the retard"
         }
     )
+
     while getgenv().FromTheGetGo do
         wait()
         pcall(
             function()
-                for _, v in pairs(game:GetService("Workspace").CollectibleDiamonds:GetDescendants()) do
-                    if v:IsA("TouchTransmitter") and v.Parent.Transparency == 0 then
-                        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 0) --0 is touch
+                for _, v in pairs(game:GetService("Workspace").CollectibleDiamonds:GetChildren()) do
+                    if v:IsA("Part") and v.Transparency == 0 then
+                        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0) --0 is touch
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                            game:GetService("Workspace").LocalContent.Triggers.Buildings.LectureHall.CFrame
                         wait()
-                        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Parent, 1) -- 1 is untouch
-
-                        if v.Parent.Transparency ~= 0 then
+                        game.Workspace.Gravity = 0
+                        if v.Transparency ~= 0 then
                             local PlaceID = game.PlaceId
                             local AllIDs = {}
                             local foundAnything = ""
