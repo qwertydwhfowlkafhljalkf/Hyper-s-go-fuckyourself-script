@@ -1,6 +1,6 @@
 repeat
     wait()
-until game:IsLoaded() 
+until game:IsLoaded()
 
 if game.PlaceId == 735030788 then
     game:GetService("TeleportService"):Teleport(1765700510, LocalPlayer)
@@ -30,6 +30,9 @@ if game.PlaceId == 1765700510 then
                         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0) --0 is touch
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                             game:GetService("Workspace").LocalContent.Triggers.Buildings.LectureHall.CFrame
+                        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+                            game.Players.LocalPlayer.Character.Humanoid.Sit = false
+                        end
                         wait()
                         game.Workspace.Gravity = 0
                         if v.Transparency ~= 0 then
