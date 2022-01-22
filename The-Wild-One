@@ -7,7 +7,15 @@ repeat wait() until game:IsLoaded() wait()
 game:GetService("Players").LocalPlayer.Idled:connect(function()
 game:GetService("VirtualUser"):ClickButton2(Vector2.new())
 end)
-
+local OldNameCall = nil
+OldNameCall = hookmetamethod(game, "__namecall", function(self, ...)
+    local Args = {...}
+    local Self = Args[1]
+    if getnamecallmethod()=="FireServer" and tostring(Self)=="ErrorLoggerRemote" then
+            return nil
+    end
+    return OldNameCall(self, ...)
+end)
 
 for i, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
     v:Disable()
