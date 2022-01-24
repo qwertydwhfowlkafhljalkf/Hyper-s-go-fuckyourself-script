@@ -766,3 +766,18 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
+
+game.StarterGui:SetCore("SendNotification", {
+Title = "Warning";
+Text = "RightControl to toggle";
+})
+game.StarterGui:SetCore("SendNotification", {
+Title = "Credis";
+Text = "CharWar Serverhops Toxic Mods screen thingy And Kiriot22 esp,IY for fly script inspiration";
+})
+
+game.StarterGui:SetCore("SendNotification", {
+Title = "Warning";
+Text = "Im not responsible for bans use at your own risk";
+})
