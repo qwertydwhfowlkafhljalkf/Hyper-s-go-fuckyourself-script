@@ -502,8 +502,7 @@ while wait() and dumbass do
         function()
             for i, v in pairs(game:GetService("Workspace")["WORKSPACE_Interactables"].Placeables:GetChildren()) do
                 if
-                    v:IsA("Model") and v.Name:match("Fire") and v:FindFirstChild("Center") and
-                        v.Owner.Value == game.Players.LocalPlayer.Name
+                    v:IsA("Model") and v.Name:match("Fire") and v:FindFirstChild("Center")
                  then
                     wait(0.5)
                     game:GetService("ReplicatedStorage").Communication.Events.CookFood:FireServer(v.Center)
@@ -791,43 +790,3 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
-
-Title = "Warning";
-Text = "RightControl to toggle";
-})
-game.StarterGui:SetCore("SendNotification", {
-Title = "Credis";
-Text = "CharWar Serverhops Toxic Mods screen thingy And Kiriot22 esp";
-})
-
-local function copyDiscord()
-    setclipboard("https://discord.gg/RHemSXfPpw")
-end
-
-local StarterGui = game:GetService("StarterGui")
-local bindable = Instance.new("BindableFunction")
-
-local function sendNotification(titleText, descText)
-    StarterGui:SetCore("SendNotification",{
-        Title = titleText;
-        Text = descText;
-        Icon = "";
-        Duration = 5;
-    })
-end
-
-function bindable.OnInvoke(response)
-    if response == "Yes" then
-        copyDiscord()
-        sendNotification("discord link copied")
-    end
-end
-
-StarterGui:SetCore("SendNotification", {
-	Title = "V.G Hub Discord",
-	Text = "Copy to clipboard?",
-	Duration = 5,
-	Callback = bindable,
-	Button1 = "Yes",
-	Button2 = "No"
-})
