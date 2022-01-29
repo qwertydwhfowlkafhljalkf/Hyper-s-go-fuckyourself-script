@@ -15,12 +15,12 @@ if game.PlaceId == 834827615 then
     Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
     game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Destroy()
     Clone.Parent = game:GetService("Players").LocalPlayer.Character
-
+    game.Players.LocalPlayer.settings["Display Gun"].Value = true
     game.Players.LocalPlayer.CharacterAdded:Connect(
         function()
             if getgenv().AutoFarm then
                 pcall(function()
-                game.Players.LocalPlayer.settings["Display Gun"].Value = false
+                game.Players.LocalPlayer.settings["Display Gun"].Value = true
                 wait(4)
                 Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
                 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Destroy()
