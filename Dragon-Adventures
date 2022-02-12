@@ -252,7 +252,6 @@ end
 
 local Toggle1 = Section1:CreateToggle("Auto Feed Dragons Chocolate", nil, function(State)
 okthen = State
-firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Interactions.ValentinesEvent.TeleportPortals.ToPortal.TeleportPart,0)
 while wait()  and okthen do pcall(function()
     wait()
     for i, v in pairs(game:GetService("Players").LocalPlayer.Data.Dragons:GetChildren()) do
@@ -269,9 +268,9 @@ end)
 local Toggle1 = Section1:CreateToggle("AutoMaze", nil, function(State)
 pol = State
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Interactions.ValentinesEvent.TeleportPortals.ToPortal.TeleportPart,0)
-while wait() and pol do
-    pcall(
-        function()
+
+while wait() and pol do pcall(function()
+
             for i, v in pairs(game:GetService("Workspace").Interactions.ValentinesEvent.Maze.Chocolates:GetChildren()) do
                 if v:IsA("Model") and v:FindFirstChildOfClass("MeshPart") then
                     
@@ -290,7 +289,7 @@ while wait() and pol do
                 )
              then
            
-            
+             if game:GetService("Workspace").Interactions.ValentinesEvent.Maze.StartZone.CountdownGui.PromptLabel.Text ~= "Singleplayer Maze Minigame" then
                 firetouchinterest(
                     game.Players.LocalPlayer.Character.HumanoidRootPart,
                     game:GetService("Workspace").Interactions.ValentinesEvent.Maze.Mazes["1"].TeleportPart,
@@ -301,20 +300,22 @@ while wait() and pol do
                     game:GetService("Workspace").Interactions.ValentinesEvent.Maze.Mazes["2"].TeleportPart,
                     0
                 )
+                end
                     if game:GetService("Workspace").Interactions.ValentinesEvent.Maze.StartZone.CountdownGui.PromptLabel.Text == "Singleplayer Maze Minigame" then wait(2)
                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Interactions.ValentinesEvent.Maze.ReturnPart.CFrame 
                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                 game:GetService("Workspace").Interactions.ValentinesEvent.Maze.StartZone.CountdownPart.CFrame *CFrame.new(math.random(1,10),0,math.random(1,10)) end 
             end
-        end
-    )
+end)
 end
 
 end)
 
 local Toggle1 = Section1:CreateToggle("Autocollect Valentines", nil, function(State)
 y = State
+
 firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,game:GetService("Workspace").Interactions.ValentinesEvent.TeleportPortals.ToPortal.TeleportPart,0)
+
 game:GetService("RunService").Stepped:connect(
     function()
         if y then
@@ -1079,6 +1080,7 @@ local Slider4 = Section4:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 	Window:SetTileScale(Value)
 end)
 Slider4:SetValue(0.5)
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "Warning";
 Text = "RightControl to toggle";
