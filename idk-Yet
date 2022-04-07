@@ -32,39 +32,6 @@ local function Save()
     writefile("V.G Hub//" .. Name, game:service "HttpService":JSONEncode(Settings))
 end
 
-
-local OldNameCall = nil
-OldNameCall =
-    hookmetamethod(
-    game,
-    "__namecall",
-    function(self, ...)
-        local Args = {...}
-        if self.Name == "MSNYCHE" then
-            return nil
-        end
-        if getnamecallmethod() == "BreakJoints" then
-            return true
-        end
-        if getnamecallmethod() == "Destroy" and self == game.Players.LocalPlayer then 
-            return nil
-        end 
-        if getnamecallmethod() == "Kick"  then
-            return nil
-        end
-        if (not checkcaller() and getfenv(2).crash) then
-        hookfunction(getfenv(2).LocalScript, function()
-            return nil
-        end)
-        end
-        if getnamecallmethod() == "IsStudio"  then
-            return true
-        end
-        return OldNameCall(self, unpack(Args))
-    end
-)
-
-
 -- // not fully done. this just covers the client-sided part. I recommend to reset character after execution if you have already spawned in
 
 -- // Check if a table contains indexes
