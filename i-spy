@@ -1,0 +1,80 @@
+getgenv().Start = true
+local NoNos = {
+    "CHECKER_1",
+    "TeleportDetect",
+    "OneMoreTime"
+}
+Table ={
+WalkSpeed,JumpPower
+}
+
+local OldNameCall
+OldNameCall = hookmetamethod(game, "__namecall", function(...)
+    local Args = {...}
+    if (getnamecallmethod() == "FireServer"  and table.find(NoNos, Args[2])) then
+        return
+    end
+     if getnamecallmethod()=="IsStudio"  then
+        return true
+    end
+    if (not checkcaller() and getfenv(2).crash) then
+        hookfunction(getfenv(2).crash, function()
+            return nil
+        end)
+    end
+    return OldNameCall(...)
+end)
+
+local OldNameCall
+OldNameCall = hookmetamethod(game, "__newindex", function(A, B, C)
+    if (not checkcaller() and A.ClassName == "Humanoid" and (B == "WalkSpeed" or B == "JumpPower")) then
+        Table[B] = C
+        return
+    end
+    return OldNameCall(A, B, C)
+end)
+
+
+while wait(0.2) and getgenv().Start do
+    pcall(
+        function()
+            if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+                game.Players.LocalPlayer.Character.Humanoid.Jump = true 
+            end 
+            for i, v in pairs(game:GetService("Workspace").Cashiers:GetChildren()) do
+                if v:IsA("Model") and v.Humanoid.Health >= 0 and v.Humanoid.Health > 5 then
+                    repeat
+                        wait(0.2)
+
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Open.CFrame * CFrame.new(0, 0, 2)
+                        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Combat") then wait(5)
+                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+                                game:GetService("Players").LocalPlayer.Backpack.Combat
+                            )
+                        end
+                        game:GetService("VirtualUser"):ClickButton1(Vector2.new(9e9, 9e9))
+                    until v.Head.Crash.Playing or not getgenv().Start and game:GetService("Players").LocalPlayer.DataFolder.Information.Jail.Value == 0
+                    for i, v in pairs(game:GetService("Workspace").Ignored.Drop:GetChildren()) do
+                        if
+                            v:IsA("BasePart") and v.Name == "MoneyDrop" and
+                                (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude <=
+                                    50 
+                         then
+                            repeat
+                                wait()
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                                if
+                                    (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <=
+                                        12 and v:FindFirstChildWhichIsA("ClickDetector")
+                                 then
+                                    fireclickdetector(v:FindFirstChildWhichIsA("ClickDetector"))
+                                    wait(1)
+                                end
+                            until not v:FindFirstChildWhichIsA("ClickDetector") or not getgenv().Start and game:GetService("Players").LocalPlayer.DataFolder.Information.Jail.Value == 0
+                        end
+                    end
+                end
+            end
+        end
+    )
+end
