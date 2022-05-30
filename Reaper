@@ -111,7 +111,7 @@ mobs = String
 end)
 end
 
-local Toggle1 = Section1:CreateToggle("Auto Attack", nil, function(State)
+local Toggle1 = Section1:CreateToggle("Auto Quest Buggy", nil, function(State)
 AutoQuest = State
 while AutoQuest do
     wait(3)
