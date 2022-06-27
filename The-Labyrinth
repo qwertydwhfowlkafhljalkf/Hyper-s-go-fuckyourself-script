@@ -7,6 +7,17 @@ repeat wait() until game:IsLoaded()
 game:GetService("Players").LocalPlayer.Idled:connect(function()
 game:GetService("VirtualUser"):ClickButton2(Vector2.new())
 end)
+
+
+local OldNameCall = nil
+OldNameCall = hookmetamethod(game, "__namecall", function(self,...)
+    local Args = {...}
+    if getnamecallmethod() == "PreloadAsync"  then
+            return wait(math.huge)
+    end
+    return OldNameCall(self,...)
+end)
+
 local OldNameCall = nil
 OldNameCall = hookmetamethod(game, "__namecall", function(...)
     local Args = {...}
@@ -16,6 +27,7 @@ OldNameCall = hookmetamethod(game, "__namecall", function(...)
     end
     return OldNameCall(...)
 end)
+
 pcall(function()
 game:GetService("Workspace").Map.Glade.Doors:remove()
 game:GetService("ReplicatedStorage").Resources.Data.Events.Administration:remove()
