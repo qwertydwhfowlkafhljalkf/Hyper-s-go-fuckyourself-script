@@ -33,5 +33,5 @@ end
 
 game:GetService("RunService").Stepped:Connect(function()
 Player.Character:WaitForChild("Humanoid"):ChangeState(11)
-Tween(Player.Character.HumanoidRootPart,GetAwayAssHats().CFrame,300)
+Tween(Player.Character.HumanoidRootPart,GetAwayAssHats().CFrame,50)
 end)
