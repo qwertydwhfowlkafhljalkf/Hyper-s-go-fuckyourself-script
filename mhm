@@ -1,6 +1,10 @@
 local Player = game.Players.LocalPlayer
 local TweenService = game:GetService("TweenService")
+local A = getsenv(Player.PlayerGui.CaptchaGui.CaptchaGuiClient)
 
+local Hook = hookfunction(A.StartBubbleMinigame,function() -- Gonna Do What We Gotta Do
+    return nil 
+end)
 for i,v in pairs(game:GetDescendants()) do
     if v:IsA("Seat") then
         v:Destroy()
