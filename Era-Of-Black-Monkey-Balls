@@ -825,7 +825,7 @@ spawn(function()
     while wait() and Settings.HardReset do
         pcall(function()
             if Player.Character.Health.Value <= 10 then
-                Player.Character.Head:Destroy()
+                Player.Character:Destroy()
             end 
         end) 
     end 
@@ -981,7 +981,7 @@ Settings.InfiniteJump = State
 game:GetService("UserInputService").JumpRequest:connect(
     function()
         if Settings.InfiniteJump then
-            game:GetService "Players".LocalPlayer.Character:FindFirstChildWhichIsA "Humanoid":ChangeState("Jumping")
+            Player.Character:FindFirstChildWhichIsA "Humanoid":ChangeState("Jumping")
         end
     end
 )
