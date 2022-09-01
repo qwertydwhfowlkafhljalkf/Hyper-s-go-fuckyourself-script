@@ -395,7 +395,7 @@ local function getNearestMob()
     end
     return Target
 end
-
+pcall(function()
 for i, v in pairs(Players:GetPlayers()) do
     if v:GetRoleInGroup(15032683) ~= "Member" and v:GetRoleInGroup(15032683) ~= "Guest" and Settings.AutoHop then
         ServerHop()
@@ -408,6 +408,7 @@ Players.PlayerAdded:Connect(
         end
     end
 )
+end)
 
 local Snap = {}
 local Snaps = {
@@ -1504,6 +1505,7 @@ spawn(
         end
     end
 )
+
 game.StarterGui:SetCore("SendNotification", {Title = "Warning", Text = "RightControl to toggle if the gui does not show up then the game is not supported please try again later or never if the game is supported the gui will pop up reguardless GOOD DAY!",Duration = 15})
 game.StarterGui:SetCore(
     "SendNotification",
