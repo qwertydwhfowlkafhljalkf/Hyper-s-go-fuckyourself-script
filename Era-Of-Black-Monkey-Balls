@@ -1506,6 +1506,16 @@ spawn(
     end
 )
 
+pcall(function()
+    for i,v in pairs(Workspace:GetDescendants()) do
+        if v.Name == "Officer" then
+            v.Head.BillboardGui.Frame.TextLabel.Text = "DekuDimz"
+        end 
+        if v.Name == "Guild Master" then
+            v.Head.BillboardGui.Frame.TextLabel.Text = "Solomon"
+        end 
+    end 
+end)
 
 game.StarterGui:SetCore("SendNotification", {Title = "Warning", Text = "RightControl to toggle if the gui does not show up then the game is not supported please try again later or never if the game is supported the gui will pop up reguardless GOOD DAY!",Duration = 15})
 game.StarterGui:SetCore(
