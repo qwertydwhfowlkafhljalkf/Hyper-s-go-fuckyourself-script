@@ -267,6 +267,8 @@ end
 local R = getsenv(Player.Character:FindFirstChild("Client"))
 local Swing = R.Swing
 Player.Character.JumpCooldown.Disabled = true
+Player.Character.Scripts.Tilt.Disabled = true
+Player.Character.Scripts.Adjuster.Disabled = true
 
 Player.CharacterAdded:Connect(
     function()
@@ -275,6 +277,8 @@ Player.CharacterAdded:Connect(
             local R = getsenv(Player.Character:FindFirstChild("Client"))
             local Swing = R.Swing
             Player.Character.JumpCooldown.Disabled = true
+            Player.Character.Scripts.Tilt.Disabled = true
+            Player.Character.Scripts.Adjuster.Disabled = true
         end
     end
 )
@@ -506,7 +510,8 @@ local Table = {
     "30KMEMBERMILESTONE",
     "RobloxDown1!",
     "SchoolIsBack!",
-    "JEFFTHERTERMINATED"
+    "JEFFTHERTERMINATED",
+    "CRONGETINSTUDIO"
 }
 
 if Settings.Speed == nil then
@@ -1551,7 +1556,6 @@ pcall(function()
         end 
     end 
 end)
-
 game.StarterGui:SetCore("SendNotification", {Title = "Warning", Text = "RightControl to toggle if the gui does not show up then the game is not supported please try again later or never if the game is supported the gui will pop up reguardless GOOD DAY!",Duration = 15})
 game.StarterGui:SetCore(
     "SendNotification",
