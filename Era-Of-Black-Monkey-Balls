@@ -264,7 +264,7 @@ if hookmetamethod then
         end
     )
 end
-
+pcall(function()
 Player.Character:WaitForChild("Essence of Terror").Activated:Connect(
     function()
         if Player.Character:WaitForChild("Essence of Terror") then
@@ -275,7 +275,7 @@ Player.Character:WaitForChild("Essence of Terror").Activated:Connect(
         end
     end
 )
-
+end)
 
 local R = getsenv(Player.Character:FindFirstChild("Client"))
 local Swing = R.Swing
@@ -1569,8 +1569,6 @@ pcall(function()
         end 
     end 
 end)
-
-
 
 game.StarterGui:SetCore("SendNotification", {Title = "Warning", Text = "RightControl to toggle if the gui does not show up then the game is not supported please try again later or never if the game is supported the gui will pop up reguardless GOOD DAY!",Duration = 15})
 game.StarterGui:SetCore(
