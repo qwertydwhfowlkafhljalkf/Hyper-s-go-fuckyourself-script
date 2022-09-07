@@ -513,7 +513,8 @@ local Table = {
     "RobloxDown1!",
     "SchoolIsBack!",
     "JEFFTHERTERMINATED",
-    "CRONGETINSTUDIO"
+    "CRONGETINSTUDIO",
+    "Update3Hype!"
 }
 
 if Settings.Speed == nil then
