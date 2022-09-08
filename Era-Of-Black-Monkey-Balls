@@ -730,13 +730,13 @@ spawn(
                          then
                             if Settings.TeleportMethod == "InstantTP" then
                                 Player.Character.HumanoidRootPart.CFrame =
-                                    v.HumanoidRootPart.CFrame * CFrame.new(0, 17, 0) *
+                                    v.HumanoidRootPart.CFrame * CFrame.new(0, -17, 0) *
                                     CFrame.Angles(Settings.Angle, 0, 0)
                             end
                             if Settings.TeleportMethod == "Tween" then
                                 Tween(
                                     Player.Character.HumanoidRootPart,
-                                    v.HumanoidRootPart.CFrame * CFrame.new(0, 17, 0) *
+                                    v.HumanoidRootPart.CFrame * CFrame.new(0, -17, 0) *
                                         CFrame.Angles(Settings.Angle, 0, 0),
                                     Settings.Speed
                                 )
