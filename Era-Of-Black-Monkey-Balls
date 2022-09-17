@@ -1337,11 +1337,7 @@ RunService.Stepped:connect(
     function()
         if d then
             KO()
-            Player.Character:FindFirstChildOfClass("Humanoid").PlatformStand = true
-            Player.Character:WaitForChild("Head").Anchored = true
-            elseif Settings.CFLY or not d then
-            Player.Character:FindFirstChildOfClass("Humanoid").PlatformStand = false
-            Player.Character:WaitForChild("Head").Anchored = false
+        
         end
     end
 )
@@ -1351,7 +1347,11 @@ Player:GetMouse().KeyDown:connect(
             if Settings.CFLY then
                 d = not d
                 KO()
-                
+                Player.Character:FindFirstChildOfClass("Humanoid").PlatformStand = true
+                Player.Character:WaitForChild("Head").Anchored = true
+                elseif Settings.CFLY or not d then
+                Player.Character:FindFirstChildOfClass("Humanoid").PlatformStand = false
+                Player.Character:WaitForChild("Head").Anchored = false
             end
         end
     end
@@ -1549,14 +1549,6 @@ pcall(function()
         end 
     end 
 end)
-game.StarterGui:SetCore("SendNotification", {Title = "Warning", Text = "RightControl to toggle if the gui does not show up then the game is not supported please try again later or never if the game is supported the gui will pop up reguardless GOOD DAY!",Duration = 15})
-game.StarterGui:SetCore(
-    "SendNotification",
-    {
-        Title = "Credis",
-        Text = "CharWar Serverhops Toxic Mods screen thingy And Kiriot22 esp,IY for fly script inspiration,Staylin Save Settings,Felix for being sexy, E621 Anticheat bypasses"
-    }
-)
 wait(5)
 local function e()
     setclipboard("https://discord.gg/HUBfmJUA2H")
