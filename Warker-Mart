@@ -1,3 +1,4 @@
+repeat wait() until game:IsLoaded()
 local Camera = game:GetService("Workspace").CurrentCamera
 local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
