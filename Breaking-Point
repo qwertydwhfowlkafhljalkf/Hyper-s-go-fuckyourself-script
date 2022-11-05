@@ -8,8 +8,8 @@ if game.PlaceId == 648362523 then
     game.StarterGui:SetCore(
         "SendNotification",
         {
-            Title = "Credis",
-            Text = "IsaaaKK#9010, DekuDimz, valor#7303"
+            Title = "Credits",
+            Text = "Hyper"
         }
     )
     Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
