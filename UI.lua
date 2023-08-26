@@ -7,8 +7,7 @@
 â–ˆâ–ˆâ•‘â–‘â–‘â–ˆâ–ˆâ•‘â–‘â–‘â–‘â–ˆâ–ˆâ•‘â–‘â–‘â–‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•‘â–‘â–‘â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â•
 â•šâ•â•â–‘â–‘â•šâ•â•â–‘â–‘â–‘â•šâ•â•â–‘â–‘â–‘â•šâ•â•â•â•â•â•â•â•šâ•â•â–‘â–‘â•šâ•â•â•šâ•â•â•â•â•â•â–‘
 
-Made by RoadToGlory#9879
-Join: https://discord.gg/xu5dDS3Pb9
+Made by Hyper
 
 ]]
 
@@ -140,7 +139,7 @@ do
 
     function utility:DoClickEffect(element)
         local function makeEffect()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["__buttonEffect"] = Instance.new("Frame");
                 ["_ImageLabel"] = Instance.new("ImageLabel");
@@ -225,7 +224,7 @@ do
     end
 
     function utility:CreateButtonObject(obj)
-        -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+        -- Generated using Hyper's Converter v1.1 (Hyper)
         local Converted = {
             ["_Button"] = Instance.new("TextButton");
         }
@@ -248,7 +247,7 @@ do
     end
 
     function utility:CreateHint()
-        -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+        -- Generated using Hyper's Converter v1.1 (Hyper)
         local Converted = {
             ["_Hint"] = Instance.new("StringValue");
         }
@@ -359,7 +358,7 @@ do
         info.FullName = info.FullName or info.Name
 
         local function makeLoader()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_Loader"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -1033,7 +1032,7 @@ do
         end
 
         local function makeLibrary()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_Atlas"] = Instance.new("ScreenGui");
                 ["_UI_Library"] = Instance.new("Folder");
@@ -1204,7 +1203,7 @@ do
             Converted["_Name"].Name = "Name"
             Converted["_Name"].Parent = Converted["_UI_Library"]
 
-            Converted["_Creator"].Value = "RoadToGlory#9879"
+            Converted["_Creator"].Value = "Hyper"
             Converted["_Creator"].Name = "Creator"
             Converted["_Creator"].Parent = Converted["_UI_Library"]
 
@@ -1436,7 +1435,7 @@ do
             Converted["_Frame"].Parent = Converted["_Main1"]
 
             Converted["_B"].Font = Enum.Font.Gotham
-            Converted["_B"].Text = "Atlas UI Lib: RoadToGlory#9879" -- please don't remove this, this is open sourced and I leave this here so that users can know the name of the UI library if they are interested in it
+            Converted["_B"].Text = "Atlas UI Lib: Hyper" -- please don't remove this, this is open sourced and I leave this here so that users can know the name of the UI library if they are interested in it
             Converted["_B"].TextColor3 = Color3.fromRGB(225.00000178813934, 225.00000178813934, 225.00000178813934)
             Converted["_B"].TextSize = 12
             Converted["_B"].AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1449,7 +1448,7 @@ do
             Converted["_B"].Parent = Converted["_Frame"]
 
             Converted["_A"].Font = Enum.Font.Gotham
-            Converted["_A"].Text = "AWP: RoadToGlory#9879"
+            Converted["_A"].Text = "AWP: Hyper"
             Converted["_A"].TextColor3 = Color3.fromRGB(225.00000178813934, 225.00000178813934, 225.00000178813934)
             Converted["_A"].TextSize = 12
             Converted["_A"].AnchorPoint = Vector2.new(0.5, 0.5)
@@ -2610,7 +2609,7 @@ do
         info.Callback = info.Callback or utility.BlankFunction
 
         local function makeNotif()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
 
             -- Instances:
 
@@ -2892,7 +2891,7 @@ do
         local pageNum = _self._page_num
 
         local function makeSelector()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_0_page"] = Instance.new("Frame");
                 ["_TextLabel"] = Instance.new("TextLabel");
@@ -2966,7 +2965,7 @@ do
         end
 
         local function makeContents()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_Page"] = Instance.new("Frame");
                 ["_ScrollingFrame"] = Instance.new("ScrollingFrame");
@@ -3093,7 +3092,7 @@ do
         local color = _self.color
 
         local function makeSection()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_Section"] = Instance.new("Frame");
                 ["_Contents"] = Instance.new("Frame");
@@ -3257,7 +3256,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_0_Toggle"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -3559,7 +3558,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_1_Slider"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -3919,7 +3918,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_2_SliderToggle"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -4336,7 +4335,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_3_Paragraph"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -4454,7 +4453,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_4_Button"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -4730,7 +4729,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_5_Textbox"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -5010,7 +5009,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_6_Interactable"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -5349,7 +5348,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_7_Keybind"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -5643,7 +5642,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_8_Dropdown"] = Instance.new("Frame");
                 ["_Main"] = Instance.new("Frame");
@@ -5946,7 +5945,7 @@ do
 
         local scroll = element.Secondary.ScrollingFrame
         local function makeButton(func)
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_1_button"] = Instance.new("Frame");
                 ["_UICorner"] = Instance.new("UICorner");
@@ -6236,7 +6235,7 @@ do
         local elementNum = section.elementNum
 
         local function createElement()
-            -- Generated using RoadToGlory's Converter v1.1 (RoadToGlory#9879)
+            -- Generated using Hyper's Converter v1.1 (Hyper)
             local Converted = {
                 ["_9_ColorPicker"] = Instance.new("Frame");
                 ["_Main"] = Instance.new("Frame");
@@ -6731,6 +6730,6 @@ do
     end
 end
 
-print("Atlas UI Library v"..VERSION.." by RoadToGlory#9879 has initiated")
+print("Atlas UI Library v"..VERSION.." by Hyper has initiated")
 
 return Library
